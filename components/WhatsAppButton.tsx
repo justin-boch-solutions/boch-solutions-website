@@ -2,7 +2,7 @@
 
 export default function WhatsAppButton() {
   // WICHTIG: Ersetze diese Nummer mit deiner WhatsApp Business Handynummer!
-  const phoneNumber = "491701234567"; // <-- Deine Nummer hier eintragen!
+  const phoneNumber = "4915255703632"; // <-- Deine Nummer hier eintragen!
   const message = "Hallo Justin, ich bin über deine Website auf dich aufmerksam geworden und habe eine Frage...";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
