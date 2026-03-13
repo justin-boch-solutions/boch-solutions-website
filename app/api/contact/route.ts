@@ -1,22 +1,21 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Später packen wir deinen echten API-Key sicher in eine .env Datei
-const resend = new Resend(process.env.RESEND_API_KEY || 're_123456789');
+// Wir nutzen nur noch den sicheren API-Key aus den Umgebungsvariablen
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Wir ziehen uns alle möglichen Daten aus der Anfrage
+    // Daten aus der Anfrage extrahieren
     const { name, email, message, requestType, projectType, projectGoal, timeline, budget } = body;
 
     let emailSubject = '';
     let emailHtml = '';
 
-    // WIR BAUEN DIE E-MAIL JE NACH MODUS AUF
+    // Aufbau der E-Mail-Inhalte
     if (requestType === 'project') {
-      // Modus 1: Der Projekt-Funnel
       emailSubject = `🔥 Neue PROJEKT-Anfrage: ${projectType} von ${name}`;
       emailHtml = `
         <div style="font-family: sans-serif; color: #0f172a; max-width: 600px;">
@@ -36,7 +35,6 @@ export async function POST(request: Request) {
         </div>
       `;
     } else {
-      // Modus 2: Allgemeine Frage
       emailSubject = `✉️ Neue ALLGEMEINE Anfrage von ${name}`;
       emailHtml = `
         <div style="font-family: sans-serif; color: #0f172a; max-width: 600px;">
@@ -50,28 +48,21 @@ export async function POST(request: Request) {
       `;
     }
 
-    // --- HIER WIRD SPÄTER DIE ECHTE E-MAIL GESENDET ---
-    /*
+    // --- DER ECHTE VERSAND ---
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // Später deine verifizierte Domain
-      to: 'Kontakt@boch-solutions.de', 
+      from: 'Boch Solutions <kontakt@send.boch-solutions.de>', // Dein technischer Absender
+      to: 'kontakt@boch-solutions.de',                       // Deine Ziel-Adresse
+      replyTo: email,                                        // Damit du direkt dem Kunden antworten kannst
       subject: emailSubject,
       html: emailHtml
     });
-    */
 
-    // Wir simulieren das Ankommen in deinem VS Code Terminal
-    console.log(`\n=== NEUER LEAD EMPFANGEN (${requestType.toUpperCase()}) ===`);
-    console.log(`Name: ${name}`);
-    console.log(`E-Mail: ${email}`);
-    if (requestType === 'project') {
-      console.log(`Typ: ${projectType} | Ziel: ${projectGoal} | Zeit: ${timeline} | Budget: ${budget}`);
-    }
-    console.log("=========================================\n");
+    // Logging für Vercel (optional, hilft beim Debuggen)
+    console.log(`E-Mail erfolgreich an kontakt@boch-solutions.de gesendet.`);
 
-    return NextResponse.json({ message: 'E-Mail erfolgreich verarbeitet' }, { status: 200 });
+    return NextResponse.json({ message: 'Anfrage erfolgreich gesendet' }, { status: 200 });
   } catch (error) {
     console.error('Fehler beim Senden:', error);
-    return NextResponse.json({ error: 'Fehler im System' }, { status: 500 });
+    return NextResponse.json({ error: 'Fehler beim E-Mail-Versand' }, { status: 500 });
   }
 }
