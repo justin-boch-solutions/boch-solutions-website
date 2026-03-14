@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     "Digitale Skalierung", 
     "Justin Boch"
   ],
+  
+  // HIER IST DAS NEUE APPLE-ICON UND DEIN FAVICON EINGEBAUT:
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-touch-icon.png',
+  },
+
   openGraph: {
     title: "JB Solutions | Webdesign & Vertriebsmaschinen (Münster)",
     description: "Planbare Neukunden durch intelligente Web- und Softwarelösungen. Lokal in Münster, aktiv in ganz Deutschland.",
@@ -58,7 +65,7 @@ export default async function RootLayout({
     "image": "https://justin-boch-solutions.de/og-image.png",
     "@id": "https://justin-boch-solutions.de",
     "url": "https://justin-boch-solutions.de",
-    "telephone": "+4925128069471", // WICHTIG: TRAGE HIER DEINE ECHTE NUMMER EIN!
+    "telephone": "+4925128069471", // Deine echte Nummer ist jetzt drin!
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Münster",
