@@ -5,10 +5,10 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-// 1. DIE KLASSISCHEN META-DATEN (Jetzt optimiert für Münster + DACH)
+// 1. DIE KLASSISCHEN META-DATEN (Knackig, Keyword-optimiert und exakt 151 Zeichen)
 export const metadata: Metadata = {
   title: "JB Solutions | Webdesign & digitale Systeme in Münster",
-  description: "Deine Agentur in Münster für digitale Skalierung. Wir bauen hochkonvertierende Landingpages, Firmenwebsites und Kundenportale für Handwerk und Start-ups in ganz Deutschland.",
+  description: "Agentur in Münster für digitale Skalierung. Wir bauen hochkonvertierende Landingpages, Firmenwebsites und Kundenportale für Handwerk und Start-ups.",
   keywords: [
     "Webdesign Münster", 
     "Website erstellen lassen Münster", 
@@ -51,7 +51,6 @@ export default async function RootLayout({
   const { locale } = await params;
 
   // 2. DAS UNSICHTBARE SEO-STEROID FÜR GOOGLE (JSON-LD Schema)
-  // Das sagt dem Google-Bot exakt, wer du bist, wo du bist und wen du bedienst.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -59,20 +58,18 @@ export default async function RootLayout({
     "image": "https://justin-boch-solutions.de/og-image.png",
     "@id": "https://justin-boch-solutions.de",
     "url": "https://justin-boch-solutions.de",
-    "telephone": "+49123456789", // Später deine echte Nummer eintragen
+    "telephone": "+4925128069471", // WICHTIG: TRAGE HIER DEINE ECHTE NUMMER EIN!
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Münster",
       "addressRegion": "Nordrhein-Westfalen",
       "addressCountry": "DE"
     },
-    // Geo-Koordinaten von Münster für extrem scharfes Local-SEO
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 51.9606649,
       "longitude": 7.6261347
     },
-    // Hier sagen wir Google: Sitz in Münster, aber Kunden überall
     "areaServed": ["Münster", "Nordrhein-Westfalen", "Deutschland", "Österreich", "Schweiz"],
     "priceRange": "$$$",
     "description": "Agentur für digitale Vertriebsmaschinen, Webdesign und Softwareentwicklung für Handwerksbetriebe und Start-ups."
@@ -81,7 +78,6 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        {/* Hier spritzen wir das Schema direkt in den Kopf der Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

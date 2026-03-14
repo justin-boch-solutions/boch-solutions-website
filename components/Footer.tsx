@@ -66,6 +66,12 @@ export default function Footer() {
                   Kontakt@boch-solutions.de
                 </a>
               </li>
+              {/* NEUER Klickbarer Telefon-Link */}
+              <li>
+                <a href="tel:+4925128069471" className="hover:text-sky-400 transition-colors">
+                  +49 251 280 694 71
+                </a>
+              </li>
               <li className="pt-2">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 rounded-md border border-slate-800 hover:bg-slate-900 text-slate-300 transition-colors">
                   Instagram
@@ -89,7 +95,6 @@ export default function Footer() {
             <Link href="/de/impressum" className="hover:text-slate-300 transition-colors">Impressum</Link>
             <Link href="/de/datenschutz" className="hover:text-slate-300 transition-colors">Datenschutz</Link>
             <Link href="/de/agb" className="hover:text-slate-300 transition-colors">Allgemeine Geschäftsbedingungen</Link>
-            {/* HIER IST DER NEUE BUTTON FÜR DIE COOKIE-EINSTELLUNGEN */}
             <button 
               onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
               className="hover:text-slate-300 transition-colors cursor-pointer text-left"
