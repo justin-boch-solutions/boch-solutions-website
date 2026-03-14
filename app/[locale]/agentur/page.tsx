@@ -57,15 +57,32 @@ export default function Agentur() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl"></div>
         
         <FadeIn direction="right" delay={0.2} className="w-full md:w-5/12">
-          {/* Dein Bild (Aktuell edler Platzhalter, später echtes Foto) */}
-          <div className="aspect-[4/5] rounded-2xl bg-slate-950 border border-slate-700 flex flex-col items-center justify-center overflow-hidden relative shadow-inner w-full">
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            <div className="z-10 text-center px-6">
-              <svg className="w-12 h-12 text-slate-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-              <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Portrait Justin Boch</p>
-            </div>
-          </div>
-        </FadeIn>
+  <div className="aspect-[4/5] rounded-2xl bg-slate-900/50 border border-slate-700/50 flex flex-col justify-center p-10 relative overflow-hidden shadow-2xl">
+    {/* Subtiler Design-Akzent im Hintergrund */}
+    <span className="absolute top-4 left-6 text-[12rem] text-blue-500/10 font-serif leading-none select-none">
+      &ldquo;
+    </span>
+    
+    <div className="relative z-10">
+      <p className="text-xl md:text-2xl text-slate-200 font-medium italic leading-relaxed font-serif">
+        Design ist nicht nur, wie es aussieht und sich anfühlt. Design ist, wie es funktioniert.
+      </p>
+      
+      {/* Trenner */}
+      <div className="w-12 h-px bg-blue-500 my-8"></div>
+      
+      <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">
+        Steve Jobs
+      </p>
+      <p className="text-slate-500 text-xs mt-1 uppercase tracking-wider">
+        Inspiration für JB Solutions
+      </p>
+    </div>
+
+    {/* Dezenter Glow-Effekt in der Ecke */}
+    <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full"></div>
+  </div>
+</FadeIn>
         
         <FadeIn direction="left" delay={0.4} className="w-full md:w-7/12 relative z-10">
           <h2 className="text-4xl font-bold mb-6 tracking-tight text-slate-50">Lokal verwurzelt. <br/><span className="text-sky-500">Digital voraus.</span></h2>
