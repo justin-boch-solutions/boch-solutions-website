@@ -20,10 +20,14 @@ export const metadata: Metadata = {
     "Justin Boch"
   ],
   
-  // HIER IST DAS NEUE APPLE-ICON UND DEIN FAVICON EINGEBAUT:
+  // OPTIMIERTE VERSION:
   icons: {
-    icon: '/icon.png',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/icon.png', href: '/icon.png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', href: '/apple-touch-icon.png' },
+    ],
   },
 
   openGraph: {
