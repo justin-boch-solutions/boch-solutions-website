@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-24 right-6 z-50 flex items-center gap-4 group md:bottom-24 md:right-8">
       <div className="hidden md:block opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 bg-slate-900 border border-slate-700 text-slate-100 text-sm py-2 px-4 rounded-xl shadow-2xl font-medium">
-        Fragen? Schreib einfach direkt! <span className="text-xl ml-1">👋</span>
+        Fragen? Schreib uns einfach direkt! <span className="text-xl ml-1">👋</span>
       </div>
 
       <a
