@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://justin-boch-solutions.de';
+  const baseUrl = 'https://boch-solutions.de';
 
   return [
     // --- 1. TIER: DIE WICHTIGSTEN SEITEN (Prio 1.0 - 0.9) ---

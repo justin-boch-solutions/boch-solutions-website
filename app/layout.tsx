@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ClientFloatingUi from "@/components/ClientFloatingUi";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://justin-boch-solutions.de"),
+  metadataBase: new URL("https://boch-solutions.de"),
   title: "JB Solutions | Webdesign & digitale Systeme in Münster",
   description:
     "Agentur in Münster für digitale Skalierung. Wir bauen hochkonvertierende Landingpages, Firmenwebsites und Kundenportale für Handwerk und Start-ups.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "JB Solutions | Webdesign & Vertriebsmaschinen (Münster)",
     description:
       "Planbare Neukunden durch intelligente Web- und Softwarelösungen. Lokal in Münster, aktiv in ganz Deutschland.",
-    url: "https://justin-boch-solutions.de",
+    url: "https://boch-solutions.de",
     siteName: "JB Solutions",
     locale: "de_DE",
     type: "website",
@@ -52,9 +52,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "JB Solutions",
-    image: "https://justin-boch-solutions.de/og-image.png",
-    "@id": "https://justin-boch-solutions.de",
-    url: "https://justin-boch-solutions.de",
+    image: "https://boch-solutions.de/og-image.png",
+    "@id": "https://boch-solutions.de",
+    url: "https://boch-solutions.de",
     telephone: "+4925128069471",
     address: {
       "@type": "PostalAddress",

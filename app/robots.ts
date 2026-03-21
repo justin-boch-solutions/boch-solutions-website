@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     // Wichtig: Hier deine echte Domain eintragen!
-    sitemap: 'https://justin-boch-solutions.de/sitemap.xml',
+    sitemap: 'https://boch-solutions.de/sitemap.xml',
   };
 }
