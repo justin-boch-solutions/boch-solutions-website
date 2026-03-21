@@ -158,7 +158,7 @@ export default function CookieBanner() {
             Einige sind technisch notwendig, andere helfen bei Statistik und
             Optimierung. Deine Wahl kannst du jederzeit im{" "}
             <Link
-              href="/de/datenschutz"
+              href="/datenschutz"
               className="text-sky-300 hover:text-sky-200 underline decoration-sky-500/40 underline-offset-2"
             >
               Datenschutz

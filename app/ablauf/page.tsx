@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ablauf & Zusammenarbeit | JB Solutions',
+  description: 'So läuft die Zusammenarbeit mit uns ab. Vom kostenlosen Erstgespräch über Konzept bis zum fertigen Webprojekt.',
+};
 
 export default function Ablauf() {
   return (
@@ -123,7 +129,7 @@ export default function Ablauf() {
             <p className="text-slate-400">Lass uns herausfinden, ob wir dir helfen können. 100% kostenlos und unverbindlich.</p>
           </div>
           <div className="md:w-1/3 flex justify-end w-full">
-            <Link href="/de/kontakt" className="w-full md:w-auto text-center px-8 py-4 rounded-md bg-sky-500 text-slate-950 font-bold text-lg hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20">
+            <Link href="/kontakt" className="w-full md:w-auto text-center px-8 py-4 rounded-md bg-sky-500 text-slate-950 font-bold text-lg hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20">
               Termin vereinbaren
             </Link>
           </div>

@@ -136,7 +136,7 @@ export default function FAQ() {
           <p className="text-slate-400 mb-8 font-medium">
             Lass uns einfach kurz telefonieren. Wir klären dein Anliegen völlig unverbindlich in 5 Minuten.
           </p>
-          <Link href="/de/kontakt" className="inline-block px-8 py-4 rounded-md bg-sky-500 text-slate-950 font-bold hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20">
+          <Link href="/kontakt" className="inline-block px-8 py-4 rounded-md bg-sky-500 text-slate-950 font-bold hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20">
             Schreib uns eine Nachricht
           </Link>
         </div>

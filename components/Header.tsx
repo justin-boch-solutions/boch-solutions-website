@@ -1,14 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const phoneHref = "tel:+4925128069471";
-  const phoneDisplayDesktop = "+49 251 28069471";
-  const phoneDisplayMobile = "+49 251 280 694 71";
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  const phoneHref = `tel:${siteConfig.contact.phoneResponse}`;
+  const phoneDisplayDesktop = siteConfig.contact.phoneDisplayDesktop;
+  const phoneDisplayMobile = siteConfig.contact.phoneDisplayMobile;
 
   function toggleMenu() {
     setIsOpen((prev) => !prev);
@@ -21,7 +33,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full z-50 bg-slate-950/95 border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/de" className="flex flex-col group mt-1" onClick={closeMenu}>
+        <Link href="/" className="flex flex-col group mt-1" onClick={closeMenu}>
           <span className="text-2xl md:text-3xl font-serif font-bold tracking-widest bg-gradient-to-r from-rose-400 to-sky-400 bg-clip-text text-transparent leading-none">
             JUSTIN BOCH
           </span>
@@ -34,22 +46,22 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-200">
-          <Link href="/de" className="hover:text-sky-300 transition-colors">
+          <Link href="/" className="hover:text-sky-300 transition-colors">
             Startseite
           </Link>
-          <Link href="/de/leistungen" className="hover:text-sky-300 transition-colors">
+          <Link href="/leistungen" className="hover:text-sky-300 transition-colors">
             Leistungen
           </Link>
-          <Link href="/de/projekte" className="hover:text-sky-300 transition-colors">
+          <Link href="/projekte" className="hover:text-sky-300 transition-colors">
             Projekte
           </Link>
-          <Link href="/de/agentur" className="hover:text-sky-300 transition-colors">
+          <Link href="/agentur" className="hover:text-sky-300 transition-colors">
             Agentur
           </Link>
-          <Link href="/de/ablauf" className="hover:text-sky-300 transition-colors">
+          <Link href="/ablauf" className="hover:text-sky-300 transition-colors">
             Ablauf
           </Link>
-          <Link href="/de/faq" className="hover:text-sky-300 transition-colors">
+          <Link href="/faq" className="hover:text-sky-300 transition-colors">
             FAQ
           </Link>
         </nav>
@@ -72,7 +84,7 @@ export default function Header() {
           </a>
 
           <Link
-            href="/de/kontakt"
+            href="/kontakt"
             className="px-5 py-2.5 rounded-md bg-sky-500 text-slate-950 text-sm font-bold hover:bg-sky-400 transition-colors shadow-[0_0_15px_rgba(14,165,233,0.25)]"
           >
             Anfrage senden
@@ -106,42 +118,42 @@ export default function Header() {
         >
           <nav className="flex flex-col px-6 py-6 space-y-2 text-base font-medium text-slate-200">
             <Link
-              href="/de"
+              href="/"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
               Startseite
             </Link>
             <Link
-              href="/de/leistungen"
+              href="/leistungen"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
               Leistungen
             </Link>
             <Link
-              href="/de/projekte"
+              href="/projekte"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
               Projekte
             </Link>
             <Link
-              href="/de/agentur"
+              href="/agentur"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
               Agentur
             </Link>
             <Link
-              href="/de/ablauf"
+              href="/ablauf"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
               Ablauf
             </Link>
             <Link
-              href="/de/faq"
+              href="/faq"
               onClick={closeMenu}
               className="block py-3 hover:text-sky-300 transition-colors border-b border-slate-800/60"
             >
@@ -166,7 +178,7 @@ export default function Header() {
               </a>
 
               <Link
-                href="/de/kontakt"
+                href="/kontakt"
                 onClick={closeMenu}
                 className="w-full block text-center px-5 py-4 rounded-md bg-sky-500 text-slate-950 text-base font-bold hover:bg-sky-400 transition-colors"
               >

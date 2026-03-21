@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Agentur | JB Solutions',
+  description: 'Justin Boch Solutions: Verlässliches Webdesign aus Münster. Klartext, feste Ansprechpartner und messbare Ergebnisse statt leeren Versprechen.',
+};
 
 export default function Agentur() {
   return (
@@ -94,7 +100,7 @@ export default function Agentur() {
           </p>
           
           <div className="flex items-center gap-6">
-            <Link href="/de/kontakt" className="px-6 py-3 bg-sky-500 text-slate-950 font-bold rounded-md hover:bg-sky-400 transition-colors">
+            <Link href="/kontakt" className="px-6 py-3 bg-sky-500 text-slate-950 font-bold rounded-md hover:bg-sky-400 transition-colors">
               Direkt Kontakt aufnehmen
             </Link>
             <div className="flex items-center gap-2 text-slate-300 font-medium">

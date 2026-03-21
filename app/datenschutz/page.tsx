@@ -1,4 +1,10 @@
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Datenschutz | JB Solutions',
+  description: 'Informationen zum Datenschutz und Umgang mit personenbezogenen Daten bei Justin Boch Solutions.',
+};
 
 export default function Datenschutz() {
   return (

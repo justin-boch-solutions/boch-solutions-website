@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import "../globals.css";
+import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientFloatingUi from "@/components/ClientFloatingUi";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://justin-boch-solutions.de"),
   title: "JB Solutions | Webdesign & digitale Systeme in Münster",
   description:
     "Agentur in Münster für digitale Skalierung. Wir bauen hochkonvertierende Landingpages, Firmenwebsites und Kundenportale für Handwerk und Start-ups.",
@@ -41,14 +42,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -82,7 +80,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={locale}>
+    <html lang="de">
       <head>
         <script
           type="application/ld+json"

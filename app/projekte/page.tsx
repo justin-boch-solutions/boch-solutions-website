@@ -61,7 +61,7 @@ export default function Projekte() {
 
               {/* ACTION BUTTONS: Anfrage + Demo */}
               <div className="flex flex-wrap items-center gap-4 mt-auto pt-6 border-t border-slate-800/50">
-                <Link href="/de/kontakt" className="inline-flex items-center gap-2 text-sky-400 font-bold hover:text-sky-300 transition-colors">
+                <Link href="/kontakt" className="inline-flex items-center gap-2 text-sky-400 font-bold hover:text-sky-300 transition-colors">
                   System anfragen 
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </Link>
@@ -107,7 +107,7 @@ export default function Projekte() {
 
               {/* ACTION BUTTONS: Anfrage + Demo */}
               <div className="flex flex-wrap items-center gap-4 mt-auto pt-6 border-t border-slate-800/50">
-                <Link href="/de/kontakt" className="inline-flex items-center gap-2 text-amber-500 font-bold hover:text-amber-400 transition-colors">
+                <Link href="/kontakt" className="inline-flex items-center gap-2 text-amber-500 font-bold hover:text-amber-400 transition-colors">
                   Website anfragen 
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </Link>
@@ -157,7 +157,7 @@ export default function Projekte() {
                 
                 {/* ACTION BUTTONS: Anfrage + Demo */}
                 <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 pt-4 border-t border-slate-800/50">
-                  <Link href="/de/kontakt" className="inline-flex items-center gap-2 text-emerald-500 font-bold hover:text-emerald-400 transition-colors">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 text-emerald-500 font-bold hover:text-emerald-400 transition-colors">
                     Onepager anfragen 
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </Link>
@@ -179,7 +179,7 @@ export default function Projekte() {
         <div className="w-full max-w-3xl text-center bg-slate-900 border border-slate-800 rounded-3xl p-10 md:p-16">
           <h2 className="text-3xl font-bold text-slate-50 mb-6">Lass uns dein Problem lösen.</h2>
           <p className="text-slate-400 mb-8 text-lg">Hör auf, Geld für Websites zu verbrennen, die nichts bringen. Wir bauen dir ein System, das messbare Ergebnisse liefert.</p>
-          <Link href="/de/kontakt" className="inline-block px-10 py-4 rounded-md bg-sky-500 text-slate-950 font-bold text-lg hover:bg-sky-400 transition-colors shadow-[0_0_20px_rgba(14,165,233,0.3)]">
+          <Link href="/kontakt" className="inline-block px-10 py-4 rounded-md bg-sky-500 text-slate-950 font-bold text-lg hover:bg-sky-400 transition-colors shadow-[0_0_20px_rgba(14,165,233,0.3)]">
             Kostenlose Potenzialanalyse
           </Link>
         </div>

@@ -1,4 +1,10 @@
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Impressum | JB Solutions',
+  description: 'Impressum der Justin Boch Solutions. Werbeagentur und Webentwicklung aus Münster.',
+};
 
 export default function Impressum() {
   return (

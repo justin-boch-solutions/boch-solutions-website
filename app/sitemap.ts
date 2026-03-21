@@ -1,24 +1,24 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://boch-solutions.de';
+  const baseUrl = 'https://justin-boch-solutions.de';
 
   return [
     // --- 1. TIER: DIE WICHTIGSTEN SEITEN (Prio 1.0 - 0.9) ---
     {
-      url: `${baseUrl}/de`,
+      url: `${baseUrl}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1.0, 
     },
     {
-      url: `${baseUrl}/de/leistungen`,
+      url: `${baseUrl}/leistungen`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/de/projekte`,
+      url: `${baseUrl}/projekte`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -26,25 +26,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // --- 2. TIER: VERTRAUEN & CONVERSION (Prio 0.8 - 0.7) ---
     {
-      url: `${baseUrl}/de/agentur`,
+      url: `${baseUrl}/agentur`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/de/ablauf`,
+      url: `${baseUrl}/ablauf`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/de/kontakt`,
+      url: `${baseUrl}/kontakt`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/de/faq`,
+      url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -52,19 +52,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // --- 3. TIER: RECHTLICHES (Prio 0.3) ---
     {
-      url: `${baseUrl}/de/impressum`,
+      url: `${baseUrl}/impressum`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/de/datenschutz`,
+      url: `${baseUrl}/datenschutz`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/de/agb`,
+      url: `${baseUrl}/agb`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,

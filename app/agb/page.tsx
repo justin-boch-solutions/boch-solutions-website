@@ -1,4 +1,10 @@
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AGB | JB Solutions',
+  description: 'Allgemeine Geschäftsbedingungen der Justin Boch Solutions für Webentwicklung und digitale Systeme.',
+};
 
 export default function AGB() {
   return (

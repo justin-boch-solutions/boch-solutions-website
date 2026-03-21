@@ -1,6 +1,12 @@
 import Link from 'next/link';
 // WICHTIG: Hier holen wir uns den Animations-Baustein
 import FadeIn from '@/components/FadeIn';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Leistungen | JB Solutions',
+  description: 'Maßgeschneiderte Weblösungen: Onepager, conversion-optimierte Firmenwebsites, komplexe Kundenportale und sicheres Premium-Hosting.',
+};
 
 export default function Leistungen() {
   return (
@@ -170,7 +176,7 @@ export default function Leistungen() {
           <p className="text-slate-900 text-lg mb-8 max-w-2xl mx-auto font-medium">
             Lass uns in einem kurzen, unverbindlichen Gespräch herausfinden, welche Lösung für deine aktuelle Situation den größten Hebel bietet.
           </p>
-          <Link href="/de/kontakt" className="inline-block px-8 py-4 rounded-md bg-slate-950 text-sky-500 font-bold text-lg hover:bg-slate-900 transition-colors shadow-lg">
+          <Link href="/kontakt" className="inline-block px-8 py-4 rounded-md bg-slate-950 text-sky-500 font-bold text-lg hover:bg-slate-900 transition-colors shadow-lg">
             Kostenlose Potenzialanalyse sichern
           </Link>
         </div>
