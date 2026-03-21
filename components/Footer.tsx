@@ -11,7 +11,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 pt-16 pb-8 text-sm">
+    <footer className="bg-black border-t border-white/5 pt-16 pb-8 text-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* 1. Marke / Kurzprofil */}

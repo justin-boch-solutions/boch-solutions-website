@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "JB Solutions",
-  url: "https://justin-boch-solutions.de",
+  url: "https://boch-solutions.de",
   contact: {
     phoneResponse: "+4925128069471",
     phoneDisplayDesktop: "+49 251 28069471",
     phoneDisplayMobile: "+49 251 280 694 71",
-    email: "info@justin-boch-solutions.de", // Default email
+    email: "kontakt@boch-solutions.de", // Default email
   },
   address: {
     locality: "Münster",

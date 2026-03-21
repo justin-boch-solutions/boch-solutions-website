@@ -1,0 +1,59 @@
+"use client";
+import Link from 'next/link';
+import BeforeAfter from './BeforeAfter';
+
+type Project = {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  tags: string[];
+  metric?: string;
+  before?: string;
+  after: string;
+};
+
+import { motion } from 'framer-motion';
+
+export default function ProjectCard({ project }: { project: Project }) {
+  return (
+    <motion.article 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8 }}
+      className="group/card relative flex flex-col bg-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-white/10 shadow-2xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+      
+      <div className="p-8 lg:p-10 flex flex-col z-10 bg-transparent relative">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 blur-[40px] rounded-full group-hover/card:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-3">
+            <span className="px-4 py-1.5 rounded-full bg-white/[0.03] text-sky-400 text-[10px] font-bold uppercase tracking-[0.2em] border border-white/10 backdrop-blur-md">{project.category}</span>
+            {project.metric && <span className="text-sm font-semibold text-slate-300 drop-shadow-md">{project.metric}</span>}
+          </div>
+        </div>
+
+        <h3 className="text-3xl font-bold text-slate-50 mb-4 group-hover/card:text-sky-400 transition-colors drop-shadow-lg">{project.title}</h3>
+        <p className="text-slate-400 text-[15px] mb-8 font-medium leading-relaxed flex-grow">{project.excerpt}</p>
+
+        <div className="mt-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 justify-between">
+          <Link href={`/projekte/${project.slug}`} className="inline-flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest hover:text-sky-400 transition-colors group/link border-b border-transparent hover:border-sky-400 pb-1">
+            Case Study
+            <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+          </Link>
+
+          <Link href="/kontakt" className="inline-flex items-center justify-center gap-2 bg-white text-black font-black px-6 py-3 rounded-full hover:scale-[1.02] hover:bg-sky-50 transition-all text-xs uppercase tracking-widest cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            Ergebnis-Call
+          </Link>
+        </div>
+      </div>
+
+      <div className="w-full aspect-video min-h-[300px] bg-[#020202] relative overflow-hidden border-t border-white/5">
+        <BeforeAfter beforeSrc={project.before ?? project.after} afterSrc={project.after} alt={project.title} />
+      </div>
+    </motion.article>
+  );
+}
