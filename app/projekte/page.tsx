@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Referenzen & Projekte | JB Solutions',
@@ -40,34 +41,14 @@ export default function Projekte() {
             {/* Glow Hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             
-            <div className="w-full lg:w-3/5 aspect-video lg:aspect-auto bg-slate-950 relative overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-slate-800 p-8 pt-16 lg:p-12">
-              {/* Premium Abstract Visual Graphic */}
+            <div className="w-full lg:w-3/5 aspect-video lg:aspect-auto bg-slate-950 relative overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-slate-800">
               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:20px_20px]"></div>
-              <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky-500/20 blur-[100px] rounded-full transition-all duration-700 group-hover:scale-150"></div>
-              
-              <div className="relative z-10 w-full max-w-[500px] h-[300px] bg-slate-900 rounded-t-xl lg:rounded-xl border border-slate-700 shadow-2xl flex flex-col overflow-hidden group-hover:-translate-y-2 transition-transform duration-500 mt-auto lg:mt-0">
-                <div className="h-8 border-b border-slate-800 flex items-center px-4 gap-2 bg-slate-800/50">
-                   <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-                   <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-                   <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-                </div>
-                <div className="flex-1 flex flex-col p-6">
-                   <div className="w-1/3 h-4 bg-slate-800 rounded-full mb-6"></div>
-                   <div className="grid grid-cols-3 gap-4 mb-auto">
-                     <div className="col-span-2 space-y-3">
-                       <div className="w-full h-8 bg-sky-500/10 border border-sky-500/20 rounded-md"></div>
-                       <div className="w-4/5 h-8 bg-slate-800 rounded-md"></div>
-                     </div>
-                     <div className="col-span-1 border border-slate-800 rounded-md bg-slate-800/30 flex items-center justify-center">
-                       <div className="w-12 h-12 border-4 border-sky-400 rounded-full border-t-transparent"></div>
-                     </div>
-                   </div>
-                   <div className="text-center pb-2">
-                     <div className="text-4xl font-black bg-gradient-to-br from-sky-400 to-indigo-500 bg-clip-text text-transparent tracking-widest leading-none">JB OS PRO</div>
-                     <div className="text-[10px] text-slate-500 uppercase font-bold tracking-[0.2em] mt-2">DASHBOARD INTERFACE</div>
-                   </div>
-                </div>
-              </div>
+              <Image 
+                src="/JB OS.png" 
+                alt="JB OS Pro Kundenportal" 
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+              />
             </div>
 
             <div className="p-8 lg:p-16 flex flex-col justify-center w-full lg:w-2/5 z-10 bg-slate-900/80 backdrop-blur-sm">
@@ -104,22 +85,14 @@ export default function Projekte() {
           <div className="group relative flex flex-col bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-amber-500/50 transition-all duration-500 h-full shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             
-            <div className="w-full aspect-video min-h-[300px] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800 px-8 pt-12">
+            <div className="w-full aspect-video min-h-[300px] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:20px_20px]"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/20 blur-[80px] rounded-full transition-all duration-700 group-hover:scale-125"></div>
-              
-              {/* Minimal Web Mockup */}
-              <div className="relative z-10 w-full max-w-[320px] h-full bg-slate-900 rounded-t-xl border-t border-l border-r border-slate-700 shadow-2xl flex flex-col overflow-hidden translate-y-6 group-hover:translate-y-2 transition-transform duration-500">
-                <div className="h-5 bg-slate-800/80 mb-6 border-b border-slate-700 flex items-center px-4">
-                  <div className="w-1/3 h-1.5 bg-slate-700 rounded-full mx-auto"></div>
-                </div>
-                <div className="px-6">
-                  <div className="w-1/2 h-5 bg-amber-500/20 rounded-md mb-4 border border-amber-500/20"></div>
-                  <div className="w-4/5 h-2.5 bg-slate-800 rounded-sm mb-3"></div>
-                  <div className="w-3/5 h-2.5 bg-slate-800 rounded-sm mb-8"></div>
-                  <div className="w-full aspect-video bg-slate-800/80 rounded-lg border border-slate-700"></div>
-                </div>
-              </div>
+              <Image 
+                src="/Huesmannwebseite.png" 
+                alt="Hüsmann Website" 
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+              />
             </div>
 
             <div className="p-8 lg:p-10 flex flex-col flex-grow z-10 bg-slate-900/80 backdrop-blur-sm">
@@ -147,25 +120,14 @@ export default function Projekte() {
           <div className="group relative flex flex-col bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-emerald-500/50 transition-all duration-500 h-full shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             
-            <div className="w-full aspect-video min-h-[300px] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800 px-8 pt-10 pb-4">
+            <div className="w-full aspect-video min-h-[300px] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:20px_20px]"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full transition-all duration-700 group-hover:scale-125"></div>
-              
-              {/* Minimal Mobile Mockup + Desktop */}
-              <div className="relative z-10 flex items-end justify-center w-full h-full gap-4 lg:gap-6">
-                <div className="w-3/5 h-5/6 bg-slate-900 rounded-xl border border-slate-700 shadow-2xl flex flex-col overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
-                    <div className="mt-6 mx-5 h-6 bg-emerald-500/20 border border-emerald-500/20 rounded-md"></div>
-                    <div className="mt-6 mx-5 flex-1 bg-slate-800/80 rounded-t-xl border border-slate-700"></div>
-                </div>
-                <div className="w-24 lg:w-32 h-full bg-slate-950 rounded-[1.5rem] lg:rounded-[2rem] border-[6px] border-slate-800 shadow-2xl flex flex-col overflow-hidden group-hover:-translate-y-4 transition-transform duration-700 delay-75">
-                   <div className="flex-1 mt-6 mx-2 lg:mx-3 bg-slate-900 rounded-lg border border-slate-700 p-2 text-center flex flex-col gap-2">
-                     <div className="w-full h-1.5 bg-emerald-500/30 rounded-full mb-1"></div>
-                     <div className="w-full h-8 bg-slate-800 rounded"></div>
-                     <div className="w-full h-12 bg-slate-800/80 rounded"></div>
-                   </div>
-                   <div className="h-1 w-8 bg-slate-800 mx-auto mt-2 mb-1.5 rounded-full"></div>
-                </div>
-              </div>
+              <Image 
+                src="/real_estate_mockup.png" 
+                alt="Immobilien Onepager Mockup" 
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+              />
             </div>
 
             <div className="p-8 lg:p-10 flex flex-col flex-grow z-10 bg-slate-900/80 backdrop-blur-sm">
