@@ -51,8 +51,17 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className="w-full aspect-video min-h-[300px] bg-[#020202] relative overflow-hidden border-t border-white/5">
-        <BeforeAfter beforeSrc={project.before ?? project.after} afterSrc={project.after} alt={project.title} />
+      <div className="w-full aspect-video min-h-[300px] bg-[#020202] relative overflow-hidden border-t border-white/5 flex items-center justify-center">
+        {project.after && project.before ? (
+          <BeforeAfter beforeSrc={project.before} afterSrc={project.after} alt={project.title} />
+        ) : project.after ? (
+          <img src={project.after} alt={project.title} className="w-full h-full object-cover object-top opacity-90 hover:opacity-100 transition-opacity duration-700" />
+        ) : (
+          <div className="text-slate-700 font-bold text-lg flex flex-col items-center gap-3">
+            <svg className="w-10 h-10 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <span>Bilder folgen in Kürze</span>
+          </div>
+        )}
       </div>
     </motion.article>
   );

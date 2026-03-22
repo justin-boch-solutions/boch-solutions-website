@@ -58,7 +58,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, alt = '', className =
           alt={alt}
           width={1200}
           height={675}
-          className="w-full h-full object-cover block"
+          className="w-full h-full object-cover object-top block"
         />
 
         <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
@@ -67,7 +67,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, alt = '', className =
             alt={alt}
             width={1200}
             height={675}
-            className="w-full h-full object-cover block"
+            className="w-full h-full object-cover object-top block"
           />
         </div>
 
@@ -87,7 +87,7 @@ export default function BeforeAfter({ beforeSrc, afterSrc, alt = '', className =
             onKeyDown={onHandleKey}
             onPointerDown={startDrag}
             style={{ left: `${pos}%` }}
-            className="absolute -translate-x-5 -translate-y-5 top-1"
+            className="absolute -translate-x-5 -translate-y-5 top-1/2"
           >
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-full bg-white/95 p-1 shadow border border-slate-700">
               <path d="M8 6L4 12L8 18" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

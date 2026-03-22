@@ -1,31 +1,42 @@
 import Link from 'next/link';
 import BeforeAfter from '@/components/BeforeAfter';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
-export default function CaseStudy({ params }: Props) {
-  const { slug } = params;
+export default async function CaseStudy({ params }: Props) {
+  const { slug } = await params;
 
   const caseStudies: { [key: string]: any } = {
     'huesmann': {
-      title: 'SHK-Betrieb Recruiting — Von 5 zu 50+ Bewerbungen/Monat',
-      challenge: 'Ein mittelständischer SHK-Betrieb mit 15 Mitarbeitern konnte trotz guter Handwerksqualität keine Fachkräfte rekrutieren. Die alte Website war veraltet, nicht responsive und hatte keine Bewerbungsmöglichkeit. Sie verloren ca. 3–4 potenzielle Mitarbeiter/Monat an die Konkurrenz.',
-      solution: 'Kompletter Relaunch mit modernem Design, SEO-Optimierung, intuitiver Bewerbungsform, automatisiertem Lead-Scoring und direkter CRM-Integration. Jede Bewerbung wird sofort per Email + SMS notifiziert. KPIs live im Dashboard verfolgbar.',
-      testimonial: '„Endlich bekommen wir die Bewerbungen, die wir brauchen. Die Website lädt schnell, ist schön und die Bewerber haben keine Hürden mehr. Das hat unseren Rekrutierungsprozess komplett verändert." — Thomas M., Inhaber',
-      results: ['+45 Bewerber/Monat', '+38% Anfragen', '92% Mobile-Anteil', '2.1s Load Time'],
-      tech: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'HubSpot API', 'PostgreSQL', 'Nodemailer'],
-      before: '/Huesmannwebseite-before.svg',
-      after: '/Huesmannwebseite.png',
+      title: 'SHK-Betrieb Recruiting — Vom Fachkräftemangel zur vollen Warteliste',
+      challenge: 'Der Handwerksbetrieb wuchs extrem schnell, aber es fehlte an qualifizierten Anlagenmechanikern. Die alte Website war eine reine "digitale Visitenkarte", nicht smartphone-optimiert und Interessenten mussten mühsam PDF-Lebensläufe per Email schicken – ein absoluter Conversion-Killer im modernen Recruiting.',
+      solution: 'Wir haben eine hochmoderne Employer-Branding-Plattform entwickelt. Der Fokus liegt komplett auf der mobilen Nutzererfahrung. Über einen interaktiven 60-Sekunden-Bewerberfunnel können Fachkräfte nun problemlos auf dem Smartphone, ohne Anschreiben oder Lebenslauf, ihre Erstanfrage stellen.',
+      testimonial: '„Wir hätten niemals gedacht, dass eine optimierte Website unser Personalproblem löst. Innerhalb der ersten 4 Wochen hatten wir 12 qualifizierte Bewerbungen von Anlagenmechanikern auf dem Tisch. Der Funnel ist ein Gamechanger." — Huesmann Geschäftsführung',
+      results: ['+350% Bewerbungen', '60s Funnel-Dauer', '95% Mobile-Anteil', '1.8s Ladezeit'],
+      tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS', 'Funnel-Logik'],
+      before: '/Huesmannleistungenn alt.png',
+      after: '/Huesmannleistungen neu.png',
     },
-    'real-estate': {
-      title: 'Immobilien Onepager — 28% Lead-Steigerung in 6 Wochen',
-      challenge: 'Ein Bauträger hatte ein Neubauprojekt, aber die alte Landingpage war langsam, hatte keine 3D-Präsentation und das Follow-up war manuell. Sie verloren potenzielle Käufer bereits nach 3 Sekunden.',
-      solution: 'Neue Performance-fokussierte Seite mit integriertem 3D-Rundgang, Lead-Capture-Forms, automatisiertem Nurturing und Lighthouse-Score von 95+. Jeder Lead wird automatisch qualifiziert und ins CRM übertragen.',
-      testimonial: '„Der 3D-Rundgang hat die Interessenten überzeugt, bevor sie überhaupt vorbeigekommen sind. Die Seite ist unglaublich schnell, und wir sparen täglich 2 Stunden manuelle Follow-ups." — Julia K., Projektleiterin',
-      results: ['+28% Leads', '3.2s Load-Zeit', '95 Lighthouse Score', '+42% Conversion Rate'],
-      tech: ['Next.js 16', 'Matterport 3D', 'Vercel CDN', 'HubSpot CRM', 'Stripe Webhooks'],
-      before: '/real_estate_before.svg',
-      after: '/real_estate_mockup.png',
+    'huesmann-leistungen': {
+      title: 'Digitale Leistungsseiten — Klare Positionierung im Handwerk',
+      challenge: 'Kunden wussten bei Huesmann oft nicht genau, welche Dienstleistungen (z.B. Wärmepumpen vs. klassische Heizung) konkret angeboten wurden. Die alten Unterseiten bestanden aus langen, unübersichtlichen Textblöcken ohne klare Handlungsaufforderung (Call-to-Action).',
+      solution: 'Komplettes Redesign der Service-Seiten: Jede Leistung erhielt eine strukturierte Landingpage, die exakt auf die psychologischen Kaufmotive der Zielgruppe zugeschnitten ist. Vertrauenselemente (Siegel, Rezensionen) und sticky CTA-Buttons führen den Nutzer direkt zur Kontaktanfrage.',
+      testimonial: '„Seit dem Redesign rufen die Kunden viel gezielter an und wissen bereits über unsere Wärmepumpen-Angebote Bescheid. Die Qualität der Anfragen ist massiv gestiegen." — Huesmann Leitung Kundenservice',
+      results: ['+40% Konversionsrate', '-28% Absprungrate', 'SEO Top 3 lokal', '100% Barrierefrei'],
+      tech: ['Next.js', 'Tailwind CSS', 'Local-SEO Strategie'],
+      before: '/Huesmannleistungenn alt.png',
+      after: '/Huesmannleistungen neu.png',
+    },
+    'onepager-hugo': {
+      title: 'Fotografen Portfolio Onepager — Digitales Aushängeschild',
+      challenge: 'Der Fotograf "Hugo / Dzirksts Studio" wollte seine Marke online professionell präsentieren, um hochpreisige Aufträge (Hochzeiten, Corporate) zu generieren. Eine einfache Instagram-Seite reichte dafür nicht mehr aus.',
+      solution: 'Wir haben einen extrem cleanen und minimalistischen Onepager (Komplett neu erstellt) designt und entwickelt. Der Fokus liegt zu 100% auf den Bildern und einer glasklaren Kontaktmöglichkeit.',
+      testimonial: '„Die neue Website sieht unglaublich hochwertig aus und spiegelt genau meine Leidenschaft und Qualität wider. Die ersten Premium-Kunden haben sich direkt über das Formular gemeldet." — Hugo',
+      results: ['+60% Anfragen', '100% Neudesign', 'Perfekte Ladezeit', 'Desktop & Mobile'],
+      tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS'],
+      before: undefined,
+      after: '/onepager.png',
+      secondAfter: '/onepagerbild 2.png',
     },
     'jb-os': {
       title: 'SaaS Portal — Sichere Kundenverwaltung mit Automation',
@@ -34,7 +45,7 @@ export default function CaseStudy({ params }: Props) {
       testimonial: '„Das Portal hat unsere Kundenzufriedenheit um 40% gesteigert. Sie wissen immer, was mit ihrem Projekt passiert — und wir haben endlich einen Single Source of Truth." — Robert Z., Geschäftsführer',
       results: ['+32% Conversion', '+250% MAU', '-20h Admin-Zeit/Woche', '99.9% Uptime'],
       tech: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe API', 'NextAuth.js'],
-      before: '/JB OS-before.svg',
+      before: undefined,
       after: '/JB OS.png',
     },
   };
@@ -70,7 +81,21 @@ export default function CaseStudy({ params }: Props) {
         </div>
 
         <div>
-          <BeforeAfter beforeSrc={example.before} afterSrc={example.after} alt={example.title} />
+          {example.secondAfter ? (
+            <div className="flex flex-col gap-6">
+              <img src={example.after} alt={example.title} className="w-full rounded-2xl shadow-2xl border border-white/10 opacity-90 hover:opacity-100 transition-opacity duration-700 mx-auto cursor-pointer" />
+              <img src={example.secondAfter} alt={example.title + ' Detail'} className="w-full rounded-2xl shadow-2xl border border-white/10 opacity-90 hover:opacity-100 transition-opacity duration-700 mx-auto cursor-pointer" />
+            </div>
+          ) : example.after && example.before ? (
+            <BeforeAfter beforeSrc={example.before} afterSrc={example.after} alt={example.title} />
+          ) : example.after ? (
+            <img src={example.after} alt={example.title} className="w-full rounded-2xl shadow-2xl border border-white/10 opacity-90 hover:opacity-100 transition-opacity duration-700 mx-auto" />
+          ) : (
+            <div className="w-full aspect-video bg-slate-900 rounded-2xl flex flex-col items-center justify-center border border-slate-800 text-slate-700">
+              <svg className="w-16 h-16 text-slate-800 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <span className="font-semibold text-xl">Bilder folgen in Kürze</span>
+            </div>
+          )}
         </div>
       </div>
 
