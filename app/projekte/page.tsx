@@ -2,8 +2,17 @@ import ProjectsList from '@/components/ProjectsList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Referenzen & Projekte | JB Solutions',
-  description: 'Unsere erfolgreichsten Kundenprojekte. Lass dich von unseren conversion-starken Websites, Onepagern und Dashboards überzeugen.',
+  title: 'Webdesign Projekte & Referenzen | Webagentur Münster',
+  description: 'Entdecke unsere erfolgreichen Webdesign-Projekte. Wir entwickeln als Agentur aus Münster deutschlandweit conversion-starke Websites und digitale Systeme.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/projekte',
+  },
+  openGraph: {
+    title: 'Unsere Webdesign Projekte | Justin Boch Solutions',
+    description: 'Überzeuge dich von unseren Ergebnissen. Conversion-starke Websites, Onepager und individuelle Dashboards für Unternehmen.',
+    url: 'https://boch-solutions.de/projekte',
+    type: 'website',
+  },
 };
 
 export default function Projekte() {
