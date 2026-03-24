@@ -1,54 +1,82 @@
 import Link from 'next/link';
 import BeforeAfter from '@/components/BeforeAfter';
+import { Metadata } from 'next';
 
 type Props = { params: Promise<{ slug: string }> };
 
-export default async function CaseStudy({ params }: Props) {
-  const { slug } = await params;
+// Die Datenstruktur habe ich nach draußen gezogen, damit sowohl generateMetadata als auch CaseStudy darauf zugreifen können
+const caseStudies: { [key: string]: any } = {
+  'huesmann': {
+    title: 'SHK-Betrieb Recruiting — Vom Fachkräftemangel zur vollen Warteliste',
+    challenge: 'Der Handwerksbetrieb wuchs extrem schnell, aber es fehlte an qualifizierten Anlagenmechanikern. Die alte Website war eine reine "digitale Visitenkarte", nicht smartphone-optimiert und Interessenten mussten mühsam PDF-Lebensläufe per Email schicken – ein absoluter Conversion-Killer im modernen Recruiting.',
+    solution: 'Wir haben eine hochmoderne Employer-Branding-Plattform entwickelt. Der Fokus liegt komplett auf der mobilen Nutzererfahrung. Über einen interaktiven 60-Sekunden-Bewerberfunnel können Fachkräfte nun problemlos auf dem Smartphone, ohne Anschreiben oder Lebenslauf, ihre Erstanfrage stellen.',
+    testimonial: '„Wir hätten niemals gedacht, dass eine optimierte Website unser Personalproblem löst. Innerhalb der ersten 4 Wochen hatten wir 12 qualifizierte Bewerbungen von Anlagenmechanikern auf dem Tisch. Der Funnel ist ein Gamechanger." — Huesmann Geschäftsführung',
+    results: ['+350% Bewerbungen', '60s Funnel-Dauer', '95% Mobile-Anteil', '1.8s Ladezeit'],
+    tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS', 'Funnel-Logik'],
+    before: '/Huesmannleistungenn alt.png',
+    after: '/Huesmannleistungen neu.png',
+  },
+  'huesmann-leistungen': {
+    title: 'Digitale Leistungsseiten — Klare Positionierung im Handwerk',
+    challenge: 'Kunden wussten bei Huesmann oft nicht genau, welche Dienstleistungen (z.B. Wärmepumpen vs. klassische Heizung) konkret angeboten wurden. Die alten Unterseiten bestanden aus langen, unübersichtlichen Textblöcken ohne klare Handlungsaufforderung (Call-to-Action).',
+    solution: 'Komplettes Redesign der Service-Seiten: Jede Leistung erhielt eine strukturierte Landingpage, die exakt auf die psychologischen Kaufmotive der Zielgruppe zugeschnitten ist. Vertrauenselemente (Siegel, Rezensionen) und sticky CTA-Buttons führen den Nutzer direkt zur Kontaktanfrage.',
+    testimonial: '„Seit dem Redesign rufen die Kunden viel gezielter an und wissen bereits über unsere Wärmepumpen-Angebote Bescheid. Die Qualität der Anfragen ist massiv gestiegen." — Huesmann Leitung Kundenservice',
+    results: ['+40% Konversionsrate', '-28% Absprungrate', 'SEO Top 3 lokal', '100% Barrierefrei'],
+    tech: ['Next.js', 'Tailwind CSS', 'Local-SEO Strategie'],
+    before: '/Huesmannleistungenn alt.png',
+    after: '/Huesmannleistungen neu.png',
+  },
+  'onepager-hugo': {
+    title: 'Fotografen Portfolio Onepager — Digitales Aushängeschild',
+    challenge: 'Der Fotograf "Hugo / Dzirksts Studio" wollte seine Marke online professionell präsentieren, um hochpreisige Aufträge (Hochzeiten, Corporate) zu generieren. Eine einfache Instagram-Seite reichte dafür nicht mehr aus.',
+    solution: 'Wir haben einen extrem cleanen und minimalistischen Onepager (Komplett neu erstellt) designt und entwickelt. Der Fokus liegt zu 100% auf den Bildern und einer glasklaren Kontaktmöglichkeit.',
+    testimonial: '„Die neue Website sieht unglaublich hochwertig aus und spiegelt genau meine Leidenschaft und Qualität wider. Die ersten Premium-Kunden haben sich direkt über das Formular gemeldet." — Hugo',
+    results: ['+60% Anfragen', '100% Neudesign', 'Perfekte Ladezeit', 'Desktop & Mobile'],
+    tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS'],
+    before: undefined,
+    after: '/onepager.png',
+    secondAfter: '/onepagerbild 2.png',
+  },
+  'jb-os': {
+    title: 'SaaS Portal — Sichere Kundenverwaltung mit Automation',
+    challenge: 'Ein Dienstleistungsunternehmen mit 200+ Kunden verwaltete Kommunikation, Rechnungen und Anfragen per Email und Excel. Das war fehleranfällig, teuer und langsam. Kunden fragten nach Transparenz.',
+    solution: 'Custom-gebautes Kundenportal mit Authentifizierung, verschlüsselten Dokumenten, Rechnungs-Automation via Stripe und interaktivem Dashboard. Jeder Kunde sieht seinen Status live, keine Email-Chats mehr nötig.',
+    testimonial: '„Das Portal hat unsere Kundenzufriedenheit um 40% gesteigert. Sie wissen immer, was mit ihrem Projekt passiert — und wir haben endlich einen Single Source of Truth." — Robert Z., Geschäftsführer',
+    results: ['+32% Conversion', '+250% MAU', '-20h Admin-Zeit/Woche', '99.9% Uptime'],
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe API', 'NextAuth.js'],
+    before: undefined,
+    after: '/JB OS.png',
+  },
+};
 
-  const caseStudies: { [key: string]: any } = {
-    'huesmann': {
-      title: 'SHK-Betrieb Recruiting — Vom Fachkräftemangel zur vollen Warteliste',
-      challenge: 'Der Handwerksbetrieb wuchs extrem schnell, aber es fehlte an qualifizierten Anlagenmechanikern. Die alte Website war eine reine "digitale Visitenkarte", nicht smartphone-optimiert und Interessenten mussten mühsam PDF-Lebensläufe per Email schicken – ein absoluter Conversion-Killer im modernen Recruiting.',
-      solution: 'Wir haben eine hochmoderne Employer-Branding-Plattform entwickelt. Der Fokus liegt komplett auf der mobilen Nutzererfahrung. Über einen interaktiven 60-Sekunden-Bewerberfunnel können Fachkräfte nun problemlos auf dem Smartphone, ohne Anschreiben oder Lebenslauf, ihre Erstanfrage stellen.',
-      testimonial: '„Wir hätten niemals gedacht, dass eine optimierte Website unser Personalproblem löst. Innerhalb der ersten 4 Wochen hatten wir 12 qualifizierte Bewerbungen von Anlagenmechanikern auf dem Tisch. Der Funnel ist ein Gamechanger." — Huesmann Geschäftsführung',
-      results: ['+350% Bewerbungen', '60s Funnel-Dauer', '95% Mobile-Anteil', '1.8s Ladezeit'],
-      tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS', 'Funnel-Logik'],
-      before: '/Huesmannleistungenn alt.png',
-      after: '/Huesmannleistungen neu.png',
-    },
-    'huesmann-leistungen': {
-      title: 'Digitale Leistungsseiten — Klare Positionierung im Handwerk',
-      challenge: 'Kunden wussten bei Huesmann oft nicht genau, welche Dienstleistungen (z.B. Wärmepumpen vs. klassische Heizung) konkret angeboten wurden. Die alten Unterseiten bestanden aus langen, unübersichtlichen Textblöcken ohne klare Handlungsaufforderung (Call-to-Action).',
-      solution: 'Komplettes Redesign der Service-Seiten: Jede Leistung erhielt eine strukturierte Landingpage, die exakt auf die psychologischen Kaufmotive der Zielgruppe zugeschnitten ist. Vertrauenselemente (Siegel, Rezensionen) und sticky CTA-Buttons führen den Nutzer direkt zur Kontaktanfrage.',
-      testimonial: '„Seit dem Redesign rufen die Kunden viel gezielter an und wissen bereits über unsere Wärmepumpen-Angebote Bescheid. Die Qualität der Anfragen ist massiv gestiegen." — Huesmann Leitung Kundenservice',
-      results: ['+40% Konversionsrate', '-28% Absprungrate', 'SEO Top 3 lokal', '100% Barrierefrei'],
-      tech: ['Next.js', 'Tailwind CSS', 'Local-SEO Strategie'],
-      before: '/Huesmannleistungenn alt.png',
-      after: '/Huesmannleistungen neu.png',
-    },
-    'onepager-hugo': {
-      title: 'Fotografen Portfolio Onepager — Digitales Aushängeschild',
-      challenge: 'Der Fotograf "Hugo / Dzirksts Studio" wollte seine Marke online professionell präsentieren, um hochpreisige Aufträge (Hochzeiten, Corporate) zu generieren. Eine einfache Instagram-Seite reichte dafür nicht mehr aus.',
-      solution: 'Wir haben einen extrem cleanen und minimalistischen Onepager (Komplett neu erstellt) designt und entwickelt. Der Fokus liegt zu 100% auf den Bildern und einer glasklaren Kontaktmöglichkeit.',
-      testimonial: '„Die neue Website sieht unglaublich hochwertig aus und spiegelt genau meine Leidenschaft und Qualität wider. Die ersten Premium-Kunden haben sich direkt über das Formular gemeldet." — Hugo',
-      results: ['+60% Anfragen', '100% Neudesign', 'Perfekte Ladezeit', 'Desktop & Mobile'],
-      tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS'],
-      before: undefined,
-      after: '/onepager.png',
-      secondAfter: '/onepagerbild 2.png',
-    },
-    'jb-os': {
-      title: 'SaaS Portal — Sichere Kundenverwaltung mit Automation',
-      challenge: 'Ein Dienstleistungsunternehmen mit 200+ Kunden verwaltete Kommunikation, Rechnungen und Anfragen per Email und Excel. Das war fehleranfällig, teuer und langsam. Kunden fragten nach Transparenz.',
-      solution: 'Custom-gebautes Kundenportal mit Authentifizierung, verschlüsselten Dokumenten, Rechnungs-Automation via Stripe und interaktivem Dashboard. Jeder Kunde sieht seinen Status live, keine Email-Chats mehr nötig.',
-      testimonial: '„Das Portal hat unsere Kundenzufriedenheit um 40% gesteigert. Sie wissen immer, was mit ihrem Projekt passiert — und wir haben endlich einen Single Source of Truth." — Robert Z., Geschäftsführer',
-      results: ['+32% Conversion', '+250% MAU', '-20h Admin-Zeit/Woche', '99.9% Uptime'],
-      tech: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe API', 'NextAuth.js'],
-      before: undefined,
-      after: '/JB OS.png',
+// Hier ist die Magie für SEO: Dynamische Metadaten basierend auf der URL (dem Slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = caseStudies[slug] || caseStudies['huesmann']; // Fallback, falls Slug nicht existiert
+
+  return {
+    title: `${project.title} | Webdesign Case Study`,
+    // Wir nehmen die ersten 150 Zeichen der Challenge als Meta-Description
+    description: project.challenge.length > 150 ? `${project.challenge.substring(0, 147)}...` : project.challenge,
+    openGraph: {
+      title: `${project.title} | Justin Boch Solutions`,
+      description: project.solution, // Für geteilte Links zeigen wir direkt die Lösung an
+      url: `https://boch-solutions.de/projekte/${slug}`,
+      type: 'article',
+      images: project.after ? [
+        {
+          url: project.after,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        }
+      ] : [],
     },
   };
+}
+
+export default async function CaseStudy({ params }: Props) {
+  const { slug } = await params;
   const example = caseStudies[slug] || caseStudies['huesmann'];
 
   return (
