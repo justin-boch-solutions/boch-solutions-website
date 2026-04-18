@@ -92,7 +92,7 @@ export default function Header() {
             href="/kontakt"
             className="relative px-6 py-2.5 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform duration-300 overflow-hidden group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-sky-400 to-indigo-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-sky-400 to-indigo-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
             Starten
           </Link>
         </div>
@@ -102,6 +102,8 @@ export default function Header() {
           type="button"
           className="md:hidden p-2 text-white outline-none z-50 relative"
           onClick={toggleMenu}
+          aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={isOpen}
         >
           <div className="w-6 flex flex-col items-end gap-1.5">
             <motion.span 

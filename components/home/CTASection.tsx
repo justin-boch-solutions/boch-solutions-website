@@ -30,7 +30,7 @@ export default function CTASection() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center relative z-10">
             <Link href="/kontakt" className="relative group/btn rounded-full p-[2px] overflow-hidden shadow-[0_0_40px_rgba(14,165,233,0.3)] hover:shadow-[0_0_60px_rgba(14,165,233,0.5)] transition-shadow duration-500">
-              <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-80 group-hover/btn:opacity-100 blur-[1px]"></span>
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-80 group-hover/btn:opacity-100 blur-[1px]"></span>
               <div className="relative bg-black group-hover/btn:bg-slate-950 px-10 py-5 rounded-full flex items-center justify-center font-bold text-lg text-white transition-colors duration-300">
                 Kostenlose Potenzialanalyse
               </div>

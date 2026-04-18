@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Subtle Grid Pattern - Using radial gradient as fallback if grid.svg missing */}
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10 w-full">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10 w-full mt-24 sm:mt-16 md:mt-0">
         {/* Top Badge */}
         <motion.div
            initial={{ opacity: 0, y: 30 }}
@@ -62,8 +62,8 @@ export default function HeroSection() {
         >
           <Link href="/kontakt" className="relative group overflow-hidden rounded-full p-[2px]">
              {/* Gradient glow border */}
-             <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-70 group-hover:opacity-100 blur-[2px] transition-opacity duration-300"></span>
-             <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400"></span>
+             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-70 group-hover:opacity-100 blur-[2px] transition-opacity duration-300"></span>
+             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400"></span>
              
              {/* Inner dark button */}
              <div className="relative bg-black group-hover:bg-slate-950 transition-colors px-10 py-5 rounded-full flex items-center justify-center gap-3">

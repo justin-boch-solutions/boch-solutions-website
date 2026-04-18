@@ -31,7 +31,7 @@ export default function ProblemSolutionSection() {
                     1
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Mehr qualifizierte Anfragen</h4>
+                    <h3 className="font-bold text-slate-900">Mehr qualifizierte Anfragen</h3>
                     <p className="text-sm text-slate-700 mt-1">
                       Nicht einfach nur mehr Klicks, sondern klarere Anfragen von Leuten, die wirklich zu deinem Angebot passen.
                     </p>
@@ -43,7 +43,7 @@ export default function ProblemSolutionSection() {
                     2
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Bessere Bewerber & Azubis</h4>
+                    <h3 className="font-bold text-slate-900">Bessere Bewerber & Azubis</h3>
                     <p className="text-sm text-slate-700 mt-1">
                       Eine klare Karriereseite und ein moderner Auftritt machen oft mehr aus als jede alte Standardanzeige.
                     </p>
@@ -55,7 +55,7 @@ export default function ProblemSolutionSection() {
                     3
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Weniger Rückfragen, weniger Chaos</h4>
+                    <h3 className="font-bold text-slate-900">Weniger Rückfragen, weniger Chaos</h3>
                     <p className="text-sm text-slate-700 mt-1">
                       Saubere Inhalte, klare Struktur und durchdachte Formulare sparen dir Zeit im Alltag.
                     </p>
