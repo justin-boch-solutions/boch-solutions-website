@@ -3,7 +3,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Datenschutz | JB Solutions',
-  description: 'Datenschutzerklärung der Justin Boch Solutions.',
+  description: 'Datenschutzerklärung der Justin Boch Solutions. Erfahren Sie im Detail, wie wir als Agentur Ihre Daten erheben, verarbeiten und schützen. Transparenz ist uns wichtig.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/datenschutz',
+  },
 };
 
 export default function Datenschutz() {

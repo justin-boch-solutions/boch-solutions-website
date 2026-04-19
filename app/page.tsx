@@ -9,6 +9,14 @@ const ServicesSection = dynamic(() => import('@/components/home/ServicesSection'
 const QuickLinksSection = dynamic(() => import('@/components/home/QuickLinksSection'));
 const CTASection = dynamic(() => import('@/components/home/CTASection'));
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://boch-solutions.de',
+  },
+};
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center w-full bg-slate-950 overflow-hidden">

@@ -3,7 +3,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Impressum | JB Solutions',
-  description: 'Impressum der Justin Boch Solutions.',
+  description: 'Offizielles Impressum der Justin Boch Solutions, Webdesign Agentur aus Münster. Finden Sie hier alle rechtlichen Angaben und Kontaktdaten zum Anbieter dieser Website.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/impressum',
+  },
 };
 
 export default function Impressum() {
