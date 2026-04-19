@@ -6,6 +6,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Leistungen | JB Solutions',
   description: 'Maßgeschneiderte Weblösungen: Onepager, conversion-optimierte Firmenwebsites, komplexe Kundenportale und sicheres Premium-Hosting.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/leistungen',
+  },
 };
 
 export default function Leistungen() {

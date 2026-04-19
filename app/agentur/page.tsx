@@ -5,6 +5,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Agentur | JB Solutions',
   description: 'Justin Boch Websolutions: Verlässliches Webdesign aus Münster. Klartext, feste Ansprechpartner und messbare Ergebnisse statt leeren Versprechen.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/agentur',
+  },
 };
 
 export default function Agentur() {

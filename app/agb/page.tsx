@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'AGB | Justin Boch Solutions',
   description: 'Allgemeine Geschäftsbedingungen der Justin Boch Solutions für Webentwicklung, Webdesign und digitale Systeme.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/agb',
+  },
 };
 
 export default function AGB() {

@@ -5,6 +5,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ablauf & Zusammenarbeit | JB Solutions',
   description: 'So läuft die Zusammenarbeit mit uns ab. Vom kostenlosen Erstgespräch über Konzept bis zum fertigen Webprojekt.',
+  alternates: {
+    canonical: 'https://boch-solutions.de/ablauf',
+  },
 };
 
 export default function Ablauf() {
