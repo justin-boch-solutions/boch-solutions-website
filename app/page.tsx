@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import HeroSection from '@/components/home/HeroSection';
-import ProblemSolutionSection from '@/components/home/ProblemSolutionSection';
-import TargetAudienceSection from '@/components/home/TargetAudienceSection';
-import WhyWebsiteSection from '@/components/home/WhyWebsiteSection';
-import ProcessSection from '@/components/home/ProcessSection';
-import ServicesSection from '@/components/home/ServicesSection';
-import QuickLinksSection from '@/components/home/QuickLinksSection';
-import CTASection from '@/components/home/CTASection';
+
+const ProblemSolutionSection = dynamic(() => import('@/components/home/ProblemSolutionSection'));
+const TargetAudienceSection = dynamic(() => import('@/components/home/TargetAudienceSection'));
+const WhyWebsiteSection = dynamic(() => import('@/components/home/WhyWebsiteSection'));
+const ProcessSection = dynamic(() => import('@/components/home/ProcessSection'));
+const ServicesSection = dynamic(() => import('@/components/home/ServicesSection'));
+const QuickLinksSection = dynamic(() => import('@/components/home/QuickLinksSection'));
+const CTASection = dynamic(() => import('@/components/home/CTASection'));
 
 export default function Home() {
   return (
