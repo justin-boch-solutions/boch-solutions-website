@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import HeroSection from '@/components/home/HeroSection';
 
@@ -8,8 +9,6 @@ const ProcessSection = dynamic(() => import('@/components/home/ProcessSection'))
 const ServicesSection = dynamic(() => import('@/components/home/ServicesSection'));
 const QuickLinksSection = dynamic(() => import('@/components/home/QuickLinksSection'));
 const CTASection = dynamic(() => import('@/components/home/CTASection'));
-
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
