@@ -41,6 +41,14 @@ export default function Impressum() {
             </section>
 
             <section>
+              <h2 className="text-2xl font-bold text-slate-50 mb-4 tracking-tight">Umsatzsteuer-ID</h2>
+              <p className="text-slate-400">
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+                DE461737440
+              </p>
+            </section>
+
+            <section>
               <h2 className="text-2xl font-bold text-slate-50 mb-4 tracking-tight">Redaktionell verantwortlich</h2>
               <p className="text-slate-400">
                 Justin Boch - Solutions<br />

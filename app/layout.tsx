@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientFloatingUi from "@/components/ClientFloatingUi";
+import TopBanner from "@/components/TopBanner";
+import Preloader from "@/components/Preloader";
+
+const outfit = Outfit({ 
+  subsets: ["latin"], 
+  variable: "--font-outfit" 
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://boch-solutions.de"),
@@ -18,6 +26,10 @@ export const metadata: Metadata = {
     "Next.js Entwickler Deutschland",
     "Digitale Skalierung",
     "Justin Boch",
+    "E-Commerce Agentur Münster",
+    "Online-Shop erstellen lassen",
+    "Local SEO Handwerker",
+    "Google Ranking verbessern"
   ],
   openGraph: {
     title: "JB Solutions | Webdesign & Vertriebsmaschinen (Münster)",
@@ -77,6 +89,32 @@ export default function RootLayout({
     priceRange: "$$$",
     description:
       "Agentur für digitale Vertriebsmaschinen, Webdesign und Softwareentwicklung für Handwerksbetriebe und Start-ups.",
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Premium Webdesign",
+          description: "Entwicklung hochkonvertierender Websites für mehr Anfragen."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "E-Commerce & Online-Shops",
+          description: "Erstellung von hochperformanten Online-Shops mit Shopify und WooCommerce."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Local SEO Optimierung",
+          description: "Regionale Suchmaschinenoptimierung für Handwerker und Dienstleister."
+        }
+      }
+    ]
   };
 
   return (
@@ -87,7 +125,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-black text-slate-50 antialiased flex flex-col min-h-screen selection:bg-sky-500/30">
+      <body className={`${outfit.variable} font-sans bg-[#020617] text-slate-50 antialiased flex flex-col min-h-screen selection:bg-sky-500/30`}>
+        <Preloader />
+        <TopBanner />
         <Header />
 
         <div className="flex-grow">{children}</div>

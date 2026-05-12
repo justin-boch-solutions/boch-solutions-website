@@ -14,18 +14,18 @@ export default function HeroSection() {
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10 w-full mt-24 sm:mt-16 md:mt-0">
-        {/* Top Badge */}
+        {/* Promo Badge */}
         <motion.div
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-xl mb-10 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+           className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-gradient-to-r from-rose-500/20 to-orange-500/20 border border-rose-500/30 backdrop-blur-xl mb-10 shadow-[0_0_30px_rgba(244,63,94,0.3)] animate-[pulse_4s_ease-in-out_infinite]"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,1)]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500 shadow-[0_0_10px_rgba(244,63,94,1)]"></span>
           </span>
-          <span className="text-xs font-bold tracking-[0.2em] text-sky-100 uppercase">Limitierte Kapazitäten für Q3</span>
+          <span className="text-xs font-black tracking-[0.15em] text-rose-100 uppercase">🔥 Aktion: 20% Rabatt auf neue Onepager</span>
         </motion.div>
 
         {/* Main Headline */}
@@ -48,34 +48,49 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-slate-400 max-w-3xl mb-14 leading-relaxed font-medium"
+          className="text-lg sm:text-xl md:text-2xl text-slate-400 max-w-3xl mb-10 leading-relaxed font-medium"
         >
           Wir bauen keine digitalen Kunstwerke. Wir entwickeln messerscharfe Vertriebsmaschinen für Handwerksbetriebe und Start-ups, die auf Autopilot Anfragen bringen.
         </motion.p>
+
+        {/* Promo Box */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+          className="bg-rose-500/5 border border-rose-500/20 rounded-2xl p-5 mb-12 max-w-2xl w-full backdrop-blur-md relative overflow-hidden group shadow-[0_8px_32px_rgba(244,63,94,0.1)]"
+        >
+           <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-500/20 blur-[40px] rounded-full pointer-events-none group-hover:bg-rose-400/30 transition-colors duration-500"></div>
+           <p className="text-rose-100 font-medium text-sm md:text-base relative z-10 flex items-center justify-center gap-3">
+             <span className="text-2xl">⏳</span>
+             <span>Sichere dir jetzt <strong className="text-white font-bold bg-rose-500/20 px-2 py-0.5 rounded border border-rose-500/30">20% Rabatt</strong> auf deinen neuen Onepager oder deine Firmenwebsite. <br className="hidden md:block"/> Nutze dafür einfach das Stichwort <strong>"AKTION24"</strong> im Erstgespräch.</span>
+           </p>
+        </motion.div>
 
         {/* Buttons */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto items-center"
         >
-          <Link href="/kontakt" className="relative group overflow-hidden rounded-full p-[2px]">
+          <Link href="/kontakt" className="relative group overflow-hidden rounded-full p-[2px] shadow-[0_0_30px_rgba(56,189,248,0.2)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)] transition-all duration-500 hover:scale-105">
              {/* Gradient glow border */}
-             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-70 group-hover:opacity-100 blur-[2px] transition-opacity duration-300"></span>
+             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-70 group-hover:opacity-100 blur-[3px] transition-opacity duration-300 animate-[pulse_3s_ease-in-out_infinite]"></span>
              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400"></span>
              
              {/* Inner dark button */}
-             <div className="relative bg-black group-hover:bg-slate-950 transition-colors px-10 py-5 rounded-full flex items-center justify-center gap-3">
-               <span className="bg-gradient-to-r from-sky-300 to-indigo-300 bg-clip-text text-transparent font-black tracking-widest uppercase text-sm">Potenzialanalyse starten</span>
-               <svg className="w-5 h-5 text-indigo-300 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+             <div className="relative bg-[#020617] group-hover:bg-transparent transition-colors px-10 py-5 rounded-full flex items-center justify-center gap-3">
+               <span className="bg-gradient-to-r from-sky-300 to-indigo-300 bg-clip-text text-transparent group-hover:text-white font-black tracking-widest uppercase text-sm transition-colors duration-300">Potenzialanalyse starten</span>
+               <svg className="w-5 h-5 text-indigo-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                </svg>
              </div>
           </Link>
 
-          <Link href="/projekte" className="px-10 py-5 rounded-full bg-white/[0.03] border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-bold text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.02)]">
-            Referenzen ansehen
+          <Link href="/kontakt?mode=configurator" className="px-10 py-5 rounded-full bg-white/[0.03] border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-bold text-sm tracking-widest uppercase transition-all duration-300 flex items-center justify-center backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.02)] gap-2 group">
+            <svg className="w-5 h-5 text-sky-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+            Preis berechnen
           </Link>
         </motion.div>
 

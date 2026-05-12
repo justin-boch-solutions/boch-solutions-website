@@ -52,9 +52,9 @@ export default function Header() {
             : "bg-black/20 backdrop-blur-md border-transparent hover:bg-black/40 hover:border-white/[0.05]"}`}
       >
         {/* LOGO */}
-        <Link href="/" className="flex flex-col group z-50 relative" onClick={closeMenu}>
+        <Link href="/" className="flex flex-col group z-50 relative shrink-0" onClick={closeMenu}>
           <div className="absolute -inset-4 bg-rose-500/10 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
-          <span className="text-2xl md:text-3xl font-serif font-bold tracking-widest bg-gradient-to-r from-rose-400 to-sky-400 bg-clip-text text-transparent leading-none relative z-10 transition-transform group-hover:scale-105 duration-500">
+          <span className="text-2xl md:text-3xl font-serif font-bold tracking-widest bg-gradient-to-r from-rose-400 to-sky-400 bg-clip-text text-transparent leading-none relative z-10 transition-transform group-hover:scale-105 duration-500 whitespace-nowrap">
             JUSTIN BOCH
           </span>
           <div className="flex items-center mt-1 relative z-10">
@@ -66,8 +66,8 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8 text-[13px] font-semibold text-slate-300 tracking-wider uppercase">
-          {['Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ'].map((item) => (
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[12px] xl:text-[13px] font-semibold text-slate-300 tracking-wider uppercase shrink-0 mx-4">
+          {['Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ', 'Magazin'].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`} className="relative group overflow-hidden py-1">
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">{item}</span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-sky-500 -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
@@ -76,23 +76,23 @@ export default function Header() {
         </nav>
 
         {/* DESKTOP CTA */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4 xl:gap-6 shrink-0">
           <a
             href={phoneHref}
-            className="flex items-center gap-2 text-slate-300 hover:text-white text-sm font-bold transition-colors group"
+            className="flex items-center gap-2 text-slate-300 hover:text-white text-sm font-bold transition-colors group whitespace-nowrap"
             aria-label={`Telefon ${phoneDisplayDesktop}`}
           >
-            <svg className="w-4 h-4 text-sky-500 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-sky-500 group-hover:scale-110 transition-transform shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            {phoneDisplayDesktop}
+            <span className="hidden xl:inline">{phoneDisplayDesktop}</span>
           </a>
 
           <Link
             href="/kontakt"
-            className="relative px-6 py-2.5 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform duration-300 overflow-hidden group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            className="relative px-6 py-2.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-all duration-300 overflow-hidden group shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]"
           >
-            <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-sky-400 to-indigo-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
             Starten
           </Link>
         </div>
@@ -133,7 +133,7 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-3xl flex flex-col pt-32 px-6 pb-8 border-b border-white/10 pointer-events-auto"
           >
             <nav className="flex flex-col space-y-6 text-2xl font-black text-slate-100 tracking-wide">
-              {['Startseite', 'Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ'].map((item, i) => (
+              {['Startseite', 'Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ', 'Magazin'].map((item, i) => (
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

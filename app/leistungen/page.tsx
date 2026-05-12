@@ -1,5 +1,4 @@
 import Link from 'next/link';
-// WICHTIG: Hier holen wir uns den Animations-Baustein
 import FadeIn from '@/components/FadeIn';
 import { Metadata } from 'next';
 
@@ -108,12 +107,74 @@ export default function Leistungen() {
           </div>
         </FadeIn>
 
-        {/* LEISTUNG 3: Individuelle Weblösung - Kommt von LINKS */}
+        {/* LEISTUNG 3: E-Commerce & Shops - Kommt von LINKS */}
         <FadeIn direction="left">
           <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center hover:bg-slate-900/60 transition-colors">
             <div className="md:w-1/2">
               <div className="w-14 h-14 bg-slate-950 border border-slate-700 rounded-2xl flex items-center justify-center mb-6 text-sky-500 font-bold text-xl">
                 03
+              </div>
+              <h2 className="text-3xl font-bold text-slate-50 mb-4">E-Commerce & Online-Shops</h2>
+              <p className="text-slate-400 mb-6 leading-relaxed">
+                Skaliere deine Umsätze durch einen hochperformanten und Conversion-optimierten Online-Shop. Egal ob mit Shopify oder maßgeschneiderten WooCommerce-Lösungen, wir bauen Shops, die Besucher in zahlende Kunden verwandeln.
+              </p>
+              <div className="inline-block px-4 py-2 rounded-md bg-slate-950 border border-slate-800 text-sm text-slate-300 font-medium">
+                Investition: Abhängig von Produktdatenmenge
+              </div>
+            </div>
+            <div className="md:w-1/2 bg-slate-950 rounded-2xl p-8 border border-slate-800 w-full">
+              <h3 className="text-lg font-bold text-slate-50 mb-6">Das ist drin:</h3>
+              <ul className="space-y-4">
+                {['Shopify oder WooCommerce Setup', 'Einrichtung aller Zahlungssysteme', 'Optimierte Produkt- & Checkout-Seiten', 'Erweiterte E-Commerce Analytics'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-300">
+                    <svg className="w-6 h-6 text-sky-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* LEISTUNG 4: Local SEO - Kommt von RECHTS */}
+        <FadeIn direction="right">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row-reverse gap-12 items-center hover:bg-slate-900/60 transition-colors">
+            <div className="md:w-1/2">
+              <div className="w-14 h-14 bg-slate-950 border border-slate-700 rounded-2xl flex items-center justify-center mb-6 text-sky-500 font-bold text-xl">
+                04
+              </div>
+              <h2 className="text-3xl font-bold text-slate-50 mb-4">Local SEO & Ranking</h2>
+              <p className="text-slate-400 mb-6 leading-relaxed">
+                Besonders für Handwerksbetriebe und regionale Dienstleister ist die Google-Suche der wichtigste Kanal. Wir optimieren dein Ranking, damit du in deiner Stadt immer auf Platz 1 stehst, wenn Kunden nach deinen Leistungen suchen.
+              </p>
+              <div className="inline-block px-4 py-2 rounded-md bg-slate-950 border border-slate-800 text-sm text-slate-300 font-medium">
+                Investition: Einmalig & Laufende Betreuung
+              </div>
+            </div>
+            <div className="md:w-1/2 bg-slate-950 rounded-2xl p-8 border border-slate-800 w-full">
+              <h3 className="text-lg font-bold text-slate-50 mb-6">Das ist drin:</h3>
+              <ul className="space-y-4">
+                {['Keyword- und Konkurrenzanalyse', 'Google My Business Profil Optimierung', 'Technisches SEO & Ladezeiten-Tuning', 'Regelmäßiges Linkbuilding & Citations'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-300">
+                    <svg className="w-6 h-6 text-sky-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* LEISTUNG 5: Individuelle Weblösung - Kommt von LINKS */}
+        <FadeIn direction="left">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center hover:bg-slate-900/60 transition-colors">
+            <div className="md:w-1/2">
+              <div className="w-14 h-14 bg-slate-950 border border-slate-700 rounded-2xl flex items-center justify-center mb-6 text-sky-500 font-bold text-xl">
+                05
               </div>
               <h2 className="text-3xl font-bold text-slate-50 mb-4">Individuelle Weblösungen</h2>
               <p className="text-slate-400 mb-6 leading-relaxed">

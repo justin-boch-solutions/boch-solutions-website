@@ -14,17 +14,47 @@ type Project = {
   after: string;
 };
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
-    <motion.article 
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px" }}
-      transition={{ duration: 0.8 }}
-      className="group/card relative flex flex-col bg-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-white/10 shadow-2xl"
-    >
+    <div style={{ perspective: 1200 }} className="w-full">
+      <motion.article 
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "0px" }}
+        transition={{ duration: 0.8 }}
+        className="group/card relative flex flex-col bg-[#050505] border border-white/5 rounded-[2rem] overflow-hidden transition-colors duration-500 hover:border-white/10 shadow-2xl h-full"
+      >
       <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
       
       <div className="p-8 lg:p-10 flex flex-col z-10 bg-transparent relative">
@@ -65,5 +95,6 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
     </motion.article>
+    </div>
   );
 }
