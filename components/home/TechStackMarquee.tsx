@@ -2,7 +2,14 @@
 
 import { motion } from 'framer-motion';
 
-const TECHNOLOGIES = [
+type TechItem = {
+  name: string;
+  src: string;
+  glow: string;
+  icon?: any;
+};
+
+const TECHNOLOGIES: TechItem[] = [
   { name: 'Next.js', src: 'https://cdn.simpleicons.org/nextdotjs/white', glow: 'rgba(255,255,255,0.2)' },
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB', glow: 'rgba(97,218,251,0.2)' },
   { name: 'TypeScript', src: 'https://cdn.simpleicons.org/typescript/3178C6', glow: 'rgba(49,120,198,0.2)' },
