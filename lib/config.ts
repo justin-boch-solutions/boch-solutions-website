@@ -1,3 +1,4 @@
+// Site configuration
 export const siteConfig = {
   name: "JB Solutions",
   url: "https://boch-solutions.de",
