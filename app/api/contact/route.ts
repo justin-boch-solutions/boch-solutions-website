@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     
     // Daten aus der Anfrage extrahieren
-    const { name, email, message, requestType, projectType, projectGoal, timeline, budget } = body;
+    const { name, email, message, requestType, projectType, projectGoal, timeline, budget, url, phone, score, loadTime, issues, analysisDuration } = body;
 
     let emailSubject = '';
     let emailHtml = '';
@@ -32,6 +32,28 @@ export async function POST(request: Request) {
           </table>
           <br/>
           ${message ? `<h3 style="color: #334155;">Zusätzliche Infos:</h3><p style="background: #f8fafc; padding: 15px; border-radius: 8px;">${message}</p>` : ''}
+        </div>
+      `;
+    } else if (requestType === 'performance') {
+      emailSubject = `⚡ Neuer Performance-Check Lead: ${url}`;
+      emailHtml = `
+        <div style="font-family: sans-serif; color: #0f172a; max-width: 600px;">
+          <h2 style="color: #10b981;">Neuer Performance-Check Lead (Instagram Ads)</h2>
+          <p><strong>Website URL:</strong> <a href="${url.startsWith('http') ? url : `https://${url}`}" target="_blank">${url}</a></p>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+          <h3 style="color: #334155;">Kontaktdaten:</h3>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Name:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${name}</td></tr>
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>E-Mail:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${email}</td></tr>
+            ${phone ? `<tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Telefon:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${phone}</td></tr>` : ''}
+          </table>
+          <h3 style="color: #334155; margin-top: 25px;">Analyse-Ergebnisse:</h3>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Performance-Score:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${score || '-'} / 100</td></tr>
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Ladezeit:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${loadTime ? loadTime.toFixed(1) : '-'} Sekunden</td></tr>
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Gefundene Fehler:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${issues || '-'}</td></tr>
+            <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Dauer der Analyse:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${analysisDuration || '-'} Sekunden</td></tr>
+          </table>
         </div>
       `;
     } else {

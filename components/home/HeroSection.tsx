@@ -74,7 +74,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto items-center"
         >
-          <Link href="/kontakt" className="relative group overflow-hidden rounded-full p-[2px] shadow-[0_0_30px_rgba(56,189,248,0.2)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)] transition-all duration-500 hover:scale-105">
+          <Link href="/performance-check" className="relative group overflow-hidden rounded-full p-[2px] shadow-[0_0_30px_rgba(56,189,248,0.2)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)] transition-all duration-500 hover:scale-105">
              {/* Gradient glow border */}
              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400 opacity-70 group-hover:opacity-100 blur-[3px] transition-opacity duration-300 animate-[pulse_3s_ease-in-out_infinite]"></span>
              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-sky-400"></span>

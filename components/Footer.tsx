@@ -59,6 +59,16 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/pakete" className="hover:text-sky-300 transition-colors text-sky-400">
+                  Pakete & Preise
+                </Link>
+              </li>
+              <li>
+                <Link href="/performance-check" className="hover:text-sky-300 transition-colors text-amber-400">
+                  Gratis Performance-Check
+                </Link>
+              </li>
             </ul>
           </div>
 

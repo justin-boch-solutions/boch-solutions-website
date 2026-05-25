@@ -30,9 +30,12 @@ export default function Leistungen() {
         </FadeIn>
         
         <FadeIn direction="up" delay={0.2}>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-400 mb-8">
             Wir verkaufen keine Standard-Themes. Wir entwickeln strategische Werkzeuge, die dein Unternehmen digital sichtbar machen, Prozesse automatisieren und Kunden gewinnen.
           </p>
+          <Link href="/pakete" className="inline-block bg-sky-500 text-white font-bold py-4 px-8 rounded-xl hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20">
+            Zu unseren Leistungspaketen
+          </Link>
         </FadeIn>
       </div>
 
@@ -276,7 +279,7 @@ export default function Leistungen() {
           <p className="text-slate-900 text-lg mb-8 max-w-2xl mx-auto font-medium">
             Lass uns in einem kurzen, unverbindlichen Gespräch herausfinden, welche Lösung für deine aktuelle Situation den größten Hebel bietet.
           </p>
-          <Link href="/kontakt" className="inline-block px-8 py-4 rounded-md bg-slate-950 text-sky-500 font-bold text-lg hover:bg-slate-900 transition-colors shadow-lg">
+          <Link href="/performance-check" className="inline-block px-8 py-4 rounded-md bg-slate-950 text-sky-500 font-bold text-lg hover:bg-slate-900 transition-colors shadow-lg">
             Kostenlose Potenzialanalyse sichern
           </Link>
         </div>

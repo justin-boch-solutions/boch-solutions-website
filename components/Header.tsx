@@ -67,7 +67,7 @@ export default function Header() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[12px] xl:text-[13px] font-semibold text-slate-300 tracking-wider uppercase shrink-0 mx-4">
-          {['Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ', 'Magazin'].map((item) => (
+          {['Leistungen', 'Pakete', 'Projekte', 'Agentur', 'Ablauf', 'Performance-Check'].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`} className="relative group overflow-hidden py-1">
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">{item}</span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-sky-500 -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
@@ -133,7 +133,7 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-3xl flex flex-col pt-32 px-6 pb-8 border-b border-white/10 pointer-events-auto"
           >
             <nav className="flex flex-col space-y-6 text-2xl font-black text-slate-100 tracking-wide">
-              {['Startseite', 'Leistungen', 'Projekte', 'Agentur', 'Ablauf', 'FAQ', 'Magazin'].map((item, i) => (
+              {['Startseite', 'Leistungen', 'Pakete', 'Projekte', 'Agentur', 'Ablauf', 'Performance-Check'].map((item, i) => (
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
