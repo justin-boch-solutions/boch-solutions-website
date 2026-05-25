@@ -26,7 +26,8 @@ export default function AnalyticsLoader() {
     return () => window.removeEventListener("cookie-consent-updated", checkConsent);
   }, []);
 
-  if (!hasConsent) return null;
+  // Wenn keine der beiden Zustimmungen vorliegt, laden wir gar nichts
+  if (!hasConsent && !hasMarketingConsent) return null;
 
   // WICHTIG: Ersetze G-XXXXXXXX mit deiner echten Google Analytics ID!
   const GA_TRACKING_ID = "G-XXXXXXXX";
@@ -39,9 +40,9 @@ export default function AnalyticsLoader() {
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id="google-analytics" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -56,7 +57,7 @@ export default function AnalyticsLoader() {
 
       {/* Meta Pixel für Instagram / Facebook Ads */}
       {hasMarketingConsent && (
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
