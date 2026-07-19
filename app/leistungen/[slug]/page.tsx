@@ -16,8 +16,15 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Slugs with a dedicated, custom-built page under app/leistungen/<slug>/page.tsx
+// instead of this generic template (Next.js routes the static segment first,
+// this exclusion just keeps generateStaticParams/build output clean).
+const CUSTOM_PAGE_SLUGS = new Set(["webdesign"]);
+
 export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
+  return services
+    .filter((service) => !CUSTOM_PAGE_SLUGS.has(service.slug))
+    .map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -34,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  if (CUSTOM_PAGE_SLUGS.has(slug)) notFound();
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 

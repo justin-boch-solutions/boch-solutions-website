@@ -408,6 +408,16 @@ export const services: Service[] = [
         answer:
           "Je nach gewähltem Aufbau ist eine einfache Pflege von Texten und Bildern möglich. Für größere Änderungen und laufende technische Betreuung steht Ihnen unser Wartungs-Service zur Seite.",
       },
+      {
+        question: "Onepager, Firmenwebsite oder Online-Shop – was passt zu meinem Betrieb?",
+        answer:
+          "Eine Onepager eignet sich für eine schnelle, fokussierte Präsenz oder eine einzelne Kampagne. Eine High-End Firmenwebsite lohnt sich, wenn Sie Ihr komplettes Leistungsspektrum zeigen und aktiv Kunden sowie Mitarbeitende gewinnen wollen. Ein Online-Shop ist sinnvoll, wenn Sie Produkte oder Ersatzteile direkt online verkaufen möchten. Im Strategie-Call ordnen wir das gemeinsam ein.",
+      },
+      {
+        question: "Verkaufen Sie auch Online-Shops für Handwerksbetriebe?",
+        answer:
+          "Ja. Für Betriebe, die Produkte, Ersatzteile oder Zubehör verkaufen, richten wir einen performanten Online-Shop mit Produktkatalog, Zahlungs- und Versandanbindung ein – technisch auf derselben modernen Basis wie unsere übrigen Webseiten.",
+      },
     ],
     relatedSlugs: ["seo-geo-optimierung", "google-unternehmensprofil", "domain-einrichtung"],
   },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Cloud, Lock, SearchX } from "lucide-react";
+import { ArrowRight, Cloud, Lock, Rocket, SearchX, ShoppingCart, Zap } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { TrustStrip } from "@/components/sections/trust-strip";
@@ -44,8 +44,26 @@ const highlightedSlugs = [
   "email-optimierung",
   "seo-geo-optimierung",
   "google-unternehmensprofil",
-  "webdesign",
+  "domain-einrichtung",
   "individuelle-software",
+];
+
+const webdesignOfferings = [
+  {
+    icon: Zap,
+    name: "Onepager",
+    description: "Kompakt, schnell online – für den fokussierten Auftritt oder eine Kampagne.",
+  },
+  {
+    icon: Rocket,
+    name: "Firmenwebsite",
+    description: "Vollständiger Auftritt für Kunden- und Mitarbeitergewinnung.",
+  },
+  {
+    icon: ShoppingCart,
+    name: "Online-Shop",
+    description: "Für Betriebe, die Produkte oder Ersatzteile direkt verkaufen.",
+  },
 ];
 
 const faqTeaser = [
@@ -111,6 +129,30 @@ export default function Home() {
               <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Webdesign"
+        title="Webseiten, die für Ihren Betrieb arbeiten"
+        subtitle="Nicht nur ein digitales Aushängeschild, sondern eine Vertriebsmaschine für Anfragen und Mitarbeitende – von der kompakten Onepager bis zum Online-Shop."
+        className="border-t border-border bg-surface/30"
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {webdesignOfferings.map((offering) => (
+            <div key={offering.name} className="rounded-xl border border-border bg-surface p-6">
+              <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
+                <offering.icon className="size-5" />
+              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground">{offering.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{offering.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10">
+          <Button href="/leistungen/webdesign" size="lg">
+            Mehr zu Webdesign
+          </Button>
         </div>
       </Section>
 

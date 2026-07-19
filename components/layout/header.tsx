@@ -13,6 +13,7 @@ import { company } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
 const navLinks = [
+  { href: "/leistungen/webdesign", label: "Webdesign" },
   { href: "/agentur", label: "Agentur" },
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
