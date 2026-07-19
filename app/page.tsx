@@ -1,65 +1,195 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Cloud, Lock, SearchX } from "lucide-react";
+import { Hero } from "@/components/sections/hero";
+import { Section } from "@/components/sections/section";
+import { TrustStrip } from "@/components/sections/trust-strip";
+import { ServiceGrid } from "@/components/sections/service-grid";
+import { ProcessSteps } from "@/components/sections/process-steps";
+import { FaqAccordion } from "@/components/sections/faq-accordion";
+import { CtaSection } from "@/components/sections/cta-section";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { getServiceBySlug } from "@/lib/services";
+
+export const metadata: Metadata = {
+  title: "IT-Modernisierung für Handwerksbetriebe mit Microsoft 365",
+  description:
+    "JB Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software. Standort Münster.",
+};
+
+const painPoints = [
+  {
+    icon: Cloud,
+    title: "Veraltete, verstreute IT",
+    description:
+      "Alter Server, private E-Mail-Adressen, kein Backup – gewachsene IT-Strukturen bremsen den Alltag statt ihn zu erleichtern.",
+  },
+  {
+    icon: SearchX,
+    title: "Unsichtbar bei Google & KI-Suche",
+    description:
+      "Wer bei 'Handwerker in [Ort]' nicht auftaucht und in ChatGPT & Co. nicht genannt wird, verliert Anfragen an sichtbarere Betriebe.",
+  },
+  {
+    icon: Lock,
+    title: "Unsichere E-Mail & Daten",
+    description:
+      "Fehlende Backups, unsichere Postfächer und keine klare DSGVO-Struktur sind ein wachsendes Risiko für jeden Betrieb.",
+  },
+];
+
+const highlightedSlugs = [
+  "microsoft-365-azure",
+  "email-optimierung",
+  "seo-geo-optimierung",
+  "google-unternehmensprofil",
+  "webdesign",
+  "individuelle-software",
+];
+
+const faqTeaser = [
+  {
+    question: "Ist das auch für einen kleinen Handwerksbetrieb sinnvoll?",
+    answer:
+      "Ja. Microsoft 365 und die begleitenden Leistungen skalieren nach Betriebsgröße – auch mit 3–5 Mitarbeitenden erhalten Sie eine professionelle, sichere IT-Umgebung ohne eigenen Server.",
+  },
+  {
+    question: "Was ist GEO-Optimierung?",
+    answer:
+      "GEO (Generative Engine Optimization) sorgt dafür, dass KI-Antwortmaschinen wie ChatGPT, Copilot oder Gemini Ihren Betrieb bei passenden Fragen als Quelle nennen – zusätzlich zur klassischen Google-Suche.",
+  },
+  {
+    question: "Müssen wir während der Umstellung den Betrieb unterbrechen?",
+    answer:
+      "Nein. Die Einrichtung erfolgt schrittweise und abgestimmt auf Ihren Arbeitsalltag, sodass Sie durchgehend normal weiterarbeiten können.",
+  },
+];
 
 export default function Home() {
+  const highlighted = highlightedSlugs
+    .map((slug) => getServiceBySlug(slug))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s));
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero
+        eyebrow="IT-Modernisierung für Handwerksbetriebe"
+        title={
+          <>
+            Ihr Betrieb, modernisiert mit{" "}
+            <span className="text-gradient-animated">Microsoft-Technologie.</span>
+          </>
+        }
+        subtitle="Wir richten Microsoft 365 & Azure, professionelle E-Mail, Domain und Lizenzen für Ihren Handwerksbetrieb ein – und sorgen mit SEO, GEO-Optimierung und Google-Unternehmensprofil dafür, dass Kunden Sie auch finden."
+        actions={
+          <>
+            <Button href="/kontakt" size="lg">
+              Kostenlosen Strategie-Call vereinbaren
+            </Button>
+            <Button href="/leistungen" variant="secondary" size="lg">
+              Leistungen ansehen
+            </Button>
+          </>
+        }
+      />
+
+      <TrustStrip />
+
+      <Section
+        eyebrow="Bekannte Probleme"
+        title="Woran es bei den meisten Handwerksbetrieben hakt"
+        subtitle="Drei Muster, die uns bei Handwerksbetrieben immer wieder begegnen – und die sich mit der richtigen Microsoft-Infrastruktur gezielt beheben lassen."
+      >
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {painPoints.map((point) => (
+            <Card key={point.title}>
+              <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
+                <point.icon className="size-5" />
+              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground">{point.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
+            </Card>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </Section>
+
+      <Section
+        eyebrow="Leistungen"
+        title="Alles aus einer Hand, aufgebaut auf Microsoft"
+        subtitle="Von der IT-Grundlage bis zur individuellen Software – sechs Leistungen, mit denen Handwerksbetriebe am häufigsten starten."
+      >
+        <ServiceGrid services={highlighted} />
+        <div className="mt-10">
+          <Link
+            href="/leistungen"
+            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent-secondary"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Alle 11 Leistungen im Überblick <ArrowRight className="size-4" />
+          </Link>
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <Section
+        eyebrow="Warum Microsoft"
+        title="Eine Plattform statt zehn Insellösungen"
+        subtitle="Microsoft 365 & Azure bilden E-Mail, Dateien, Kommunikation, Sicherheit und Automatisierung in einer einzigen, gut abgesicherten Umgebung ab – statt vieler einzelner Tools, die niemand im Betrieb wirklich überblickt."
+      >
+        <div className="grid grid-cols-1 gap-6 rounded-2xl border border-border bg-surface p-8 sm:grid-cols-3">
+          <div>
+            <p className="font-display text-3xl font-bold text-gradient">1</p>
+            <p className="mt-2 text-sm text-muted">
+              zentrale Anmeldung für E-Mail, Dateien, Teams-Telefonie und mobile Geräte
+            </p>
+          </div>
+          <div>
+            <p className="font-display text-3xl font-bold text-gradient">DSGVO</p>
+            <p className="mt-2 text-sm text-muted">
+              bewusste Einrichtung inkl. Backup, Defender und Dokumentation
+            </p>
+          </div>
+          <div>
+            <p className="font-display text-3xl font-bold text-gradient">1:1</p>
+            <p className="mt-2 text-sm text-muted">
+              persönliche Betreuung statt anonymer Support-Hotline
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Ablauf"
+        title="So läuft die Zusammenarbeit ab"
+        subtitle="Vier klare Phasen, von der ersten Einschätzung bis zur laufenden Betreuung."
+      >
+        <ProcessSteps />
+        <div className="mt-10">
+          <Link
+            href="/ablauf"
+            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent-secondary"
+          >
+            Ablauf im Detail <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Fragen"
+        title="Häufig gestellte Fragen"
+        subtitle="Die wichtigsten Antworten – die vollständige Liste finden Sie auf unserer FAQ-Seite."
+      >
+        <FaqAccordion items={faqTeaser} />
+        <div className="mt-10">
+          <Link
+            href="/faq"
+            className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent-secondary"
+          >
+            Alle Fragen ansehen <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </Section>
+
+      <CtaSection />
+    </>
   );
 }
