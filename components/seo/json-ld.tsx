@@ -17,10 +17,15 @@ export function OrganizationJsonLd() {
       addressRegion: company.address.region,
       addressCountry: company.address.country,
     },
-    areaServed: {
-      "@type": "City",
-      name: "Münster",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: company.geo.latitude,
+      longitude: company.geo.longitude,
     },
+    areaServed: company.areaServed.map((name) => ({
+      "@type": "City",
+      name,
+    })),
     priceRange: "$$",
     knowsAbout: [
       "Microsoft 365",

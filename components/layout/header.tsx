@@ -127,56 +127,75 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
-            className="flex items-center justify-center rounded-full border border-border p-2 text-foreground"
+            className="relative flex size-9 items-center justify-center rounded-full border border-border text-foreground"
             aria-label={isMobileOpen ? "Menü schließen" : "Menü öffnen"}
             onClick={() => setIsMobileOpen((v) => !v)}
           >
-            {isMobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            <Menu
+              className={cn(
+                "absolute size-5 transition-all duration-300",
+                isMobileOpen ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100",
+              )}
+            />
+            <X
+              className={cn(
+                "absolute size-5 transition-all duration-300",
+                isMobileOpen ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0",
+              )}
+            />
           </button>
         </div>
       </Container>
 
-      {isMobileOpen ? (
-        <div className="border-t border-border bg-background px-6 pb-8 pt-4 lg:hidden">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-accent-secondary">
-            Leistungen
-          </p>
-          <ul className="mb-6 grid grid-cols-1 gap-1">
-            {services.map((service) => (
-              <li key={service.slug}>
-                <Link
-                  href={`/leistungen/${service.slug}`}
-                  className="block rounded-lg px-2 py-2 text-sm text-muted hover:bg-surface hover:text-foreground"
-                >
-                  {service.shortName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-col gap-1 border-t border-border pt-4">
-            {[{ href: "/leistungen", label: "Alle Leistungen" }, ...navLinks, { href: "/faq", label: "FAQ" }].map(
-              (link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-lg px-2 py-2.5 text-base font-medium text-foreground hover:bg-surface"
-                >
-                  {link.label}
-                </Link>
-              ),
-            )}
-          </div>
-          <div className="mt-6 flex flex-col gap-3">
-            <a href={company.phoneHref} className="flex items-center gap-2 text-sm text-muted">
-              <Phone className="size-4" />
-              {company.phone}
-            </a>
-            <Button href="/kontakt" size="lg" className="w-full">
-              Kontakt aufnehmen
-            </Button>
+      <div
+        className={cn(
+          "grid transition-all duration-300 ease-out lg:hidden",
+          isMobileOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        )}
+        inert={!isMobileOpen}
+      >
+        <div className="overflow-hidden">
+          <div className="border-t border-border bg-background px-6 pb-8 pt-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+              Leistungen
+            </p>
+            <ul className="mb-6 grid grid-cols-1 gap-1">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/leistungen/${service.slug}`}
+                    className="block rounded-lg px-2 py-2 text-sm text-muted hover:bg-surface hover:text-foreground"
+                  >
+                    {service.shortName}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-1 border-t border-border pt-4">
+              {[{ href: "/leistungen", label: "Alle Leistungen" }, ...navLinks, { href: "/faq", label: "FAQ" }].map(
+                (link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-lg px-2 py-2.5 text-base font-medium text-foreground hover:bg-surface"
+                  >
+                    {link.label}
+                  </Link>
+                ),
+              )}
+            </div>
+            <div className="mt-6 flex flex-col gap-3">
+              <a href={company.phoneHref} className="flex items-center gap-2 text-sm text-muted">
+                <Phone className="size-4" />
+                {company.phone}
+              </a>
+              <Button href="/kontakt" size="lg" className="w-full">
+                Kontakt aufnehmen
+              </Button>
+            </div>
           </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

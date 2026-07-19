@@ -17,6 +17,11 @@ export const company = {
     region: "Nordrhein-Westfalen",
     country: "DE",
   },
+  geo: {
+    latitude: 51.9957373,
+    longitude: 7.6559627,
+  },
+  areaServed: ["Münster", "Telgte", "Greven", "Nottuln", "Havixbeck", "Senden"],
   vatId: "DE461737440" as string | null,
   domain: "boch-solutions.de",
   url: "https://boch-solutions.de",

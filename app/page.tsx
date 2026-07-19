@@ -10,12 +10,15 @@ import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
+import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "IT-Modernisierung für Handwerksbetriebe mit Microsoft 365",
   description:
     "JB Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software. Standort Münster.",
+  alternates: { canonical: "/" },
 };
 
 const painPoints = [
@@ -120,14 +123,16 @@ export default function Home() {
         subtitle="Drei Muster, die uns bei Handwerksbetrieben immer wieder begegnen – und die sich mit der richtigen Microsoft-Infrastruktur gezielt beheben lassen."
       >
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {painPoints.map((point) => (
-            <Card key={point.title}>
-              <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
-                <point.icon className="size-5" />
-              </div>
-              <h3 className="font-display text-lg font-semibold text-foreground">{point.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
-            </Card>
+          {painPoints.map((point, index) => (
+            <Reveal key={point.title} delay={index * 100}>
+              <Card>
+                <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
+                  <point.icon className="size-5" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">{point.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -139,14 +144,18 @@ export default function Home() {
         className="border-t border-border bg-surface/30"
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {webdesignOfferings.map((offering) => (
-            <div key={offering.name} className="rounded-xl border border-border bg-surface p-6">
+          {webdesignOfferings.map((offering, index) => (
+            <Reveal
+              key={offering.name}
+              delay={index * 100}
+              className="rounded-xl border border-border bg-surface p-6"
+            >
               <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
                 <offering.icon className="size-5" />
               </div>
               <h3 className="font-display text-lg font-semibold text-foreground">{offering.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{offering.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
         <div className="mt-10">
@@ -177,24 +186,29 @@ export default function Home() {
         title="Eine Plattform statt zehn Insellösungen"
         subtitle="Microsoft 365 & Azure bilden E-Mail, Dateien, Kommunikation, Sicherheit und Automatisierung in einer einzigen, gut abgesicherten Umgebung ab – statt vieler einzelner Tools, die niemand im Betrieb wirklich überblickt."
       >
-        <div className="grid grid-cols-1 gap-6 rounded-2xl border border-border bg-surface p-8 sm:grid-cols-3">
-          <div>
-            <p className="font-display text-3xl font-bold text-gradient">1</p>
-            <p className="mt-2 text-sm text-muted">
-              zentrale Anmeldung für E-Mail, Dateien, Teams-Telefonie und mobile Geräte
-            </p>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+          <div className="hidden lg:block">
+            <CloudDiagram />
           </div>
-          <div>
-            <p className="font-display text-3xl font-bold text-gradient">DSGVO</p>
-            <p className="mt-2 text-sm text-muted">
-              bewusste Einrichtung inkl. Backup, Defender und Dokumentation
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-3xl font-bold text-gradient">1:1</p>
-            <p className="mt-2 text-sm text-muted">
-              persönliche Betreuung statt anonymer Support-Hotline
-            </p>
+          <div className="grid grid-cols-1 gap-6 rounded-2xl border border-border bg-surface p-8 sm:grid-cols-3 lg:grid-cols-1">
+            <div>
+              <p className="font-display text-3xl font-bold text-gradient">1</p>
+              <p className="mt-2 text-sm text-muted">
+                zentrale Anmeldung für E-Mail, Dateien, Teams-Telefonie und mobile Geräte
+              </p>
+            </div>
+            <div>
+              <p className="font-display text-3xl font-bold text-gradient">DSGVO</p>
+              <p className="mt-2 text-sm text-muted">
+                bewusste Einrichtung inkl. Backup, Defender und Dokumentation
+              </p>
+            </div>
+            <div>
+              <p className="font-display text-3xl font-bold text-gradient">1:1</p>
+              <p className="mt-2 text-sm text-muted">
+                persönliche Betreuung statt anonymer Support-Hotline
+              </p>
+            </div>
           </div>
         </div>
       </Section>

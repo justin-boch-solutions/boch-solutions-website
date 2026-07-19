@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Check, Gauge, Rocket, ShieldCheck, ShoppingCart, Smartphone, Zap } from "lucide-react";
+import { Check, Gauge, Rocket, ShieldCheck, ShoppingCart, Smartphone, Zap } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ServiceIcon } from "@/components/sections/service-icon";
 import { Card } from "@/components/ui/card";
+import { BrowserMockup } from "@/components/illustrations/browser-mockup";
 import { company } from "@/lib/constants";
 import { getRelatedServices, getServiceBySlug } from "@/lib/services";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
@@ -116,15 +117,12 @@ export default function WebdesignPage() {
         eyebrow="Webdesign"
         title="Webseiten, die für Ihren Betrieb arbeiten"
         subtitle="Nicht nur ein digitales Aushängeschild, sondern eine Vertriebsmaschine für Anfragen und Mitarbeitende – von der kompakten Onepager bis zum Online-Shop, technisch modern und auf Ihr Gewerk zugeschnitten."
-        actions={
-          <Link
-            href="/leistungen"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" />
-            Alle Leistungen
-          </Link>
-        }
+        visual={<BrowserMockup />}
+        breadcrumb={[
+          { name: "Startseite", href: "/" },
+          { name: "Leistungen", href: "/leistungen" },
+          { name: "Webdesign" },
+        ]}
       />
 
       <Section

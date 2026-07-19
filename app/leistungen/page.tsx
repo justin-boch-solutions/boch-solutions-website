@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Leistungen",
   description:
     "Alle Leistungen von JB Solutions für Handwerksbetriebe: Microsoft 365 & Azure, Lizenzierung, E-Mail, Domain, IT-Support, Sicherheit, SEO/GEO, Google-Unternehmensprofil, Webdesign und individuelle Software.",
+  alternates: { canonical: "/leistungen" },
 };
 
 const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisierung"];

@@ -3,12 +3,14 @@ import { CheckCircle2 } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
+import { AvatarBadge } from "@/components/illustrations/avatar-badge";
 import { stack } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Agentur",
   description:
     "JB Solutions ist die IT- und Webdesign-Agentur von Justin Boch aus Münster – spezialisiert auf Microsoft-Technologie für Handwerksbetriebe.",
+  alternates: { canonical: "/agentur" },
 };
 
 const values = [
@@ -36,6 +38,7 @@ export default function AgenturPage() {
         eyebrow="Agentur"
         title="JB Solutions – Justin Boch"
         subtitle="Ich unterstütze Handwerksbetriebe dabei, ihre IT auf ein modernes, sicheres Fundament zu stellen und online sichtbar zu werden – mit einem klaren Fokus auf Microsoft-Technologie statt vieler loser Einzellösungen."
+        visual={<AvatarBadge />}
       />
 
       <Section

@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import { Check, Rocket, Sparkles, TrendingUp } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
   title: "Pakete",
   description:
     "Drei Pakete für die IT-Modernisierung von Handwerksbetrieben: Starter, Wachstum und Rundum-sorglos – abgestimmt auf Ihren Betrieb, Preis auf Anfrage.",
+  alternates: { canonical: "/pakete" },
 };
 
 const pakete = [
   {
     name: "Starter",
+    icon: Rocket,
     tagline: "Die digitale Grundlage",
     description: "Für Betriebe, die ihre IT erstmals auf eine professionelle, sichere Basis stellen wollen.",
     highlighted: false,
@@ -28,6 +31,7 @@ const pakete = [
   },
   {
     name: "Wachstum",
+    icon: TrendingUp,
     tagline: "Sichtbar werden, IT gefestigt",
     description: "Für Betriebe, die zusätzlich zur IT-Grundlage aktiv neue Kunden gewinnen wollen.",
     highlighted: true,
@@ -41,6 +45,7 @@ const pakete = [
   },
   {
     name: "Rundum-sorglos",
+    icon: Sparkles,
     tagline: "Digitalisierter Gesamtbetrieb",
     description: "Für Betriebe, die IT, Sichtbarkeit und individuelle Prozesse aus einer Hand wollen.",
     highlighted: false,
@@ -65,9 +70,10 @@ export default function PaketePage() {
 
       <Section>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {pakete.map((paket) => (
-            <div
+          {pakete.map((paket, index) => (
+            <Reveal
               key={paket.name}
+              delay={index * 100}
               className={cn(
                 "flex flex-col rounded-2xl border p-8",
                 paket.highlighted
@@ -75,11 +81,16 @@ export default function PaketePage() {
                   : "border-border bg-surface",
               )}
             >
-              {paket.highlighted ? (
-                <span className="mb-4 inline-flex w-fit items-center rounded-full bg-gradient-to-r from-accent to-accent-secondary px-3 py-1 text-xs font-semibold text-white">
-                  Meistgewählt
-                </span>
-              ) : null}
+              <div className="mb-5 flex items-center justify-between">
+                <div className="inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
+                  <paket.icon className="size-5" />
+                </div>
+                {paket.highlighted ? (
+                  <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-accent to-accent-secondary px-3 py-1 text-xs font-semibold text-white">
+                    Meistgewählt
+                  </span>
+                ) : null}
+              </div>
               <h3 className="font-display text-2xl font-bold text-foreground">{paket.name}</h3>
               <p className="mt-1 text-sm font-medium text-accent-secondary">{paket.tagline}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted">{paket.description}</p>
@@ -104,7 +115,7 @@ export default function PaketePage() {
                   Angebot anfragen
                 </Button>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Section>

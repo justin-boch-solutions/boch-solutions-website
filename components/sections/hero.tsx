@@ -3,12 +3,15 @@ import { Container } from "@/components/ui/container";
 import { GlowOrb } from "@/components/ui/glass-panel";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
+import { Breadcrumb, type BreadcrumbItem } from "@/components/sections/breadcrumb";
 
 interface HeroProps {
   eyebrow?: string;
   title: React.ReactNode;
   subtitle: React.ReactNode;
   actions?: React.ReactNode;
+  visual?: React.ReactNode;
+  breadcrumb?: BreadcrumbItem[];
   align?: "left" | "center";
   size?: "default" | "compact";
   className?: string;
@@ -19,6 +22,8 @@ export function Hero({
   title,
   subtitle,
   actions,
+  visual,
+  breadcrumb,
   align = "left",
   size = "default",
   className,
@@ -31,23 +36,36 @@ export function Hero({
         className={cn(
           "relative",
           size === "default" ? "py-24 md:py-32" : "py-16 md:py-20",
-          align === "center" && "text-center",
+          visual && "grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.1fr_1fr]",
         )}
       >
-        <Reveal className={cn("max-w-3xl", align === "center" && "mx-auto")}>
+        <Reveal
+          className={cn("max-w-3xl", align === "center" && !visual && "mx-auto text-center")}
+        >
+          {breadcrumb ? <Breadcrumb items={breadcrumb} /> : null}
           {eyebrow ? (
-            <Badge className={cn("mb-6", align === "center" && "mx-auto")}>{eyebrow}</Badge>
+            <Badge className={cn("mb-6", align === "center" && !visual && "mx-auto")}>{eyebrow}</Badge>
           ) : null}
           <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{subtitle}</p>
           {actions ? (
-            <div className={cn("mt-10 flex flex-wrap gap-4", align === "center" && "justify-center")}>
+            <div
+              className={cn(
+                "mt-10 flex flex-wrap gap-4",
+                align === "center" && !visual && "justify-center",
+              )}
+            >
               {actions}
             </div>
           ) : null}
         </Reveal>
+        {visual ? (
+          <Reveal delay={150} className="hidden lg:block">
+            {visual}
+          </Reveal>
+        ) : null}
       </Container>
     </div>
   );

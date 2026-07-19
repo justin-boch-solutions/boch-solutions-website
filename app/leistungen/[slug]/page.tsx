@@ -1,16 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ServiceIcon } from "@/components/sections/service-icon";
 import { Card } from "@/components/ui/card";
+import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
+import { SearchRankIllustration } from "@/components/illustrations/search-rank";
+import { AutomationFlow } from "@/components/illustrations/automation-flow";
 import { company } from "@/lib/constants";
-import { clusterMeta, getRelatedServices, getServiceBySlug, services } from "@/lib/services";
+import {
+  clusterMeta,
+  getRelatedServices,
+  getServiceBySlug,
+  services,
+  type ServiceCluster,
+} from "@/lib/services";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
+
+// Desktop-only hero illustration per cluster, so every service page has a
+// visual instead of empty hero space (webdesign has its own bespoke page).
+const clusterVisuals: Record<ServiceCluster, React.ReactNode> = {
+  infrastruktur: <CloudDiagram />,
+  sichtbarkeit: <SearchRankIllustration />,
+  digitalisierung: <AutomationFlow />,
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -64,15 +81,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         eyebrow={clusterMeta[service.cluster].label}
         title={service.name}
         subtitle={service.heroSummary}
-        actions={
-          <Link
-            href="/leistungen"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" />
-            Alle Leistungen
-          </Link>
-        }
+        visual={clusterVisuals[service.cluster]}
+        breadcrumb={[
+          { name: "Startseite", href: "/" },
+          { name: "Leistungen", href: "/leistungen" },
+          { name: service.shortName },
+        ]}
         size="compact"
       />
 

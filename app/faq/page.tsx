@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Häufig gestellte Fragen zu IT-Modernisierung, Microsoft 365, SEO/GEO und Webdesign für Handwerksbetriebe – beantwortet von JB Solutions.",
+  alternates: { canonical: "/faq" },
 };
 
 const faq = [

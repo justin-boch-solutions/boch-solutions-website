@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Ablauf",
   description:
     "So läuft die Zusammenarbeit mit JB Solutions ab: Strategie-Call, Architektur-Planung, Umsetzung und laufende Skalierung & Wartung.",
+  alternates: { canonical: "/ablauf" },
 };
 
 export default function AblaufPage() {
