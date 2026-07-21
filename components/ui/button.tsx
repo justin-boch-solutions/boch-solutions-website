@@ -36,7 +36,7 @@ type ButtonAsButton = BaseProps & { href?: undefined } & Omit<
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 whitespace-nowrap hover:scale-[1.03] active:scale-[0.98]";
+  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 whitespace-nowrap hover:scale-[1.03] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60 disabled:hover:scale-100";
 
 export function Button({ variant = "primary", size = "md", className, children, ...props }: ButtonProps) {
   const styles = cn(baseStyles, variantStyles[variant], sizeStyles[size], className);

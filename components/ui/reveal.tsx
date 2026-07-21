@@ -23,7 +23,11 @@ export function Reveal({ children, className, delay = 0, style, ...props }: Reve
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -80px 0px" },
+      // threshold 0 fires as soon as any part enters the viewport (minus the
+      // rootMargin), independent of the element's own size — a fixed
+      // fraction like 0.15 never triggers for elements taller than the
+      // viewport (e.g. long legal-text pages), leaving them stuck invisible.
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" },
     );
 
     observer.observe(node);

@@ -25,9 +25,21 @@ export const company = {
   vatId: "DE461737440" as string | null,
   domain: "boch-solutions.de",
   url: "https://boch-solutions.de",
+  whatsapp: "+49 152 55703632",
+  whatsappHref: "https://wa.me/4915255703632",
 } as const;
 
 export const addressLine = `${company.address.street}, ${company.address.zip} ${company.address.city}`;
+
+// Third-party tracking IDs. GA4 is live; the Google Ads conversion tag
+// (format "AW-XXXXXXXXX") is not yet available — the Ads account is still
+// being set up and its customer ID (398-390-6623) is a different identifier
+// that can't be used as a gtag conversion ID. Fill this in once the Ads
+// account has an actual conversion action / Google tag configured.
+export const analytics = {
+  googleAnalyticsId: "G-Q8L82LT39H",
+  googleAdsId: null as string | null,
+} as const;
 
 export const stack = [
   "Microsoft 365 & Azure",

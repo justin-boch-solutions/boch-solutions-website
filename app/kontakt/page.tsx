@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -35,6 +35,15 @@ export default function KontaktPage() {
                 <a href={company.emailHref} className="flex items-center gap-3 text-muted hover:text-foreground">
                   <Mail className="size-5 text-accent-secondary" />
                   {company.email}
+                </a>
+                <a
+                  href={company.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted hover:text-foreground"
+                >
+                  <MessageCircle className="size-5 text-accent-secondary" />
+                  WhatsApp: {company.whatsapp}
                 </a>
                 <p className="flex items-center gap-3 text-muted">
                   <MapPin className="size-5 shrink-0 text-accent-secondary" />

@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { Container } from "@/components/ui/container";
+import { CookieSettingsLink } from "@/components/consent/cookie-settings-link";
 import { addressLine, company } from "@/lib/constants";
 import { clusterMeta, services, type ServiceCluster } from "@/lib/services";
 
@@ -34,6 +35,15 @@ export function Footer() {
               <a href={company.emailHref} className="flex items-center gap-2 hover:text-foreground">
                 <Mail className="size-4 shrink-0" />
                 {company.email}
+              </a>
+              <a
+                href={company.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-foreground"
+              >
+                <MessageCircle className="size-4 shrink-0" />
+                WhatsApp
               </a>
               <p className="flex items-center gap-2">
                 <MapPin className="size-4 shrink-0" />
@@ -93,6 +103,10 @@ export function Footer() {
             <Link href="/datenschutz" className="hover:text-foreground">
               Datenschutz
             </Link>
+            <Link href="/agb" className="hover:text-foreground">
+              AGB
+            </Link>
+            <CookieSettingsLink className="hover:text-foreground" />
           </div>
         </div>
       </Container>

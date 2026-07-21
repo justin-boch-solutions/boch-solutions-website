@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { company } from "@/lib/constants";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { CookieBanner } from "@/components/consent/cookie-banner";
+import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,6 +67,9 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieBanner />
+        <AnalyticsScripts />
+        <Analytics />
       </body>
     </html>
   );
