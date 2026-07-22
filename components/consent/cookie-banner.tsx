@@ -17,6 +17,15 @@ export function CookieBanner() {
   const [showDetails, setShowDetails] = useState(false);
   const [statistics, setStatistics] = useState(false);
   const [marketing, setMarketing] = useState(false);
+  const [lastState, setLastState] = useState(state);
+
+  if (state !== lastState) {
+    setLastState(state);
+    if (state.hasChosen) {
+      setStatistics(state.statistics);
+      setMarketing(state.marketing);
+    }
+  }
 
   useEffect(() => {
     function handleOpen() {
@@ -26,13 +35,6 @@ export function CookieBanner() {
     window.addEventListener(OPEN_SETTINGS_EVENT, handleOpen);
     return () => window.removeEventListener(OPEN_SETTINGS_EVENT, handleOpen);
   }, []);
-
-  useEffect(() => {
-    if (state.hasChosen) {
-      setStatistics(state.statistics);
-      setMarketing(state.marketing);
-    }
-  }, [state]);
 
   const isVisible = !state.hasChosen || forceOpen;
   if (!isVisible) return null;
