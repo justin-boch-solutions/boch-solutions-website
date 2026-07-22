@@ -40,6 +40,10 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
+  // Resend requires the sending domain to be verified; only the
+  // "send." subdomain is verified in Resend, not the bare root domain.
+  const fromAddress = `Kontaktformular <formular@send.${company.domain}>`;
+
   const lines = [
     `Name: ${name}`,
     `Firma: ${firma}`,
@@ -53,7 +57,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: `Kontaktformular <${company.email}>`,
+      from: fromAddress,
       to: company.email,
       replyTo: email,
       subject: `Anfrage über die Webseite – ${firma || name}`,
