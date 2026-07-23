@@ -3,6 +3,7 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ContactForm } from "@/components/sections/contact-form";
+import { MapEmbed } from "@/components/sections/map-embed";
 import { addressLine, company } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default function KontaktPage() {
                 und wie wir zusammenpassen – ganz ohne Verpflichtung.
               </p>
             </div>
+            <MapEmbed />
           </div>
 
           <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">

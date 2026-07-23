@@ -12,10 +12,17 @@ const companyLinks = [
   { href: "/agentur", label: "Agentur" },
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
-  { href: "/magazin", label: "Magazin" },
-  { href: "/faq", label: "FAQ" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/support", label: "Support (Bestandskunden)" },
+];
+
+const resourceLinks = [
+  { href: "/magazin", label: "Magazin" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/it-check", label: "IT-Check" },
+  { href: "/checkliste", label: "IT-Sicherheits-Checkliste" },
+  { href: "/beispielprojekt", label: "Beispielprojekt" },
+  { href: "/standorte", label: "Standorte" },
 ];
 
 export function Footer() {
@@ -54,7 +61,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {clusters.map((cluster) => (
               <div key={cluster}>
                 <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent-secondary">
@@ -83,6 +90,21 @@ export function Footer() {
               </p>
               <ul className="space-y-2">
                 {companyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-sm text-muted hover:text-foreground">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent-secondary">
+                Ressourcen
+              </p>
+              <ul className="space-y-2">
+                {resourceLinks.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="text-sm text-muted hover:text-foreground">
                       {link.label}

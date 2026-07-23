@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { company } from "@/lib/constants";
 import { services } from "@/lib/services";
 import { articles } from "@/lib/articles";
+import { locations } from "@/lib/locations";
 
 const staticRoutes = [
   "",
@@ -12,6 +13,10 @@ const staticRoutes = [
   "/faq",
   "/kontakt",
   "/magazin",
+  "/it-check",
+  "/standorte",
+  "/beispielprojekt",
+  "/checkliste",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,5 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...articleEntries];
+  const locationEntries: MetadataRoute.Sitemap = locations.map((location) => ({
+    url: `${company.url}/standorte/${location.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...articleEntries, ...locationEntries];
 }

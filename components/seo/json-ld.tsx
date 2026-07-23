@@ -129,10 +129,12 @@ export function ServiceJsonLd({
   name,
   description,
   url,
+  areaServed = "Münster",
 }: {
   name: string;
   description: string;
   url: string;
+  areaServed?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -148,7 +150,7 @@ export function ServiceJsonLd({
     },
     areaServed: {
       "@type": "City",
-      name: "Münster",
+      name: areaServed,
     },
   };
 

@@ -10,6 +10,7 @@ import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
@@ -136,6 +137,20 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      <section className="border-t border-border bg-gradient-to-r from-accent/10 via-transparent to-accent-secondary/10 py-14">
+        <Container className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <p className="font-display text-xl font-semibold text-foreground">Wie zukunftsfähig ist Ihre IT?</p>
+            <p className="mt-1 text-sm text-muted">
+              Kostenloser Selbsttest in 2 Minuten – mit sofortiger Einschätzung für Ihren Betrieb.
+            </p>
+          </div>
+          <Button href="/it-check" size="lg" className="shrink-0">
+            Jetzt IT-Check machen
+          </Button>
+        </Container>
+      </section>
 
       <Section
         eyebrow="Webdesign"

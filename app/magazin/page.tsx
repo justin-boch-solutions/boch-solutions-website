@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   title: "Magazin",
   description:
     "Praxisnahe Artikel zu Microsoft 365, IT-Sicherheit, lokalem SEO, GEO-Optimierung und Digitalisierung für Handwerksbetriebe – vom Team von JB Solutions.",
-  alternates: { canonical: "/magazin" },
+  alternates: {
+    canonical: "/magazin",
+    types: { "application/rss+xml": "/magazin/feed.xml" },
+  },
 };
 
 const categories: ArticleCategory[] = ["microsoft-it", "sichtbarkeit", "digitalisierung"];
@@ -50,6 +53,14 @@ export default function MagazinPage() {
           </Section>
         );
       })}
+
+      <p className="pb-16 text-center text-sm text-muted">
+        Neue Artikel auch per{" "}
+        <a href="/magazin/feed.xml" className="underline hover:text-foreground">
+          RSS-Feed
+        </a>
+        .
+      </p>
     </>
   );
 }

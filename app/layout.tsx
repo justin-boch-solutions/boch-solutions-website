@@ -10,6 +10,7 @@ import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -60,7 +61,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <body className="min-h-screen bg-background pb-14 font-sans text-foreground antialiased lg:pb-0">
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{var t=localStorage.getItem('jb-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();`}
         </Script>
@@ -69,6 +70,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCta />
         <CookieBanner />
         <AnalyticsScripts />
         <Analytics />
