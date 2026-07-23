@@ -8,6 +8,7 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
+  Sparkles,
   TrendingUp,
   Workflow,
   type LucideIcon,
@@ -25,6 +26,7 @@ const iconMap: Record<string, LucideIcon> = {
   LayoutTemplate,
   Code2,
   Workflow,
+  Sparkles,
 };
 
 export function ServiceIcon({ name, className }: { name: string; className?: string }) {

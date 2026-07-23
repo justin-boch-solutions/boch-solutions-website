@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,6 +65,7 @@ export default function RootLayout({
           {`(function(){try{var t=localStorage.getItem('jb-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();`}
         </Script>
         <OrganizationJsonLd />
+        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />

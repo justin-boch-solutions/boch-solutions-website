@@ -87,6 +87,44 @@ export function FaqJsonLd({ faq }: { faq: { question: string; answer: string }[]
   );
 }
 
+export function ArticleJsonLd({
+  title,
+  description,
+  url,
+  datePublished,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url,
+    datePublished,
+    dateModified: datePublished,
+    author: {
+      "@type": "Person",
+      name: company.owner,
+    },
+    publisher: {
+      "@type": "ProfessionalService",
+      name: company.name,
+    },
+    mainEntityOfPage: url,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function ServiceJsonLd({
   name,
   description,

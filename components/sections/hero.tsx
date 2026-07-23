@@ -1,6 +1,7 @@
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/container";
 import { GlowOrb } from "@/components/ui/glass-panel";
+import { ParallaxLayer } from "@/components/ui/parallax-layer";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/sections/breadcrumb";
@@ -30,8 +31,12 @@ export function Hero({
 }: HeroProps) {
   return (
     <div className={cn("relative overflow-hidden border-b border-border bg-grid", className)}>
-      <GlowOrb className="left-1/4 top-0 size-[420px] -translate-x-1/2 bg-accent/30 animate-drift" />
-      <GlowOrb className="right-0 top-20 size-[360px] translate-x-1/3 bg-accent-secondary/20 animate-drift-reverse" />
+      <ParallaxLayer speed={0.06} className="pointer-events-none absolute inset-0">
+        <GlowOrb className="left-1/4 top-0 size-[420px] -translate-x-1/2 bg-accent/30 animate-drift" />
+      </ParallaxLayer>
+      <ParallaxLayer speed={-0.04} className="pointer-events-none absolute inset-0">
+        <GlowOrb className="right-0 top-20 size-[360px] translate-x-1/3 bg-accent-secondary/20 animate-drift-reverse" />
+      </ParallaxLayer>
       <Container
         className={cn(
           "relative",

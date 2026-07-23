@@ -12,8 +12,10 @@ const companyLinks = [
   { href: "/agentur", label: "Agentur" },
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
+  { href: "/magazin", label: "Magazin" },
   { href: "/faq", label: "FAQ" },
   { href: "/kontakt", label: "Kontakt" },
+  { href: "/support", label: "Support (Bestandskunden)" },
 ];
 
 export function Footer() {

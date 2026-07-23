@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { GlowOrb } from "@/components/ui/glass-panel";
+import { ParallaxLayer } from "@/components/ui/parallax-layer";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { company } from "@/lib/constants";
@@ -15,7 +16,9 @@ export function CtaSection({
 }: CtaSectionProps) {
   return (
     <section className="relative overflow-hidden border-t border-border py-20 md:py-28">
-      <GlowOrb className="left-1/2 top-1/2 size-[600px] -translate-x-1/2 -translate-y-1/2 bg-accent/20 animate-drift" />
+      <ParallaxLayer speed={0.05} className="pointer-events-none absolute inset-0">
+        <GlowOrb className="left-1/2 top-1/2 size-[600px] -translate-x-1/2 -translate-y-1/2 bg-accent/20 animate-drift" />
+      </ParallaxLayer>
       <Container className="relative text-center">
         <Reveal>
           <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/agentur", label: "Agentur" },
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
+  { href: "/magazin", label: "Magazin" },
 ];
 
 const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisierung"];

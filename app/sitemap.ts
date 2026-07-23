@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/lib/constants";
 import { services } from "@/lib/services";
+import { articles } from "@/lib/articles";
 
 const staticRoutes = [
   "",
@@ -10,6 +11,7 @@ const staticRoutes = [
   "/pakete",
   "/faq",
   "/kontakt",
+  "/magazin",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,5 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...serviceEntries];
+  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${company.url}/magazin/${article.slug}`,
+    lastModified: new Date(article.publishedAt),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...articleEntries];
 }
