@@ -3,7 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { CtaSection } from "@/components/sections/cta-section";
-import { RoadmapIllustration } from "@/components/illustrations/roadmap";
+import { HeroPhoto } from "@/components/ui/hero-photo";
 
 export const metadata: Metadata = {
   title: "Ablauf",
@@ -19,7 +19,7 @@ export default function AblaufPage() {
         eyebrow="Ablauf"
         title="Vier klare Phasen bis zur modernisierten IT"
         subtitle="Keine Blackbox: Sie wissen jederzeit, in welcher Phase Ihr Projekt steckt und was als Nächstes passiert."
-        visual={<RoadmapIllustration />}
+        visual={<HeroPhoto src="/images/hero/ablauf.jpg" alt="Whiteboard mit Klebezetteln zur Projektplanung in Spalten" />}
       />
 
       <Section>
