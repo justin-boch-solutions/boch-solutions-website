@@ -55,15 +55,21 @@ export function Typewriter({ segments, speed = 35, startDelay = 300, className }
     { nodes: [], remaining: count },
   );
 
+  const lastNode = nodes[nodes.length - 1];
+  const leadingNodes = nodes.slice(0, -1);
+
   return (
     <span className={className} aria-label={fullText}>
       <span aria-hidden="true">
-        {nodes}
-        <span
-          className={cn(
-            "ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.1em] animate-soft-pulse bg-accent-secondary align-middle",
-          )}
-        />
+        {leadingNodes}
+        <span className="whitespace-nowrap">
+          {lastNode}
+          <span
+            className={cn(
+              "ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.1em] animate-soft-pulse bg-accent-secondary align-middle",
+            )}
+          />
+        </span>
       </span>
     </span>
   );

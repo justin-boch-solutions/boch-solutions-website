@@ -104,7 +104,7 @@ export default function Home() {
             className="font-[family-name:var(--font-space-mono)] tracking-tight"
             segments={[
               { text: "Ihr Betrieb, modernisiert mit " },
-              { text: "Microsoft-Technologie.", className: "text-gradient-animated" },
+              { text: "Microsoft‑Technologie.", className: "text-gradient-animated" },
             ]}
           />
         }
