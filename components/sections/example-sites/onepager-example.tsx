@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { ChevronDown, Send, Star } from "lucide-react";
 import { BrowserFrame } from "./browser-frame";
 
@@ -64,6 +65,14 @@ export function OnepagerExample() {
       </div>
 
       <div className="relative overflow-hidden bg-neutral-950 px-6 pb-14 pt-8 text-white">
+        <Image
+          src="/images/beispielprojekt/elektriker-hero.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-45"
+          sizes="672px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/85 to-neutral-950/50" />
         <div className="pointer-events-none absolute -right-12 -top-16 size-64 rounded-full bg-amber-500/20 blur-3xl" />
         <p className="relative text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
           Elektriker · Münster

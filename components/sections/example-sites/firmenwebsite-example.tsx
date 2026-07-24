@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { ChevronDown, ChevronLeft, ChevronRight, Menu, Send, Star, X } from "lucide-react";
 import { BrowserFrame } from "./browser-frame";
 
@@ -99,6 +100,14 @@ export function FirmenwebsiteExample() {
       </nav>
 
       <div className="relative overflow-hidden bg-slate-900 px-6 py-16 text-white">
+        <Image
+          src="/images/beispielprojekt/dachdecker-hero.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-40"
+          sizes="672px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/85 to-slate-900/60" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.08]"
           style={{ backgroundImage: "radial-gradient(white 1px, transparent 1px)", backgroundSize: "18px 18px" }}
@@ -141,7 +150,16 @@ export function FirmenwebsiteExample() {
 
       <div ref={referenzenRef} className="bg-slate-50 px-6 py-14">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">Referenzprojekte</p>
-        <div className="mt-5 space-y-2">
+        <div className="relative mt-5 aspect-[16/9] overflow-hidden rounded-xl">
+          <Image
+            src="/images/beispielprojekt/dachziegel-referenz.jpg"
+            alt="Beispielhafte Dacheindeckung mit Ziegeln"
+            fill
+            className="object-cover"
+            sizes="672px"
+          />
+        </div>
+        <div className="mt-4 space-y-2">
           {referenzen.map((item) => (
             <div
               key={item.title}

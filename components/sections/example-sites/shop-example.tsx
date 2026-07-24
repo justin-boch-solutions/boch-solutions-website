@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { Send, ShoppingCart, Star, Trash2, Truck, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { BrowserFrame } from "./browser-frame";
@@ -120,6 +121,21 @@ export function ShopExample() {
           )}
         </div>
       ) : null}
+
+      <div className="relative flex items-end overflow-hidden px-6 py-8 text-white">
+        <Image
+          src="/images/beispielprojekt/werkzeug-hero.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="672px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 via-emerald-900/50 to-emerald-900/10" />
+        <div className="relative">
+          <p className="text-xs font-semibold uppercase tracking-wider text-emerald-200">Online-Shop</p>
+          <h2 className="mt-1 text-xl font-bold">Ersatzteile & Beschläge direkt bestellen</h2>
+        </div>
+      </div>
 
       <div className="flex gap-5 bg-white px-6 py-6">
         <div className="hidden w-32 shrink-0 sm:block">
