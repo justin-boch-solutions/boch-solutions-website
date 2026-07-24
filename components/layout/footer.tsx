@@ -20,7 +20,6 @@ const resourceLinks = [
   { href: "/magazin", label: "Magazin" },
   { href: "/faq", label: "FAQ" },
   { href: "/it-check", label: "IT-Check" },
-  { href: "/checkliste", label: "IT-Sicherheits-Checkliste" },
   { href: "/beispielprojekt", label: "Beispielprojekt" },
   { href: "/standorte", label: "Standorte" },
 ];

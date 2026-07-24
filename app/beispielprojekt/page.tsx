@@ -4,9 +4,9 @@ import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { BrowserMockup } from "@/components/illustrations/browser-mockup";
-import { GoogleProfileMockup } from "@/components/illustrations/google-profile-mockup";
-import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
+import { OnepagerExample } from "@/components/sections/example-sites/onepager-example";
+import { FirmenwebsiteExample } from "@/components/sections/example-sites/firmenwebsite-example";
+import { ShopExample } from "@/components/sections/example-sites/shop-example";
 import { company } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -110,22 +110,28 @@ export default function BeispielprojektPage() {
 
       <Section
         eyebrow="Vorschau"
-        title="So könnte das Ergebnis aussehen"
-        subtitle="Beispielhafte, abstrakte Darstellungen – keine echten Screenshots eines Kunden, sondern eine Illustration dessen, worauf es bei Webseite, Google-Profil und Microsoft-365-Umgebung ankommt."
+        title="Beispiel-Webseiten zum Ausprobieren"
+        subtitle="Drei unterschiedliche Webseiten-Typen als interaktive Vorschau – scrollen und klicken Sie sich durch. Keine echten Kundenprojekte, sondern Beispiele für das, was möglich ist."
         className="border-t border-border bg-surface/30"
       >
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div className="space-y-12">
           <div>
-            <BrowserMockup />
-            <p className="mt-4 text-center text-sm font-medium text-foreground">Die neue Webseite</p>
+            <p className="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-accent-secondary">
+              Onepager
+            </p>
+            <OnepagerExample />
           </div>
           <div>
-            <GoogleProfileMockup />
-            <p className="mt-4 text-center text-sm font-medium text-foreground">Das Google-Unternehmensprofil</p>
+            <p className="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-accent-secondary">
+              Firmenwebsite
+            </p>
+            <FirmenwebsiteExample />
           </div>
           <div>
-            <CloudDiagram />
-            <p className="mt-4 text-center text-sm font-medium text-foreground">Die Microsoft-365-Umgebung</p>
+            <p className="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-accent-secondary">
+              Online-Shop
+            </p>
+            <ShopExample />
           </div>
         </div>
       </Section>

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, Mail, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/ui/count-up";
-import { getServiceBySlug } from "@/lib/services";
+import { company } from "@/lib/constants";
+import { getServiceBySlug, type Service } from "@/lib/services";
 
 interface QuizOption {
   label: string;
@@ -125,6 +126,9 @@ export function ItCheckQuiz() {
     const score = answers.reduce((sum, points) => sum + points, 0);
     const maxScore = questions.length * 2;
     const tier = getTier(score);
+    const services = tier.serviceSlugs
+      .map((slug) => getServiceBySlug(slug))
+      .filter((s): s is Service => s !== undefined);
 
     return (
       <div className="rounded-2xl border border-border bg-surface p-8 text-center sm:p-10">
@@ -136,20 +140,16 @@ export function ItCheckQuiz() {
         <p className="mx-auto mt-3 max-w-xl text-muted">{tier.description}</p>
 
         <div className="mt-8 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
-          {tier.serviceSlugs.map((slug) => {
-            const service = getServiceBySlug(slug);
-            if (!service) return null;
-            return (
-              <Link
-                key={slug}
-                href={`/leistungen/${slug}`}
-                className="group rounded-xl border border-border bg-surface-elevated p-5 transition-colors hover:border-accent-secondary/40"
-              >
-                <p className="font-medium text-foreground">{service.shortName}</p>
-                <p className="mt-1 text-sm text-muted">{service.shortDescription}</p>
-              </Link>
-            );
-          })}
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/leistungen/${service.slug}`}
+              className="group rounded-xl border border-border bg-surface-elevated p-5 transition-colors hover:border-accent-secondary/40"
+            >
+              <p className="font-medium text-foreground">{service.shortName}</p>
+              <p className="mt-1 text-sm text-muted">{service.shortDescription}</p>
+            </Link>
+          ))}
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
@@ -164,6 +164,8 @@ export function ItCheckQuiz() {
             Test wiederholen
           </button>
         </div>
+
+        <ResultEmailForm score={score} maxScore={maxScore} tier={tier} services={services} />
       </div>
     );
   }
@@ -200,5 +202,119 @@ export function ItCheckQuiz() {
         ))}
       </div>
     </div>
+  );
+}
+
+type Status = "idle" | "submitting" | "success" | "error";
+
+function ResultEmailForm({
+  score,
+  maxScore,
+  tier,
+  services,
+}: {
+  score: number;
+  maxScore: number;
+  tier: ResultTier;
+  services: Service[];
+}) {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === "submitting") return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      score,
+      maxScore,
+      tierTitle: tier.title,
+      tierDescription: tier.description,
+      recommendations: services.map((service) => ({
+        name: service.shortName,
+        url: `${company.url}/leistungen/${service.slug}`,
+      })),
+    };
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/it-check-ergebnis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data?.error || "Senden fehlgeschlagen.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : "Senden fehlgeschlagen.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="mt-10 flex items-center justify-center gap-2 rounded-xl border border-border-strong bg-surface-elevated p-5 text-sm text-accent-secondary">
+        <Mail className="size-4 shrink-0" />
+        Ihr Ergebnis ist unterwegs zu Ihrer E-Mail-Adresse.
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-10 border-t border-border pt-8 text-left">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+      <p className="text-center font-medium text-foreground">Ergebnis per E-Mail erhalten</p>
+      <p className="mx-auto mt-1 max-w-sm text-center text-sm text-muted">
+        Wir schicken Ihnen Ihr persönliches Ergebnis mit den Empfehlungen oben zum Nachlesen zu.
+      </p>
+
+      <div className="mx-auto mt-5 grid max-w-lg grid-cols-1 gap-3 sm:grid-cols-2">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+          autoComplete="name"
+          className="w-full rounded-lg border border-border-strong bg-surface-elevated px-4 py-3 text-sm text-foreground placeholder:text-muted focus-visible:border-accent-secondary"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="E-Mail"
+          required
+          autoComplete="email"
+          className="w-full rounded-lg border border-border-strong bg-surface-elevated px-4 py-3 text-sm text-foreground placeholder:text-muted focus-visible:border-accent-secondary"
+        />
+      </div>
+
+      <div className="mx-auto mt-5 flex max-w-lg flex-col items-center gap-4">
+        <Button type="submit" disabled={status === "submitting"} className="w-full sm:w-auto">
+          {status === "submitting" ? "Wird gesendet…" : "Ergebnis zusenden"}
+        </Button>
+        {status === "error" ? (
+          <p className="text-sm text-red-400">{errorMessage || "Senden fehlgeschlagen."}</p>
+        ) : null}
+        <p className="text-center text-xs text-muted">
+          Details in der{" "}
+          <a href="/datenschutz" className="underline hover:text-foreground">
+            Datenschutzerklärung
+          </a>
+          .
+        </p>
+      </div>
+    </form>
   );
 }

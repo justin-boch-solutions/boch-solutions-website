@@ -178,9 +178,12 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap gap-4">
           <Button href="/leistungen/webdesign" size="lg">
             Mehr zu Webdesign
+          </Button>
+          <Button href="/beispielprojekt" variant="secondary" size="lg">
+            So könnte Ihr Ergebnis aussehen
           </Button>
         </div>
       </Section>

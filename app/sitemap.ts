@@ -16,7 +16,6 @@ const staticRoutes = [
   "/it-check",
   "/standorte",
   "/beispielprojekt",
-  "/checkliste",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
