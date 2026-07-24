@@ -4,6 +4,9 @@ import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { BrowserMockup } from "@/components/illustrations/browser-mockup";
+import { GoogleProfileMockup } from "@/components/illustrations/google-profile-mockup";
+import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { company } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -106,9 +109,30 @@ export default function BeispielprojektPage() {
       </Section>
 
       <Section
+        eyebrow="Vorschau"
+        title="So könnte das Ergebnis aussehen"
+        subtitle="Beispielhafte, abstrakte Darstellungen – keine echten Screenshots eines Kunden, sondern eine Illustration dessen, worauf es bei Webseite, Google-Profil und Microsoft-365-Umgebung ankommt."
+        className="border-t border-border bg-surface/30"
+      >
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div>
+            <BrowserMockup />
+            <p className="mt-4 text-center text-sm font-medium text-foreground">Die neue Webseite</p>
+          </div>
+          <div>
+            <GoogleProfileMockup />
+            <p className="mt-4 text-center text-sm font-medium text-foreground">Das Google-Unternehmensprofil</p>
+          </div>
+          <div>
+            <CloudDiagram />
+            <p className="mt-4 text-center text-sm font-medium text-foreground">Die Microsoft-365-Umgebung</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section
         eyebrow="Ablauf"
         title="Die Maßnahmen im Detail"
-        className="border-t border-border bg-surface/30"
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {massnahmen.map((item, index) => (

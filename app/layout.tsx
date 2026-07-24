@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -10,6 +10,7 @@ import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { BackToTop } from "@/components/ui/back-to-top";
 import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
 
 const inter = Inter({
@@ -20,6 +21,13 @@ const inter = Inter({
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  weight: ["700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -59,7 +67,7 @@ export default function RootLayout({
       lang="de"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
     >
       <body className="min-h-screen bg-background pb-14 font-sans text-foreground antialiased lg:pb-0">
         <Script id="theme-init" strategy="beforeInteractive">
@@ -70,6 +78,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
         <StickyMobileCta />
         <CookieBanner />
         <AnalyticsScripts />

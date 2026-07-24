@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CountUp } from "@/components/ui/count-up";
 import { getServiceBySlug } from "@/lib/services";
 
 interface QuizOption {
@@ -129,7 +130,7 @@ export function ItCheckQuiz() {
       <div className="rounded-2xl border border-border bg-surface p-8 text-center sm:p-10">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-secondary">Ihr Ergebnis</p>
         <p className="mt-3 font-display text-3xl font-bold text-foreground">
-          {score} / {maxScore} Punkten
+          <CountUp value={score} /> / {maxScore} Punkten
         </p>
         <h3 className="mt-4 font-display text-2xl font-bold text-foreground">{tier.title}</h3>
         <p className="mx-auto mt-3 max-w-xl text-muted">{tier.description}</p>

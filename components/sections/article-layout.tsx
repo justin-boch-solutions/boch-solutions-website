@@ -2,6 +2,7 @@ import { Clock } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ArticleCard } from "@/components/sections/article-card";
+import { ReadingProgressRail } from "@/components/sections/reading-progress-rail";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { articleCategoryMeta, formatArticleDate, getRelatedArticles, type Article } from "@/lib/articles";
@@ -50,11 +51,9 @@ export function ArticleLayout({ article, children }: { article: Article; childre
             </span>
           </div>
 
-          <div
-            className="space-y-5 text-base leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2:first-child]:mt-0 [&_li]:leading-relaxed [&_p]:text-base [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
-          >
+          <ReadingProgressRail className="space-y-5 text-base leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2:first-child]:mt-0 [&_li]:leading-relaxed [&_p]:text-base [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
             {children}
-          </div>
+          </ReadingProgressRail>
         </div>
       </Section>
 

@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { CountUp } from "@/components/ui/count-up";
+import { Typewriter } from "@/components/ui/typewriter";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 
@@ -98,10 +100,13 @@ export default function Home() {
       <Hero
         eyebrow="IT-Modernisierung für Handwerksbetriebe"
         title={
-          <>
-            Ihr Betrieb, modernisiert mit{" "}
-            <span className="text-gradient-animated">Microsoft-Technologie.</span>
-          </>
+          <Typewriter
+            className="font-[family-name:var(--font-space-mono)] tracking-tight"
+            segments={[
+              { text: "Ihr Betrieb, modernisiert mit " },
+              { text: "Microsoft-Technologie.", className: "text-gradient-animated" },
+            ]}
+          />
         }
         subtitle="Wir richten Microsoft 365 & Azure, professionelle E-Mail, Domain und Lizenzen für Ihren Handwerksbetrieb ein – und sorgen mit SEO, GEO-Optimierung und Google-Unternehmensprofil dafür, dass Kunden Sie auch finden."
         actions={
@@ -207,7 +212,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-6 rounded-2xl border border-border bg-surface p-8 sm:grid-cols-3 lg:grid-cols-1">
             <div>
-              <p className="font-display text-3xl font-bold text-gradient">1</p>
+              <p className="font-display text-3xl font-bold text-gradient">
+                <CountUp value={1} />
+              </p>
               <p className="mt-2 text-sm text-muted">
                 zentrale Anmeldung für E-Mail, Dateien, Teams-Telefonie und mobile Geräte
               </p>

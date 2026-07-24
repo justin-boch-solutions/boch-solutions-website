@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
@@ -25,6 +25,7 @@ const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisi
 export function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const [lastPathname, setLastPathname] = useState(pathname);
 
@@ -34,15 +35,30 @@ export function Header() {
     setIsServicesOpen(false);
   }
 
+  useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 24);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <header
       data-theme="dark"
-      className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
+      className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl transition-[height] duration-300 ease-out"
     >
-      <Container className="flex h-20 items-center justify-between">
-        <Logo />
+      <Container
+        size="wide"
+        className={cn(
+          "flex items-center justify-between transition-[height] duration-300 ease-out",
+          isScrolled ? "h-16" : "h-20",
+        )}
+      >
+        <Logo className={cn("origin-left transition-transform duration-300", isScrolled && "scale-90")} />
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-2 lg:flex">
           <div
             className="relative"
             onMouseEnter={() => setIsServicesOpen(true)}
