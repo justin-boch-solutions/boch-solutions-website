@@ -26,7 +26,7 @@ const resourceLinks = [
 
 export function Footer() {
   return (
-    <footer id="site-footer" data-theme="dark" className="border-t border-border bg-surface">
+    <footer data-theme="dark" className="border-t border-border bg-surface">
       <Container size="wide" className="py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[300px_1fr]">
           <div>
@@ -119,7 +119,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {company.legalName}. Alle Rechte vorbehalten.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-6 lg:pr-16">
             <Link href="/impressum" className="hover:text-foreground">
               Impressum
             </Link>
