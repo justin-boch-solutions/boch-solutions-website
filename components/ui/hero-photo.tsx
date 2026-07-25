@@ -15,7 +15,7 @@ export function HeroPhoto({ src, alt, className }: HeroPhotoProps) {
         className,
       )}
     >
-      <Image src={src} alt={alt} fill className="object-cover" sizes="(min-width: 1024px) 480px, 100vw" />
+      <Image src={src} alt={alt} fill priority className="object-cover" sizes="(min-width: 1024px) 480px, 100vw" />
     </div>
   );
 }

@@ -101,7 +101,7 @@ export default function Home() {
         eyebrow="IT-Modernisierung für Handwerksbetriebe"
         title={
           <Typewriter
-            className="font-[family-name:var(--font-space-mono)] tracking-tight"
+            className="font-[family-name:var(--font-space-mono)] text-[6.8vw] tracking-tight sm:text-5xl lg:text-6xl"
             segments={[
               { text: "Ihr Betrieb, modernisiert mit " },
               { text: "Microsoft‑Technologie.", className: "text-gradient-animated" },
