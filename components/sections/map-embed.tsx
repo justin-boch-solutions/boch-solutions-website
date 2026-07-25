@@ -23,7 +23,7 @@ export function MapEmbed() {
     <div className="flex h-full min-h-[280px] flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-surface p-8 text-center">
       <MapPin className="size-8 text-accent-secondary" />
       <div>
-        <p className="font-medium text-foreground">{addressLine}</p>
+        <p className="font-medium text-foreground">Unser Standort in Münster</p>
         <p className="mt-1 text-sm text-muted">
           Beim Laden der Karte wird eine Verbindung zu Google Maps aufgebaut und es können Cookies von
           Google gesetzt werden.

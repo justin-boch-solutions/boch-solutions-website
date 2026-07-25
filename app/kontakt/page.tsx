@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ContactForm } from "@/components/sections/contact-form";
 import { MapEmbed } from "@/components/sections/map-embed";
-import { addressLine, company } from "@/lib/constants";
+import { company } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -46,10 +46,6 @@ export default function KontaktPage() {
                   <MessageCircle className="size-5 text-accent-secondary" />
                   WhatsApp: {company.whatsapp}
                 </a>
-                <p className="flex items-center gap-3 text-muted">
-                  <MapPin className="size-5 shrink-0 text-accent-secondary" />
-                  {addressLine}
-                </p>
               </div>
             </div>
             <div className="rounded-xl border border-border bg-surface p-6">

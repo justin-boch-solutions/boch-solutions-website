@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { Container } from "@/components/ui/container";
 import { CookieSettingsLink } from "@/components/consent/cookie-settings-link";
-import { addressLine, company } from "@/lib/constants";
+import { company } from "@/lib/constants";
 import { clusterMeta, services, type ServiceCluster } from "@/lib/services";
 
 const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisierung"];
@@ -53,10 +53,6 @@ export function Footer() {
                 <MessageCircle className="size-4 shrink-0" />
                 WhatsApp
               </a>
-              <p className="flex items-center gap-2">
-                <MapPin className="size-4 shrink-0" />
-                {addressLine}
-              </p>
             </div>
           </div>
 

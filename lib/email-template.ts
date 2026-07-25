@@ -1,4 +1,4 @@
-import { addressLine, company } from "@/lib/constants";
+import { company } from "@/lib/constants";
 
 export function escapeHtml(value: string): string {
   return value
@@ -28,11 +28,8 @@ export function renderEmailLayout({ previewText, bodyHtml }: EmailLayoutOptions)
         <td align="center">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background-color:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;">
             <tr>
-              <td style="background-color:#0d1018;padding:22px 32px;">
-                <span style="font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:2px;color:#9aa3b2;text-transform:uppercase;">Justin Boch</span>
-                <div style="font-size:22px;font-weight:700;color:#eef1f7;letter-spacing:-0.01em;margin-top:2px;">
-                  <span style="color:#8c52ff;">S</span>OLUTIONS
-                </div>
+              <td style="background-color:#0d1018;padding:24px 32px;">
+                <img src="${company.url}/images/logo-email.png" alt="${escapeHtml(company.legalName)}" width="180" height="84" style="display:block;border:0;height:42px;width:auto;" />
               </td>
             </tr>
             <tr>
@@ -43,7 +40,7 @@ export function renderEmailLayout({ previewText, bodyHtml }: EmailLayoutOptions)
             <tr>
               <td style="padding:20px 32px;background-color:#f4f5f8;border-top:1px solid #e5e7eb;">
                 <p style="margin:0;font-size:12px;color:#5b6472;line-height:1.6;">
-                  ${escapeHtml(company.legalName)} · ${escapeHtml(addressLine)}<br />
+                  ${escapeHtml(company.legalName)}<br />
                   ${escapeHtml(company.phone)} · <a href="mailto:${company.email}" style="color:#5b6472;">${company.email}</a>
                 </p>
               </td>
