@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { HeroPhoto } from "@/components/ui/hero-photo";
-import { stack } from "@/lib/constants";
+import { stack, partners } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Agentur",
@@ -66,6 +67,35 @@ export default function AgenturPage() {
             >
               {tech}
             </span>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Partner"
+        title="Mit wem wir zusammenarbeiten"
+        subtitle="Verlässliche Partner für Infrastruktur, Recht und Bildsprache – statt alles selbst zu erfinden."
+      >
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {partners.map((partner) => (
+            <a
+              key={partner.name}
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center rounded-xl border border-border bg-surface p-6 text-center transition-colors hover:border-accent-secondary/60"
+            >
+              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-border-strong bg-surface-elevated">
+                {partner.logo ? (
+                  <Image src={partner.logo} alt={partner.name} width={56} height={56} className="h-full w-full object-contain" />
+                ) : (
+                  <span className="text-lg font-semibold text-accent-secondary">{partner.name.charAt(0)}</span>
+                )}
+              </div>
+              <h3 className="mt-4 font-display text-base font-semibold text-foreground">{partner.name}</h3>
+              <p className="mt-1 text-xs font-medium uppercase tracking-wide text-accent-secondary">{partner.role}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{partner.description}</p>
+            </a>
           ))}
         </div>
       </Section>

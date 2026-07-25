@@ -53,6 +53,37 @@ export const stack = [
   "Node.js",
 ] as const;
 
+export const partners = [
+  {
+    name: "Microsoft",
+    role: "Cloud- & Lizenzpartner",
+    description: "Basis für Microsoft 365, Azure und Lizenzierung – die Plattform, auf der wir aufbauen.",
+    url: "https://www.microsoft.com/de-de",
+    logo: null as string | null,
+  },
+  {
+    name: "Vercel",
+    role: "Hosting & Deployment",
+    description: "Hosting und Auslieferung dieser Webseite – schnell, sicher und weltweit verteilt.",
+    url: "https://vercel.com",
+    logo: null as string | null,
+  },
+  {
+    name: "eRecht24",
+    role: "Rechtssicherheit",
+    description: "Rechtssichere, laufend aktualisierte Texte für Impressum und Datenschutzerklärung.",
+    url: "https://www.e-recht24.de",
+    logo: null as string | null,
+  },
+  {
+    name: "Dzirksts Studio",
+    role: "Fotografie",
+    description: "Fotografie für authentische, echte Bilder auf dieser Webseite statt Stockfotos.",
+    url: "https://www.dzirkstsstudio.com",
+    logo: null as string | null,
+  },
+] as const;
+
 export const processPhases = [
   {
     number: "01",
