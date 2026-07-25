@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
     function onScroll() {
@@ -16,6 +17,17 @@ export function BackToTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry.isIntersecting), {
+      rootMargin: "0px 0px -20% 0px",
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <button
       type="button"
@@ -23,7 +35,7 @@ export function BackToTop() {
       aria-label="Nach oben scrollen"
       className={cn(
         "fixed bottom-8 right-8 z-30 hidden size-11 items-center justify-center rounded-full border border-border-strong bg-surface-elevated/90 text-foreground shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-accent-secondary/60 hover:text-accent-secondary lg:flex",
-        isVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",
+        isVisible && !footerVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",
       )}
     >
       <ArrowUp className="size-5" />
