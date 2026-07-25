@@ -1,4 +1,13 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { company } from "@/lib/constants";
+
+const LOGO_CONTENT_ID = "jbsolutions-logo";
+
+export function getLogoAttachment() {
+  const content = readFileSync(join(process.cwd(), "public/images/logo-email.png")).toString("base64");
+  return { filename: "logo.png", content, contentId: LOGO_CONTENT_ID };
+}
 
 export function escapeHtml(value: string): string {
   return value
@@ -29,7 +38,7 @@ export function renderEmailLayout({ previewText, bodyHtml }: EmailLayoutOptions)
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background-color:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;">
             <tr>
               <td style="background-color:#0d1018;padding:24px 32px;">
-                <img src="${company.url}/images/logo-email.png" alt="${escapeHtml(company.legalName)}" width="180" height="84" style="display:block;border:0;height:42px;width:auto;" />
+                <img src="cid:${LOGO_CONTENT_ID}" alt="${escapeHtml(company.legalName)}" width="180" height="84" style="display:block;border:0;height:42px;width:auto;" />
               </td>
             </tr>
             <tr>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
-import { emailButton, emailDataRows, escapeHtml, renderEmailLayout } from "@/lib/email-template";
+import { emailButton, emailDataRows, escapeHtml, getLogoAttachment, renderEmailLayout } from "@/lib/email-template";
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -40,6 +40,7 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
+  const logoAttachment = getLogoAttachment();
 
   // Resend requires the sending domain to be verified; only the
   // "send." subdomain is verified in Resend, not the bare root domain.
@@ -99,6 +100,7 @@ export async function POST(request: Request) {
       subject: `Anfrage über die Webseite – ${firma || name}`,
       text: textLines.join("\n"),
       html: notificationHtml,
+      attachments: [logoAttachment],
     });
 
     if (error) {
@@ -115,6 +117,7 @@ export async function POST(request: Request) {
         subject: "Ihre Anfrage ist angekommen – JB Solutions",
         text: `Vielen Dank, ${name}!\n\nIhre Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb eines Werktags bei Ihnen.\n\nIhre Angaben:\n${summaryLines.join("\n")}\n\nLieber direkt sprechen? ${company.phone}`,
         html: confirmationHtml,
+        attachments: [logoAttachment],
       })
       .catch((err) => console.error("Bestätigungsmail an Kunde fehlgeschlagen:", err));
 

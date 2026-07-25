@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
-import { emailButton, escapeHtml, renderEmailLayout } from "@/lib/email-template";
+import { emailButton, escapeHtml, getLogoAttachment, renderEmailLayout } from "@/lib/email-template";
 
 interface Recommendation {
   name: string;
@@ -54,6 +54,7 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
+  const logoAttachment = getLogoAttachment();
 
   // Resend requires the sending domain to be verified; only the
   // "send." subdomain is verified in Resend, not the bare root domain.
@@ -127,6 +128,7 @@ export async function POST(request: Request) {
         .filter((line) => line !== "")
         .join("\n"),
       html: resultHtml,
+      attachments: [logoAttachment],
     });
 
     if (error) {
@@ -165,6 +167,7 @@ export async function POST(request: Request) {
         subject: `Neuer IT-Check-Lead: ${name}`,
         text: `${name} (${email}) hat den IT-Check abgeschlossen.\n\nErgebnis: ${score} / ${maxScore} Punkten – ${tierTitle}\n\n${recommendationLines || "(keine Empfehlungen)"}`,
         html: leadHtml,
+        attachments: [logoAttachment],
       })
       .catch((err) => console.error("Interne IT-Check-Lead-Benachrichtigung fehlgeschlagen:", err));
 
