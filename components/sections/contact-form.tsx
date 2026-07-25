@@ -102,7 +102,8 @@ export function ContactForm() {
         </Button>
         {status === "success" ? (
           <p className="mt-3 text-sm text-accent-secondary">
-            Vielen Dank! Ihre Anfrage ist angekommen – wir melden uns zeitnah bei Ihnen.
+            Vielen Dank! Ihre Anfrage ist angekommen – wir melden uns zeitnah bei Ihnen. Eine Bestätigung
+            haben wir Ihnen zusätzlich per E-Mail geschickt.
           </p>
         ) : null}
         {status === "error" ? (

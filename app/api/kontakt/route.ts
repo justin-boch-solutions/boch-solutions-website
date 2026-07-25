@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
+import { emailButton, emailDataRows, escapeHtml, renderEmailLayout } from "@/lib/email-template";
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -44,16 +45,51 @@ export async function POST(request: Request) {
   // "send." subdomain is verified in Resend, not the bare root domain.
   const fromAddress = `Kontaktformular <formular@send.${company.domain}>`;
 
-  const lines = [
-    `Name: ${name}`,
-    `Firma: ${firma}`,
-    email ? `E-Mail: ${email}` : null,
-    telefon ? `Telefon: ${telefon}` : null,
-    branche ? `Branche: ${branche}` : null,
-    anliegen ? `Anliegen: ${anliegen}` : null,
-    "",
-    nachricht || "(keine Nachricht angegeben)",
-  ].filter((line): line is string => line !== null);
+  const dataRows = [
+    { label: "Name", value: name },
+    { label: "Firma", value: firma },
+    { label: "E-Mail", value: email },
+    ...(telefon ? [{ label: "Telefon", value: telefon }] : []),
+    ...(branche ? [{ label: "Branche", value: branche }] : []),
+    ...(anliegen ? [{ label: "Anliegen", value: anliegen }] : []),
+  ];
+
+  const summaryLines = dataRows.map((row) => `${row.label}: ${row.value}`);
+
+  const textLines = [...summaryLines, "", nachricht || "(keine Nachricht angegeben)"];
+
+  const notificationHtml = renderEmailLayout({
+    previewText: `Neue Anfrage von ${name}${firma ? ` (${firma})` : ""}`,
+    bodyHtml: `
+      <h1 style="margin:0 0 16px;font-size:20px;color:#10131a;">Neue Anfrage über die Webseite</h1>
+      ${emailDataRows(dataRows)}
+      ${
+        nachricht
+          ? `<p style="margin:20px 0 4px;font-size:13px;font-weight:600;color:#5b6472;">Nachricht</p>
+             <p style="margin:0;font-size:14px;color:#10131a;line-height:1.6;white-space:pre-wrap;">${escapeHtml(nachricht)}</p>`
+          : ""
+      }
+      <div style="margin-top:24px;">
+        ${emailButton("Direkt antworten", `mailto:${email}`)}
+      </div>
+    `,
+  });
+
+  const confirmationHtml = renderEmailLayout({
+    previewText: "Vielen Dank für Ihre Anfrage – wir melden uns zeitnah bei Ihnen.",
+    bodyHtml: `
+      <h1 style="margin:0 0 12px;font-size:20px;color:#10131a;">Vielen Dank, ${escapeHtml(name)}!</h1>
+      <p style="margin:0 0 20px;font-size:15px;color:#10131a;line-height:1.6;">
+        Ihre Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb eines Werktags bei Ihnen.
+      </p>
+      <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#5b6472;">Ihre Angaben im Überblick</p>
+      ${emailDataRows(dataRows)}
+      <p style="margin:24px 0 8px;font-size:14px;color:#10131a;">Lieber direkt sprechen?</p>
+      <div>
+        ${emailButton(`Anrufen: ${company.phone}`, company.phoneHref)}
+      </div>
+    `,
+  });
 
   try {
     const { error } = await resend.emails.send({
@@ -61,13 +97,26 @@ export async function POST(request: Request) {
       to: company.email,
       replyTo: email,
       subject: `Anfrage über die Webseite – ${firma || name}`,
-      text: lines.join("\n"),
+      text: textLines.join("\n"),
+      html: notificationHtml,
     });
 
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json({ error: "Senden fehlgeschlagen. Bitte versuchen Sie es erneut." }, { status: 502 });
     }
+
+    // Customer confirmation – best-effort, doesn't block the success response.
+    resend.emails
+      .send({
+        from: fromAddress,
+        to: email,
+        replyTo: company.email,
+        subject: "Ihre Anfrage ist angekommen – JB Solutions",
+        text: `Vielen Dank, ${name}!\n\nIhre Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb eines Werktags bei Ihnen.\n\nIhre Angaben:\n${summaryLines.join("\n")}\n\nLieber direkt sprechen? ${company.phone}`,
+        html: confirmationHtml,
+      })
+      .catch((err) => console.error("Bestätigungsmail an Kunde fehlgeschlagen:", err));
 
     return NextResponse.json({ ok: true });
   } catch (err) {

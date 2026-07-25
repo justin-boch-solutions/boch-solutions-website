@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
+import { emailButton, escapeHtml, renderEmailLayout } from "@/lib/email-template";
 
 interface Recommendation {
   name: string;
@@ -59,6 +60,46 @@ export async function POST(request: Request) {
   const fromAddress = `JB Solutions <it-check@send.${company.domain}>`;
 
   const recommendationLines = recommendations.map((r) => `- ${r.name}: ${r.url}`).join("\n");
+  const recommendationsHtml = recommendations
+    .map(
+      (r) => `<tr>
+        <td style="padding:12px 16px;border:1px solid #e5e7eb;border-radius:12px;">
+          <a href="${r.url}" style="color:#10131a;font-size:14px;font-weight:600;text-decoration:none;">${escapeHtml(r.name)}</a>
+        </td>
+      </tr>
+      <tr><td style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>`,
+    )
+    .join("");
+
+  const resultHtml = renderEmailLayout({
+    previewText: `Ihr IT-Check-Ergebnis: ${score} von ${maxScore} Punkten – ${tierTitle}`,
+    bodyHtml: `
+      <h1 style="margin:0 0 4px;font-size:20px;color:#10131a;">Ihr IT-Check-Ergebnis</h1>
+      <p style="margin:0 0 20px;font-size:15px;color:#5b6472;">Hallo ${escapeHtml(name)}, vielen Dank für Ihren IT-Check!</p>
+
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f5f8;border-radius:12px;margin-bottom:20px;">
+        <tr>
+          <td style="padding:20px 24px;text-align:center;">
+            <div style="font-size:28px;font-weight:700;color:#10131a;">${score} / ${maxScore} Punkten</div>
+            <div style="margin-top:4px;font-size:15px;font-weight:600;color:#8c52ff;">${escapeHtml(tierTitle)}</div>
+          </td>
+        </tr>
+      </table>
+
+      <p style="margin:0 0 20px;font-size:14px;color:#10131a;line-height:1.6;">${escapeHtml(tierDescription)}</p>
+
+      ${
+        recommendationsHtml
+          ? `<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#5b6472;">Empfohlene nächste Schritte</p>
+             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${recommendationsHtml}</table>`
+          : ""
+      }
+
+      <div style="margin-top:16px;">
+        ${emailButton("Kostenlosen Strategie-Call vereinbaren", `${company.url}/kontakt`)}
+      </div>
+    `,
+  });
 
   try {
     const { error } = await resend.emails.send({
@@ -85,6 +126,7 @@ export async function POST(request: Request) {
       ]
         .filter((line) => line !== "")
         .join("\n"),
+      html: resultHtml,
     });
 
     if (error) {
@@ -93,6 +135,28 @@ export async function POST(request: Request) {
     }
 
     // Internal lead notification – best-effort, doesn't block the customer's response.
+    const leadHtml = renderEmailLayout({
+      previewText: `Neuer IT-Check-Lead: ${name}`,
+      bodyHtml: `
+        <h1 style="margin:0 0 16px;font-size:20px;color:#10131a;">Neuer IT-Check-Lead</h1>
+        <p style="margin:0 0 16px;font-size:14px;color:#10131a;line-height:1.6;">
+          <strong>${escapeHtml(name)}</strong> (${escapeHtml(email)}) hat den IT-Check abgeschlossen.
+        </p>
+        <p style="margin:0 0 16px;font-size:14px;color:#10131a;">
+          Ergebnis: <strong>${score} / ${maxScore} Punkten – ${escapeHtml(tierTitle)}</strong>
+        </p>
+        ${
+          recommendationsHtml
+            ? `<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#5b6472;">Empfohlene Leistungen</p>
+               <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${recommendationsHtml}</table>`
+            : ""
+        }
+        <div style="margin-top:16px;">
+          ${emailButton("Antworten", `mailto:${email}`)}
+        </div>
+      `,
+    });
+
     resend.emails
       .send({
         from: fromAddress,
@@ -100,6 +164,7 @@ export async function POST(request: Request) {
         replyTo: email,
         subject: `Neuer IT-Check-Lead: ${name}`,
         text: `${name} (${email}) hat den IT-Check abgeschlossen.\n\nErgebnis: ${score} / ${maxScore} Punkten – ${tierTitle}\n\n${recommendationLines || "(keine Empfehlungen)"}`,
+        html: leadHtml,
       })
       .catch((err) => console.error("Interne IT-Check-Lead-Benachrichtigung fehlgeschlagen:", err));
 
