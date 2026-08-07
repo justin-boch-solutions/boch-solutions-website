@@ -1,87 +1,88 @@
-import { Cloud, Globe, HardDrive, Mail, ShieldCheck, Users } from "lucide-react";
+import { Bell, LayoutGrid, Mail, Search, Shield, Users } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { GlowOrb } from "@/components/ui/glass-panel";
 
-const nodes = [
-  { icon: Mail, label: "Mail", x: 50, y: 14.6 },
-  { icon: HardDrive, label: "Dateien", x: 83.7, y: 39.1 },
-  { icon: Users, label: "Teams", x: 70.8, y: 78.6 },
-  { icon: ShieldCheck, label: "Sicherheit", x: 29.2, y: 78.6 },
-  { icon: Globe, label: "Domain", x: 16.3, y: 39.1 },
+const navItems = [
+  { icon: LayoutGrid, label: "Start", active: true },
+  { icon: Users, label: "Benutzer" },
+  { icon: Mail, label: "Exchange" },
+  { icon: Shield, label: "Sicherheit" },
+];
+
+const users = [
+  { name: "M. Hausmann", role: "Geschäftsführung", status: "Aktiv" },
+  { name: "J. Nottbeck", role: "Bauleitung", status: "Aktiv" },
+  { name: "S. Reimann", role: "Buchhaltung", status: "Aktiv" },
 ];
 
 export function CloudDiagram({ className }: { className?: string }) {
   return (
-    <div className={cn("relative aspect-square w-full animate-float", className)}>
-      <GlowOrb className="left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 bg-accent/30" />
-
-      <svg
-        viewBox="0 0 480 480"
-        role="img"
-        aria-label="Diagramm: Microsoft-365-Cloud verbindet Mail, Dateien, Teams, Sicherheit und Domain"
-        className="absolute inset-0 h-full w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.4)]"
-      >
-        <defs>
-          <linearGradient id="cd-accent" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="var(--color-accent)" />
-            <stop offset="100%" stopColor="var(--color-accent-secondary)" />
-          </linearGradient>
-          <radialGradient id="cd-center-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        {nodes.map((node) => (
-          <line
-            key={node.label}
-            x1="240"
-            y1="240"
-            x2={(node.x / 100) * 480}
-            y2={(node.y / 100) * 480}
-            stroke="url(#cd-accent)"
-            strokeWidth="2"
-            strokeDasharray="2 10"
-            strokeLinecap="round"
-            opacity="0.6"
-            className="animate-dash-flow"
-          />
-        ))}
-
-        <circle cx="240" cy="240" r="92" fill="url(#cd-center-glow)" />
-        <circle cx="240" cy="240" r="56" fill="var(--color-surface)" stroke="url(#cd-accent)" strokeWidth="2" className="animate-soft-pulse" />
-
-        {nodes.map((node) => (
-          <circle
-            key={node.label}
-            cx={(node.x / 100) * 480}
-            cy={(node.y / 100) * 480}
-            r="38"
-            fill="var(--color-surface-elevated)"
-            stroke="var(--color-border-strong)"
-          />
-        ))}
-      </svg>
-
-      <div
-        className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-secondary p-3.5 shadow-[0_0_30px_-4px_var(--color-accent)]"
-        style={{ left: "50%", top: "50%" }}
-      >
-        <Cloud className="size-8 text-white" />
+    <div
+      className={cn(
+        "relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl shadow-black/30",
+        className,
+      )}
+    >
+      <div className="flex items-center gap-2 border-b border-border bg-surface-elevated px-4 py-2.5">
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="ml-2 truncate text-xs text-muted">admin.microsoft.com</span>
       </div>
 
-      {nodes.map((node) => (
-        <div
-          key={node.label}
-          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
-          style={{ left: `${node.x}%`, top: `${node.y}%` }}
-        >
-          <div className="flex size-9 items-center justify-center rounded-full border border-border-strong bg-surface-elevated text-accent-secondary shadow-[0_8px_20px_-6px_rgba(0,0,0,0.6)]">
-            <node.icon className="size-4" />
-          </div>
-          <span className="whitespace-nowrap text-xs font-medium text-muted">{node.label}</span>
+      <div className="flex h-full">
+        <div className="hidden w-32 shrink-0 flex-col gap-1 border-r border-border bg-background/40 p-3 sm:flex">
+          <p className="mb-1 px-2 text-[11px] font-semibold uppercase tracking-wide text-muted">Microsoft 365</p>
+          {navItems.map((item) => (
+            <div
+              key={item.label}
+              className={cn(
+                "flex items-center gap-2 rounded-lg px-2 py-1.5 text-xs",
+                item.active ? "bg-accent/15 text-accent-secondary" : "text-muted",
+              )}
+            >
+              <item.icon className="size-3.5 shrink-0" />
+              {item.label}
+            </div>
+          ))}
         </div>
-      ))}
+
+        <div className="flex-1 p-4">
+          <div className="flex items-center justify-between">
+            <p className="font-display text-sm font-semibold text-foreground">Aktive Benutzer</p>
+            <div className="flex items-center gap-2 text-muted">
+              <Search className="size-3.5" />
+              <Bell className="size-3.5" />
+            </div>
+          </div>
+
+          <div className="mt-3 space-y-2">
+            {users.map((user) => (
+              <div
+                key={user.name}
+                className="flex items-center justify-between rounded-lg border border-border bg-surface-elevated px-3 py-2"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="flex size-6 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-secondary text-[10px] font-semibold text-white">
+                    {user.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-foreground">{user.name}</p>
+                    <p className="text-[10px] text-muted">{user.role}</p>
+                  </div>
+                </div>
+                <span className="rounded-full bg-green-500/15 px-2 py-0.5 text-[10px] font-medium text-green-400">
+                  {user.status}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-3 flex items-center gap-2 rounded-lg border border-border-strong bg-surface-elevated px-3 py-2 text-[11px] text-muted">
+            <Shield className="size-3.5 text-accent-secondary" />
+            12 / 12 Lizenzen aktiv &middot; Backup läuft
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

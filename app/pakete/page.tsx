@@ -5,7 +5,6 @@ import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { HeroPhoto } from "@/components/ui/hero-photo";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
@@ -67,7 +66,6 @@ export default function PaketePage() {
         eyebrow="Pakete"
         title="Drei Wege zur modernisierten IT"
         subtitle="Jeder Betrieb ist anders – deshalb nennen wir hier bewusst keine pauschalen Preise. Im Strategie-Call stellen wir gemeinsam zusammen, was zu Ihrer Größe, Ihrem Budget und Ihren Zielen passt."
-        visual={<HeroPhoto src="/images/hero/pakete.jpg" alt="Dashboard mit Kennzahlen-Kacheln auf einem Bildschirm" />}
       />
 
       <Section>

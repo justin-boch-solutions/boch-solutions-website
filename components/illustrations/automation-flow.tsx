@@ -1,107 +1,65 @@
-import { CheckCircle2, Inbox, Settings2, Zap } from "lucide-react";
+import { CalendarCheck, ChevronDown, Mail, Send } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { GlowOrb } from "@/components/ui/glass-panel";
 
 const steps = [
-  { icon: Inbox, label: "Anfrage" },
-  { icon: Settings2, label: "Verarbeitung" },
-  { icon: Zap, label: "Automatisiert" },
-  { icon: CheckCircle2, label: "Erledigt" },
+  {
+    icon: Mail,
+    title: "Wenn eine neue Anfrage eintrifft",
+    subtitle: "Auslöser · Outlook",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Termin im Kalender anlegen",
+    subtitle: "Aktion · Microsoft 365",
+  },
+  {
+    icon: Send,
+    title: "Bestätigung an Kunden senden",
+    subtitle: "Aktion · Automatisiert",
+  },
 ];
 
 export function AutomationFlow({ className }: { className?: string }) {
   return (
-    <div className={cn("relative animate-float", className)}>
-      <GlowOrb className="left-1/2 top-[45%] size-72 -translate-x-1/2 -translate-y-1/2 bg-accent/20" />
-
-      <svg
-        viewBox="0 0 560 400"
-        role="img"
-        aria-label="Abstrakte Darstellung eines automatisierten Ablaufs von der Anfrage bis zur Erledigung"
-        className="relative w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
-      >
-        <defs>
-          <linearGradient id="af-accent" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="var(--color-accent)" />
-            <stop offset="100%" stopColor="var(--color-accent-secondary)" />
-          </linearGradient>
-        </defs>
-
-        <rect
-          x="1"
-          y="1"
-          width="558"
-          height="398"
-          rx="18"
-          fill="var(--color-surface)"
-          stroke="var(--color-border-strong)"
-        />
-
-        {/* Browser-Chrome-Punkte */}
-        <circle cx="24" cy="17" r="4" fill="var(--color-border-strong)" />
-        <circle cx="38" cy="17" r="4" fill="var(--color-border-strong)" />
-        <circle cx="52" cy="17" r="4" fill="var(--color-border-strong)" />
-
-        <line
-          x1="105"
-          y1="190"
-          x2="455"
-          y2="190"
-          stroke="url(#af-accent)"
-          strokeWidth="2.5"
-          strokeDasharray="2 12"
-          strokeLinecap="round"
-          opacity="0.7"
-          className="animate-dash-flow"
-        />
-
-        {steps.map((step, i) => (
-          <circle
-            key={step.label}
-            cx={105 + i * 116.7}
-            cy="190"
-            r="40"
-            fill={i === steps.length - 1 ? "url(#af-accent)" : "var(--color-surface-elevated)"}
-            stroke={i === steps.length - 1 ? "url(#af-accent)" : "var(--color-border-strong)"}
-            strokeWidth={i === steps.length - 1 ? 2 : 1}
-            opacity={i === steps.length - 1 ? 0.15 : 1}
-            className={i === steps.length - 1 ? "animate-soft-pulse" : undefined}
-          />
-        ))}
-
-        <rect x="60" y="266" width="440" height="70" rx="12" fill="var(--color-background)" stroke="var(--color-border)" />
-        <circle cx="94" cy="301" r="16" fill="url(#af-accent)" opacity="0.85" />
-        <rect x="122" y="286" width="140" height="9" rx="4.5" fill="var(--color-foreground)" opacity="0.7" />
-        <rect x="122" y="304" width="200" height="8" rx="4" fill="var(--color-muted)" />
-        <rect x="392" y="288" width="84" height="26" rx="13" fill="url(#af-accent)" opacity="0.9" />
-      </svg>
-
-      {steps.map((step, i) => (
-        <div
-          key={step.label}
-          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
-          style={{ left: `${((105 + i * 116.7) / 560) * 100}%`, top: `${(190 / 400) * 100}%` }}
-        >
-          <div
-            className={cn(
-              "flex size-9 items-center justify-center rounded-full",
-              i === steps.length - 1 ? "text-white" : "text-muted",
-            )}
-          >
-            <step.icon className="size-5" />
-          </div>
-        </div>
-      ))}
-
-      {steps.map((step, i) => (
-        <span
-          key={`${step.label}-label`}
-          className="absolute -translate-x-1/2 whitespace-nowrap text-xs font-medium text-muted"
-          style={{ left: `${((105 + i * 116.7) / 560) * 100}%`, top: `${(240 / 400) * 100}%` }}
-        >
-          {step.label}
+    <div
+      className={cn(
+        "relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl shadow-black/30",
+        className,
+      )}
+    >
+      <div className="flex items-center gap-2 border-b border-border bg-surface-elevated px-4 py-2.5">
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="size-2.5 rounded-full bg-border-strong" />
+        <span className="ml-2 truncate text-xs text-muted">Power Automate &middot; Flow</span>
+        <span className="ml-auto rounded-full bg-green-500/15 px-2 py-0.5 text-[10px] font-medium text-green-400">
+          Aktiv
         </span>
-      ))}
+      </div>
+
+      <div className="flex flex-col items-center gap-1 p-4">
+        {steps.map((step, i) => (
+          <div key={step.title} className="flex w-full flex-col items-center">
+            <div className="flex w-full max-w-xs items-center gap-3 rounded-xl border border-border-strong bg-surface-elevated p-3 shadow-sm">
+              <div
+                className={cn(
+                  "flex size-8 shrink-0 items-center justify-center rounded-lg",
+                  i === steps.length - 1
+                    ? "bg-gradient-to-br from-accent to-accent-secondary text-white"
+                    : "bg-accent/15 text-accent-secondary",
+                )}
+              >
+                <step.icon className="size-4" />
+              </div>
+              <div className="min-w-0">
+                <p className="truncate text-xs font-medium text-foreground">{step.title}</p>
+                <p className="text-[10px] text-muted">{step.subtitle}</p>
+              </div>
+            </div>
+            {i < steps.length - 1 ? <ChevronDown className="my-1 size-4 text-muted" /> : null}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
