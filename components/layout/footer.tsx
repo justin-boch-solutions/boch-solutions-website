@@ -20,6 +20,7 @@ const resourceLinks = [
   { href: "/magazin", label: "Magazin" },
   { href: "/faq", label: "FAQ" },
   { href: "/it-check", label: "IT-Check" },
+  { href: "/website-check", label: "Website-Check" },
   { href: "/beispielprojekt", label: "Beispielprojekt" },
   { href: "/standorte", label: "Standorte" },
 ];

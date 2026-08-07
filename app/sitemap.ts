@@ -14,6 +14,7 @@ const staticRoutes = [
   "/kontakt",
   "/magazin",
   "/it-check",
+  "/website-check",
   "/standorte",
   "/beispielprojekt",
 ];
