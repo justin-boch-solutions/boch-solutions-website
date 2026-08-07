@@ -1,5 +1,6 @@
 import { CheckCircle2, Inbox, Settings2, Zap } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { GlowOrb } from "@/components/ui/glass-panel";
 
 const steps = [
   { icon: Inbox, label: "Anfrage" },
@@ -11,11 +12,13 @@ const steps = [
 export function AutomationFlow({ className }: { className?: string }) {
   return (
     <div className={cn("relative animate-float", className)}>
+      <GlowOrb className="left-1/2 top-[45%] size-72 -translate-x-1/2 -translate-y-1/2 bg-accent/20" />
+
       <svg
         viewBox="0 0 560 400"
         role="img"
         aria-label="Abstrakte Darstellung eines automatisierten Ablaufs von der Anfrage bis zur Erledigung"
-        className="w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
+        className="relative w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
       >
         <defs>
           <linearGradient id="af-accent" x1="0" y1="0" x2="1" y2="0">
@@ -33,6 +36,11 @@ export function AutomationFlow({ className }: { className?: string }) {
           fill="var(--color-surface)"
           stroke="var(--color-border-strong)"
         />
+
+        {/* Browser-Chrome-Punkte */}
+        <circle cx="24" cy="17" r="4" fill="var(--color-border-strong)" />
+        <circle cx="38" cy="17" r="4" fill="var(--color-border-strong)" />
+        <circle cx="52" cy="17" r="4" fill="var(--color-border-strong)" />
 
         <line
           x1="105"
@@ -53,15 +61,18 @@ export function AutomationFlow({ className }: { className?: string }) {
             cx={105 + i * 116.7}
             cy="190"
             r="40"
-            fill="var(--color-surface-elevated)"
+            fill={i === steps.length - 1 ? "url(#af-accent)" : "var(--color-surface-elevated)"}
             stroke={i === steps.length - 1 ? "url(#af-accent)" : "var(--color-border-strong)"}
             strokeWidth={i === steps.length - 1 ? 2 : 1}
+            opacity={i === steps.length - 1 ? 0.15 : 1}
+            className={i === steps.length - 1 ? "animate-soft-pulse" : undefined}
           />
         ))}
 
         <rect x="60" y="266" width="440" height="70" rx="12" fill="var(--color-background)" stroke="var(--color-border)" />
-        <rect x="84" y="286" width="140" height="9" rx="4.5" fill="var(--color-foreground)" opacity="0.7" />
-        <rect x="84" y="304" width="240" height="8" rx="4" fill="var(--color-muted)" />
+        <circle cx="94" cy="301" r="16" fill="url(#af-accent)" opacity="0.85" />
+        <rect x="122" y="286" width="140" height="9" rx="4.5" fill="var(--color-foreground)" opacity="0.7" />
+        <rect x="122" y="304" width="200" height="8" rx="4" fill="var(--color-muted)" />
         <rect x="392" y="288" width="84" height="26" rx="13" fill="url(#af-accent)" opacity="0.9" />
       </svg>
 
@@ -74,7 +85,7 @@ export function AutomationFlow({ className }: { className?: string }) {
           <div
             className={cn(
               "flex size-9 items-center justify-center rounded-full",
-              i === steps.length - 1 ? "text-accent-secondary" : "text-muted",
+              i === steps.length - 1 ? "text-white" : "text-muted",
             )}
           >
             <step.icon className="size-5" />
