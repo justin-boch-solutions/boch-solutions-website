@@ -199,7 +199,7 @@ export default function AgbPage() {
             werden. Der Auftragnehmer informiert den Auftraggeber vorab über den voraussichtlichen
             Mehraufwand. Die Höhe des Stundensatzes richtet sich, sofern es keine gesonderte Vereinbarung
             gibt, nach dem zum Zeitpunkt der Leistungserbringung gültigen Stundensatz des
-            Auftragnehmers, aktuell [Stundensatz wird ergänzt].
+            Auftragnehmers, aktuell 85 € zzgl. MwSt.
           </p>
           <p className="mt-3">(7) Dies gilt insbesondere für:</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
