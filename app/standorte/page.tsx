@@ -10,7 +10,7 @@ import { locations } from "@/lib/locations";
 export const metadata: Metadata = {
   title: "Standorte",
   description:
-    "IT-Modernisierung, SEO/GEO und Webdesign für Handwerksbetriebe in Münster und im Münsterland – Telgte, Greven, Nottuln, Havixbeck und Senden.",
+    "JB Solutions arbeitet deutschlandweit – persönlich vor Ort besonders präsent in Münster und im Münsterland: Telgte, Greven, Nottuln, Havixbeck und Senden.",
   alternates: { canonical: "/standorte" },
 };
 
@@ -18,13 +18,17 @@ export default function StandortePage() {
   return (
     <>
       <Hero
-        eyebrow="Standorte"
-        title="Vor Ort in Münster und im Münsterland"
-        subtitle="Von Münster aus betreuen wir Handwerksbetriebe in der ganzen Region – persönlich vor Ort oder remote, ganz wie es für Ihren Betrieb passt."
+        eyebrow="Regionale Nähe"
+        title="Persönlich vor Ort in Münster und im Münsterland"
+        subtitle="Wir arbeiten deutschlandweit – die meisten Leistungen lassen sich komplett remote umsetzen. In unserer Heimatregion rund um Münster kommen wir zusätzlich gerne persönlich vorbei."
         size="compact"
       />
 
-      <Section eyebrow="Einzugsgebiet" title="Unsere Region">
+      <Section
+        eyebrow="Einzugsgebiet"
+        title="Unsere Nachbarschaft"
+        subtitle="Diese Orte liegen besonders nah an unserem Sitz in Münster – Vor-Ort-Termine sind dort unkompliziert möglich. Weiter weg? Kein Problem, dann arbeiten wir remote zusammen."
+      >
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location) => (
             <Link key={location.slug} href={`/standorte/${location.slug}`} className="block h-full">
