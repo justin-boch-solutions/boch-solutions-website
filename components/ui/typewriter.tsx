@@ -59,8 +59,17 @@ export function Typewriter({ segments, speed = 35, startDelay = 300, className }
   const leadingNodes = nodes.slice(0, -1);
 
   return (
-    <span className={className} aria-label={fullText}>
-      <span aria-hidden="true">
+    <span className={cn("grid", className)} aria-label={fullText}>
+      {/* Invisible full-text ghost: reserves the final layout size from first paint so the
+          animation growing character-by-character never shifts anything below it (CLS). */}
+      <span aria-hidden="true" className="invisible [grid-area:1/1]">
+        {segments.map((segment, index) => (
+          <span key={index} className={segment.className}>
+            {segment.text}
+          </span>
+        ))}
+      </span>
+      <span aria-hidden="true" className="[grid-area:1/1]">
         {leadingNodes}
         <span className="whitespace-nowrap">
           {lastNode}
