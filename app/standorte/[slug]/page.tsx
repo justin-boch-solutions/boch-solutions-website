@@ -60,6 +60,7 @@ export default async function LocationPage({ params }: PageProps) {
         description={`Microsoft 365, SEO/GEO, Google-Unternehmensprofil und Webdesign für Handwerksbetriebe in ${location.name}.`}
         url={url}
         areaServed={location.name}
+        areaServedType="City"
       />
       <BreadcrumbJsonLd
         items={[

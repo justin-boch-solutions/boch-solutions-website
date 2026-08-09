@@ -51,8 +51,8 @@ export default function KontaktPage() {
             <div className="rounded-xl border border-border bg-surface p-6">
               <h2 className="font-display text-lg font-semibold text-foreground">Kostenloser Strategie-Call</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                15–30 Minuten, telefonisch oder vor Ort in Münster und Umgebung. Danach wissen Sie, ob
-                und wie wir zusammenpassen – ganz ohne Verpflichtung.
+                15–30 Minuten, telefonisch oder per Video-Call – deutschlandweit, vor Ort auch in Münster
+                und Umgebung. Danach wissen Sie, ob und wie wir zusammenpassen – ganz ohne Verpflichtung.
               </p>
             </div>
             <MapEmbed />

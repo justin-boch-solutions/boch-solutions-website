@@ -24,9 +24,9 @@ const categories: { title: string; items: FaqItem[] }[] = [
           "Nein. Microsoft-365-Lizenzen und die begleitenden Leistungen skalieren nach Nutzerzahl. Auch Betriebe mit 2–3 Mitarbeitenden profitieren von einer zentralen, sicheren E-Mail- und Dateiverwaltung, ohne einen eigenen Server zu benötigen.",
       },
       {
-        question: "Arbeiten Sie nur mit Betrieben in Münster?",
+        question: "Arbeiten Sie deutschlandweit oder nur in Münster?",
         answer:
-          "Der Standort ist Münster, viele Leistungen (Microsoft-365-Einrichtung, Webdesign, SEO) lassen sich jedoch remote umsetzen. Vor-Ort-Termine sind im Umkreis von Münster möglich, sprechen Sie uns bei Bedarf einfach an.",
+          "Deutschlandweit: Microsoft-365-Einrichtung, Webdesign, SEO und die meisten weiteren Leistungen lassen sich komplett remote umsetzen, unabhängig vom Standort Ihres Betriebs. Der Unternehmenssitz ist Münster, Vor-Ort-Termine sind dort und im Umkreis zusätzlich möglich.",
       },
       {
         question: "Muss ich meinen bisherigen IT-Dienstleister kündigen?",

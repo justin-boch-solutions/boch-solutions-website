@@ -90,7 +90,7 @@ export const processPhases = [
     title: "Strategie-Call",
     description:
       "Wir besprechen den Status Ihrer aktuellen IT, Webseite und Sichtbarkeit – kostenlos und unverbindlich. Sie erfahren direkt, wo die größten Hebel liegen.",
-    forYou: "15–30 Minuten, telefonisch oder vor Ort in Münster und Umgebung.",
+    forYou: "15–30 Minuten, telefonisch oder per Video-Call – deutschlandweit, vor Ort auch in Münster und Umgebung.",
   },
   {
     number: "02",

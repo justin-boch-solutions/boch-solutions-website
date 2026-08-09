@@ -22,10 +22,10 @@ export function OrganizationJsonLd() {
       latitude: company.geo.latitude,
       longitude: company.geo.longitude,
     },
-    areaServed: company.areaServed.map((name) => ({
-      "@type": "City",
-      name,
-    })),
+    areaServed: [
+      { "@type": "Country", name: "Deutschland" },
+      ...company.areaServed.map((name) => ({ "@type": "City", name })),
+    ],
     priceRange: "$$",
     knowsAbout: [
       "Microsoft 365",
@@ -129,12 +129,14 @@ export function ServiceJsonLd({
   name,
   description,
   url,
-  areaServed = "Münster",
+  areaServed = "Deutschland",
+  areaServedType = "Country",
 }: {
   name: string;
   description: string;
   url: string;
   areaServed?: string;
+  areaServedType?: "Country" | "City";
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -149,7 +151,7 @@ export function ServiceJsonLd({
       email: company.email,
     },
     areaServed: {
-      "@type": "City",
+      "@type": areaServedType,
       name: areaServed,
     },
   };

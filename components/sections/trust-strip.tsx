@@ -2,7 +2,7 @@ import { MapPin, ShieldCheck, UserCheck, Cloud } from "lucide-react";
 import { Container } from "@/components/ui/container";
 
 const items = [
-  { icon: MapPin, label: "Standort Münster, Betreuung im Umkreis" },
+  { icon: MapPin, label: "Sitz in Münster, deutschlandweit tätig" },
   { icon: Cloud, label: "Spezialisiert auf Microsoft 365 & Azure" },
   { icon: ShieldCheck, label: "DSGVO-bewusste IT-Einrichtung" },
   { icon: UserCheck, label: "Persönlicher Ansprechpartner statt Hotline" },
