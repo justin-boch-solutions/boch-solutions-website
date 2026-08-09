@@ -100,7 +100,7 @@ export function Header() {
             </button>
 
             {isServicesOpen ? (
-              <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3">
+              <div className="absolute left-0 top-full w-[640px] pt-3">
                 <div className="grid grid-cols-3 gap-6 rounded-2xl border border-border bg-surface p-6 shadow-2xl shadow-black/40">
                   {clusters.map((cluster) => (
                     <div key={cluster}>
