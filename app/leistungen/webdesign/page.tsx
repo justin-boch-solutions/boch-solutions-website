@@ -7,6 +7,7 @@ import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ServiceIcon } from "@/components/sections/service-icon";
 import { Card } from "@/components/ui/card";
+import { HeroPhoto } from "@/components/ui/hero-photo";
 import { company } from "@/lib/constants";
 import { getRelatedServices, getServiceBySlug } from "@/lib/services";
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
@@ -116,6 +117,7 @@ export default function WebdesignPage() {
         eyebrow="Webdesign"
         title="Webseiten, die für Ihren Betrieb arbeiten"
         subtitle="Nicht nur ein digitales Aushängeschild, sondern eine Vertriebsmaschine für Anfragen und Mitarbeitende – von der kompakten Onepager bis zum Online-Shop, technisch modern und auf Ihr Gewerk zugeschnitten."
+        visual={<HeroPhoto src="/images/hero/webdesign.jpg" alt="Bildschirm mit farbig hervorgehobenem Quellcode" />}
         breadcrumb={[
           { name: "Startseite", href: "/" },
           { name: "Leistungen", href: "/leistungen" },
