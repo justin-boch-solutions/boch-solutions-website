@@ -11,8 +11,8 @@ export default function NotFound() {
         Diese Seite gibt es nicht
       </h1>
       <p className="mt-4 max-w-md text-muted">
-        Möglicherweise wurde die Seite verschoben oder existiert nicht mehr. Schauen Sie sich gerne
-        unsere Leistungen an oder nehmen Sie direkt Kontakt auf.
+        Entweder wurde sie verschoben, gelöscht – oder sie wartet noch auf ihre Migration zu Microsoft
+        365. Bis dahin geht es hier weiter:
       </p>
       <div className="mt-8 flex gap-4">
         <Button href="/">Zur Startseite</Button>

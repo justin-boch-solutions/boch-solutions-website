@@ -12,6 +12,9 @@ import { AnalyticsScripts } from "@/components/consent/analytics-scripts";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
+import { EasterEggFx } from "@/components/easter-eggs/easter-egg-fx";
+import { KonamiCode } from "@/components/easter-eggs/konami-code";
+import { ConsoleGreeting } from "@/components/easter-eggs/console-greeting";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -83,6 +86,9 @@ export default function RootLayout({
         <CookieBanner />
         <AnalyticsScripts />
         <Analytics />
+        <EasterEggFx />
+        <KonamiCode />
+        <ConsoleGreeting />
       </body>
     </html>
   );
