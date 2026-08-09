@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { ArrowRight, Mail, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/ui/count-up";
 import { company } from "@/lib/constants";
 import { getServiceBySlug, type Service } from "@/lib/services";
+import { fireConfettiRain } from "@/lib/confetti";
 
 interface QuizOption {
   label: string;
@@ -122,9 +123,21 @@ export function ItCheckQuiz() {
     setStep(0);
   }
 
+  const score = answers.reduce((sum, points) => sum + points, 0);
+  const maxScore = questions.length * 2;
+  const hasFiredConfetti = useRef(false);
+
+  useEffect(() => {
+    if (isResult && score === maxScore && !hasFiredConfetti.current) {
+      hasFiredConfetti.current = true;
+      fireConfettiRain();
+    }
+    if (!isResult) {
+      hasFiredConfetti.current = false;
+    }
+  }, [isResult, score, maxScore]);
+
   if (isResult) {
-    const score = answers.reduce((sum, points) => sum + points, 0);
-    const maxScore = questions.length * 2;
     const tier = getTier(score);
     const services = tier.serviceSlugs
       .map((slug) => getServiceBySlug(slug))

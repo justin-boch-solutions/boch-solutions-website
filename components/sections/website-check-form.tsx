@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Loader2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/ui/count-up";
+import { fireConfettiRain } from "@/lib/confetti";
 
 interface Scores {
   performance: number;
@@ -78,6 +79,11 @@ export function WebsiteCheckForm() {
 
       setResult(data);
       setStatus("success");
+
+      const allGood = Object.values(data.scores as Scores).every((value) => value >= 90);
+      if (allGood) {
+        fireConfettiRain();
+      }
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Prüfung fehlgeschlagen.");

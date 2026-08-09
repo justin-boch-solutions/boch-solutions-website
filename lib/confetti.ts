@@ -34,3 +34,11 @@ export function fireConfetti(count = 80) {
 
   window.setTimeout(() => container.remove(), 4000);
 }
+
+export function fireConfettiRain(duration = 2500) {
+  if (typeof window === "undefined") return;
+
+  fireConfetti(60);
+  const interval = window.setInterval(() => fireConfetti(30), 300);
+  window.setTimeout(() => window.clearInterval(interval), duration);
+}
