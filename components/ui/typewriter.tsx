@@ -59,7 +59,10 @@ export function Typewriter({ segments, speed = 35, startDelay = 300, className }
   const leadingNodes = nodes.slice(0, -1);
 
   return (
-    <span className={cn("grid", className)} aria-label={fullText}>
+    <span className={cn("grid", className)}>
+      {/* Plain, undecorated copy for assistive tech — avoids aria-label on a
+          generic-role span, which axe/Lighthouse flags as a disallowed ARIA attribute. */}
+      <span className="sr-only">{fullText}</span>
       {/* Invisible full-text ghost: reserves the final layout size from first paint so the
           animation growing character-by-character never shifts anything below it (CLS). */}
       <span aria-hidden="true" className="invisible [grid-area:1/1]">
