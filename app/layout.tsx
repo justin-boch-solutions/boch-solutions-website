@@ -32,7 +32,11 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
   weight: ["700"],
   subsets: ["latin"],
-  display: "swap",
+  // "optional": monospace vs. the sans-serif fallback have very different
+  // character widths, so swapping fonts after paint reflows the hero
+  // headline (a real CLS source we measured). "optional" avoids the swap
+  // instead of just approximating its metrics.
+  display: "optional",
 });
 
 export const metadata: Metadata = {
