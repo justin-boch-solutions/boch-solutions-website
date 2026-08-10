@@ -14,7 +14,7 @@ export default function AgbPage() {
         <div>
           <p className="text-xs uppercase tracking-wider text-accent-secondary">Version: 24.03.2026</p>
           <p className="mt-3">
-            Justin Boch Solutions
+            {company.name}
             <br />
             Inhaber: {company.owner}
             <br />
@@ -28,7 +28,7 @@ export default function AgbPage() {
           <h2 className="mb-3 font-display text-lg font-semibold text-foreground">§ 1 Geltungsbereich</h2>
           <p>
             (1) Diese Allgemeinen Geschäftsbedingungen gelten für alle Angebote, Verträge, Lieferungen
-            und Leistungen von Justin Boch Solutions, Inhaber Justin Boch, nachfolgend
+            und Leistungen von {company.name}, Inhaber Justin Boch, nachfolgend
             „Auftragnehmer&rdquo;, gegenüber seinen Auftraggebern.
           </p>
           <p className="mt-3">

@@ -41,7 +41,7 @@ export function Logo({
       href="/"
       onClick={handleClick}
       className={cn("inline-flex items-center transition-transform duration-200 hover:scale-[1.03]", className)}
-      aria-label="JB Solutions – Startseite"
+      aria-label="Justin Boch - Solutions – Startseite"
     >
       <Image
         src="/images/logo.svg"

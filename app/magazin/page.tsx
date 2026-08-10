@@ -7,7 +7,7 @@ import { articleCategoryMeta, articles, getArticlesByCategory, type ArticleCateg
 export const metadata: Metadata = {
   title: "Magazin",
   description:
-    "Praxisnahe Artikel zu Microsoft 365, IT-Sicherheit, lokalem SEO, GEO-Optimierung und Digitalisierung für Handwerksbetriebe – vom Team von JB Solutions.",
+    "Praxisnahe Artikel zu Microsoft 365, IT-Sicherheit, lokalem SEO, GEO-Optimierung und Digitalisierung für Handwerksbetriebe – vom Team von Justin Boch - Solutions.",
   alternates: {
     canonical: "/magazin",
     types: { "application/rss+xml": "/magazin/feed.xml" },

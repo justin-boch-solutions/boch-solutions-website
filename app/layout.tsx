@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description:
-    "JB Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software.",
+    "Justin Boch - Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software.",
   openGraph: {
     type: "website",
     locale: "de_DE",

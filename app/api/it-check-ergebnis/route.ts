@@ -58,7 +58,7 @@ export async function POST(request: Request) {
 
   // Resend requires the sending domain to be verified; only the
   // "send." subdomain is verified in Resend, not the bare root domain.
-  const fromAddress = `JB Solutions <it-check@send.${company.domain}>`;
+  const fromAddress = `Justin Boch - Solutions <it-check@send.${company.domain}>`;
 
   const recommendationLines = recommendations.map((r) => `- ${r.name}: ${r.url}`).join("\n");
   const recommendationsHtml = recommendations

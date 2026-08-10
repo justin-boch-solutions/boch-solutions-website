@@ -10,7 +10,7 @@ import { locations } from "@/lib/locations";
 export const metadata: Metadata = {
   title: "Standorte",
   description:
-    "JB Solutions arbeitet deutschlandweit – persönlich vor Ort besonders präsent in Münster und im Münsterland: Telgte, Greven, Nottuln, Havixbeck und Senden.",
+    "Justin Boch - Solutions arbeitet deutschlandweit – persönlich vor Ort besonders präsent in Münster und im Münsterland: Telgte, Greven, Nottuln, Havixbeck und Senden.",
   alternates: { canonical: "/standorte" },
 };
 

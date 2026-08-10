@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `IT-Modernisierung für Handwerksbetriebe in ${location.name}`,
-    description: `Microsoft 365, SEO/GEO, Google-Unternehmensprofil und Webdesign für Handwerksbetriebe in ${location.name} – betreut von JB Solutions aus Münster.`,
+    description: `Microsoft 365, SEO/GEO, Google-Unternehmensprofil und Webdesign für Handwerksbetriebe in ${location.name} – betreut von Justin Boch - Solutions aus Münster.`,
     alternates: { canonical: `/standorte/${location.slug}` },
   };
 }

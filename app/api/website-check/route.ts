@@ -160,7 +160,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
   const logoAttachment = getLogoAttachment();
-  const fromAddress = `JB Solutions <website-check@send.${company.domain}>`;
+  const fromAddress = `Justin Boch - Solutions <website-check@send.${company.domain}>`;
 
   const recommendationsHtml = recommendations
     .map(

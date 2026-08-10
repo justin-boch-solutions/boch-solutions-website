@@ -10,7 +10,7 @@ import type { FaqItem } from "@/lib/services";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Häufig gestellte Fragen zu IT-Modernisierung, Microsoft 365, DSGVO, SEO/GEO, Kosten und Ablauf für Handwerksbetriebe – beantwortet von JB Solutions.",
+    "Häufig gestellte Fragen zu IT-Modernisierung, Microsoft 365, DSGVO, SEO/GEO, Kosten und Ablauf für Handwerksbetriebe – beantwortet von Justin Boch - Solutions.",
   alternates: { canonical: "/faq" },
 };
 

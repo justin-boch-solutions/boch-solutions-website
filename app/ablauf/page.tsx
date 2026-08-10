@@ -8,7 +8,7 @@ import { HeroPhoto } from "@/components/ui/hero-photo";
 export const metadata: Metadata = {
   title: "Ablauf",
   description:
-    "So läuft die Zusammenarbeit mit JB Solutions ab: Strategie-Call, Architektur-Planung, Umsetzung und laufende Skalierung & Wartung.",
+    "So läuft die Zusammenarbeit mit Justin Boch - Solutions ab: Strategie-Call, Architektur-Planung, Umsetzung und laufende Skalierung & Wartung.",
   alternates: { canonical: "/ablauf" },
 };
 

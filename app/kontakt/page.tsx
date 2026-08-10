@@ -9,7 +9,7 @@ import { company } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Kontaktieren Sie JB Solutions für eine kostenlose Erstberatung zur IT-Modernisierung Ihres Handwerksbetriebs. Standort Münster.",
+    "Kontaktieren Sie Justin Boch - Solutions für eine kostenlose Erstberatung zur IT-Modernisierung Ihres Handwerksbetriebs. Standort Münster.",
   alternates: { canonical: "/kontakt" },
 };
 

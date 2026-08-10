@@ -10,7 +10,7 @@ import { stack, partners } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Agentur",
   description:
-    "JB Solutions ist die IT- und Webdesign-Agentur von Justin Boch aus Münster – spezialisiert auf Microsoft-Technologie für Handwerksbetriebe.",
+    "Justin Boch - Solutions ist die IT- und Webdesign-Agentur von Justin Boch aus Münster – spezialisiert auf Microsoft-Technologie für Handwerksbetriebe.",
   alternates: { canonical: "/agentur" },
 };
 
@@ -37,7 +37,7 @@ export default function AgenturPage() {
     <>
       <Hero
         eyebrow="Agentur"
-        title="JB Solutions – Justin Boch"
+        title="Justin Boch"
         subtitle="Ich unterstütze Handwerksbetriebe dabei, ihre IT auf ein modernes, sicheres Fundament zu stellen und online sichtbar zu werden – mit einem klaren Fokus auf Microsoft-Technologie statt vieler loser Einzellösungen."
         visual={<HeroPhoto src="/images/hero/agentur.jpg" alt="Abstrakte Darstellung eines digitalen Netzwerks über einer Stadt bei Nacht" />}
       />
@@ -45,7 +45,7 @@ export default function AgenturPage() {
       <Section
         eyebrow="Warum dieser Fokus"
         title="Vom klassischen Webdesign zur Microsoft-IT für Handwerk"
-        subtitle="JB Solutions hat sich aus der Webdesign- und Software-Arbeit für Handwerksbetriebe und regionale Unternehmen entwickelt. Dabei ist eines immer wieder deutlich geworden: Eine gute Webseite allein reicht nicht, wenn im Hintergrund die IT-Grundlage fehlt – unsichere E-Mails, kein Backup, keine klare Struktur. Deshalb liegt der Fokus heute konsequent auf Microsoft 365 & Azure als Basis, ergänzt um Sichtbarkeit (SEO, GEO, Google-Unternehmensprofil) und individuelle Software, wo Standardlösungen nicht ausreichen."
+        subtitle="Justin Boch - Solutions hat sich aus der Webdesign- und Software-Arbeit für Handwerksbetriebe und regionale Unternehmen entwickelt. Dabei ist eines immer wieder deutlich geworden: Eine gute Webseite allein reicht nicht, wenn im Hintergrund die IT-Grundlage fehlt – unsichere E-Mails, kein Backup, keine klare Struktur. Deshalb liegt der Fokus heute konsequent auf Microsoft 365 & Azure als Basis, ergänzt um Sichtbarkeit (SEO, GEO, Google-Unternehmensprofil) und individuelle Software, wo Standardlösungen nicht ausreichen."
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {values.map((value) => (

@@ -10,7 +10,7 @@ import { company } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Support",
   description:
-    "Support für Bestandskunden von JB Solutions: schneller Draht per Telefon, WhatsApp oder E-Mail für Fragen zu Microsoft 365, Webseite oder laufender Betreuung.",
+    "Support für Bestandskunden von Justin Boch - Solutions: schneller Draht per Telefon, WhatsApp oder E-Mail für Fragen zu Microsoft 365, Webseite oder laufender Betreuung.",
   alternates: { canonical: "/support" },
   robots: { index: false, follow: true },
 };

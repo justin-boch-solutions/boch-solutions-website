@@ -1,6 +1,6 @@
 export const company = {
-  name: "JB Solutions",
-  legalName: "JB Solutions – Justin Boch",
+  name: "Justin Boch - Solutions",
+  legalName: "Justin Boch - Solutions",
   owner: "Justin Boch",
   legalForm: "Einzelunternehmen",
   founded: "2025",

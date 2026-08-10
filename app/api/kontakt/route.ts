@@ -114,7 +114,7 @@ export async function POST(request: Request) {
         from: fromAddress,
         to: email,
         replyTo: company.email,
-        subject: "Ihre Anfrage ist angekommen – JB Solutions",
+        subject: "Ihre Anfrage ist angekommen – Justin Boch - Solutions",
         text: `Vielen Dank, ${name}!\n\nIhre Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb eines Werktags bei Ihnen.\n\nIhre Angaben:\n${summaryLines.join("\n")}\n\nLieber direkt sprechen? ${company.phone}`,
         html: confirmationHtml,
         attachments: [logoAttachment],

@@ -48,7 +48,7 @@ export const services: Service[] = [
     shortDescription:
       "Einrichtung und Modernisierung Ihrer IT-Infrastruktur auf Basis von Microsoft 365 und Azure – von E-Mail bis Teams-Telefonie.",
     heroSummary:
-      "Microsoft 365 & Azure für Handwerksbetriebe bedeutet: eine zentrale, sichere IT-Umgebung für E-Mail, Dateien, Termine und Kommunikation, eingerichtet und betreut von JB Solutions – statt verstreuter Insellösungen auf Baustellen-Laptop, privatem Handy und altem Server.",
+      "Microsoft 365 & Azure für Handwerksbetriebe bedeutet: eine zentrale, sichere IT-Umgebung für E-Mail, Dateien, Termine und Kommunikation, eingerichtet und betreut von Justin Boch - Solutions – statt verstreuter Insellösungen auf Baustellen-Laptop, privatem Handy und altem Server.",
     problem: [
       "IT ist über Jahre gewachsen: alte Server, private E-Mail-Postfächer, keine zentrale Ablage.",
       "Mitarbeitende auf der Baustelle haben keinen verlässlichen Zugriff auf Aufträge, Pläne oder Termine.",
@@ -94,7 +94,7 @@ export const services: Service[] = [
     shortDescription:
       "Beratung und Beschaffung der passenden Microsoft-365-Lizenzen – ohne Überzahlung für Funktionen, die niemand nutzt.",
     heroSummary:
-      "Microsoft-Lizenzierung durch JB Solutions bedeutet: Sie erhalten genau die Microsoft-365-Business-Lizenzen, die zu Betriebsgröße, Nutzung und Budget Ihres Handwerksbetriebs passen, mit laufender Anpassung statt einmaligem Verkauf.",
+      "Microsoft-Lizenzierung durch Justin Boch - Solutions bedeutet: Sie erhalten genau die Microsoft-365-Business-Lizenzen, die zu Betriebsgröße, Nutzung und Budget Ihres Handwerksbetriebs passen, mit laufender Anpassung statt einmaligem Verkauf.",
     problem: [
       "Unklarheit, welches Microsoft-365-Paket (Business Basic, Standard, Premium) tatsächlich benötigt wird.",
       "Bereits vorhandene Lizenzen werden nicht vollständig genutzt oder sind falsch zugeordnet.",
@@ -134,7 +134,7 @@ export const services: Service[] = [
     shortDescription:
       "Professionelle E-Mail-Adressen auf der eigenen Domain, sichere Zustellung und saubere Migration alter Postfächer.",
     heroSummary:
-      "E-Mail-Optimierung durch JB Solutions bedeutet: professionelle Adressen wie name@ihrbetrieb.de über Microsoft 365 Exchange, korrekt eingerichtete Zustellsicherheit (SPF, DKIM, DMARC) und eine saubere Migration bestehender Postfächer ohne Datenverlust.",
+      "E-Mail-Optimierung durch Justin Boch - Solutions bedeutet: professionelle Adressen wie name@ihrbetrieb.de über Microsoft 365 Exchange, korrekt eingerichtete Zustellsicherheit (SPF, DKIM, DMARC) und eine saubere Migration bestehender Postfächer ohne Datenverlust.",
     problem: [
       "Geschäftliche Anfragen laufen über private Gmail- oder Web.de-Adressen.",
       "E-Mails landen bei Kunden im Spam-Ordner, weil technische Sicherheitseinstellungen fehlen.",
@@ -175,7 +175,7 @@ export const services: Service[] = [
     shortDescription:
       "Registrierung, Umzug und technische Einrichtung Ihrer Wunsch-Domain – als Basis für Webseite, E-Mail und Google-Auffindbarkeit.",
     heroSummary:
-      "Domain-Einrichtung durch JB Solutions bedeutet: Registrierung oder Umzug Ihrer Firmendomain, korrekte DNS-Konfiguration für Webseite und E-Mail sowie eine Struktur, die dauerhaft in Ihrem Besitz bleibt statt beim Webdesigner zu verwaiten.",
+      "Domain-Einrichtung durch Justin Boch - Solutions bedeutet: Registrierung oder Umzug Ihrer Firmendomain, korrekte DNS-Konfiguration für Webseite und E-Mail sowie eine Struktur, die dauerhaft in Ihrem Besitz bleibt statt beim Webdesigner zu verwaiten.",
     problem: [
       "Die Domain liegt noch bei einem früheren Dienstleister ohne eigenen Zugriff.",
       "DNS-Einstellungen sind unübersichtlich, Webseite und E-Mail laufen über verschiedene, nicht abgestimmte Anbieter.",
@@ -215,7 +215,7 @@ export const services: Service[] = [
     shortDescription:
       "Laufende Betreuung Ihrer Microsoft-Infrastruktur, Updates, Mitarbeiterschulungen und ein fester Ansprechpartner statt Hotline-Warteschleife.",
     heroSummary:
-      "IT-Support & Wartung durch JB Solutions bedeutet: ein fester, persönlich erreichbarer Ansprechpartner für alle Fragen rund um Microsoft 365, Geräte und Software Ihres Betriebs, inklusive laufender Updates und Mitarbeiterschulungen.",
+      "IT-Support & Wartung durch Justin Boch - Solutions bedeutet: ein fester, persönlich erreichbarer Ansprechpartner für alle Fragen rund um Microsoft 365, Geräte und Software Ihres Betriebs, inklusive laufender Updates und Mitarbeiterschulungen.",
     problem: [
       "Bei IT-Problemen gibt es keinen festen Ansprechpartner, nur wechselnde Hotlines.",
       "Updates und Sicherheitspatches werden nicht regelmäßig eingespielt.",
@@ -256,7 +256,7 @@ export const services: Service[] = [
     shortDescription:
       "Backup-Konzept, Schutz vor Cyberangriffen mit Microsoft Defender und eine IT-Struktur, die die DSGVO-Anforderungen an Ihren Betrieb erfüllt.",
     heroSummary:
-      "Cloud-Sicherheit, Backup & DSGVO durch JB Solutions bedeutet: automatisierte Backups, Schutz vor Phishing und Ransomware über Microsoft Defender sowie eine Dokumentation, die Ihre IT-Struktur DSGVO-konform macht – wichtig, sobald Kunden- oder Mitarbeiterdaten verarbeitet werden.",
+      "Cloud-Sicherheit, Backup & DSGVO durch Justin Boch - Solutions bedeutet: automatisierte Backups, Schutz vor Phishing und Ransomware über Microsoft Defender sowie eine Dokumentation, die Ihre IT-Struktur DSGVO-konform macht – wichtig, sobald Kunden- oder Mitarbeiterdaten verarbeitet werden.",
     problem: [
       "Kein Backup-Konzept – bei Geräteausfall oder Ransomware-Angriff drohen Datenverlust und Stillstand.",
       "Unsicherheit, ob die aktuelle IT-Nutzung DSGVO-Anforderungen erfüllt.",
@@ -297,7 +297,7 @@ export const services: Service[] = [
     shortDescription:
       "Sichtbarkeit bei Google und in KI-Antwortmaschinen wie ChatGPT, Copilot und Gemini – für Suchanfragen wie 'Elektriker in der Nähe'.",
     heroSummary:
-      "SEO & GEO-Optimierung durch JB Solutions bedeutet: Ihre Webseite wird sowohl für klassische Google-Suche (SEO) als auch für KI-gestützte Antwortmaschinen wie ChatGPT, Microsoft Copilot und Google Gemini (GEO – Generative Engine Optimization) sichtbar und zitierfähig aufbereitet.",
+      "SEO & GEO-Optimierung durch Justin Boch - Solutions bedeutet: Ihre Webseite wird sowohl für klassische Google-Suche (SEO) als auch für KI-gestützte Antwortmaschinen wie ChatGPT, Microsoft Copilot und Google Gemini (GEO – Generative Engine Optimization) sichtbar und zitierfähig aufbereitet.",
     problem: [
       "Bei der Google-Suche nach 'Handwerker in [Ort]' taucht der eigene Betrieb nicht oder erst spät auf.",
       "Immer mehr Menschen fragen KI-Assistenten statt Google – ohne strukturierte Inhalte werden Sie dort gar nicht erst genannt.",
@@ -338,7 +338,7 @@ export const services: Service[] = [
     shortDescription:
       "Vollständige Einrichtung und laufende Pflege Ihres Google-Unternehmensprofils – entscheidend für die 'Handwerker in meiner Nähe'-Suche.",
     heroSummary:
-      "Google-Unternehmensprofil-Optimierung durch JB Solutions bedeutet: ein vollständig eingerichtetes, korrekt kategorisiertes und laufend gepflegtes Google-Profil, das in der Kartenansicht und lokalen Suche zuverlässig gefunden wird.",
+      "Google-Unternehmensprofil-Optimierung durch Justin Boch - Solutions bedeutet: ein vollständig eingerichtetes, korrekt kategorisiertes und laufend gepflegtes Google-Profil, das in der Kartenansicht und lokalen Suche zuverlässig gefunden wird.",
     problem: [
       "Das Google-Profil ist unvollständig, unbestätigt oder gar nicht vorhanden.",
       "Öffnungszeiten, Leistungen oder Fotos sind veraltet oder fehlen ganz.",
@@ -379,7 +379,7 @@ export const services: Service[] = [
     shortDescription:
       "Moderne, schnelle Webseiten, die Vertrauen schaffen und Anfragen generieren – von der Onepager bis zur vollständigen Firmenwebsite.",
     heroSummary:
-      "Webdesign durch JB Solutions bedeutet: eine moderne, schnell ladende Webseite, die Ihren Betrieb professionell darstellt und gezielt darauf ausgelegt ist, Kunden- und Mitarbeiteranfragen zu generieren, statt nur digital zu existieren.",
+      "Webdesign durch Justin Boch - Solutions bedeutet: eine moderne, schnell ladende Webseite, die Ihren Betrieb professionell darstellt und gezielt darauf ausgelegt ist, Kunden- und Mitarbeiteranfragen zu generieren, statt nur digital zu existieren.",
     problem: [
       "Die bestehende Webseite ist veraltet, langsam oder auf dem Smartphone kaum bedienbar.",
       "Interessenten finden keine klare Übersicht der Leistungen oder Kontaktmöglichkeiten.",
@@ -430,7 +430,7 @@ export const services: Service[] = [
     shortDescription:
       "Maßgeschneiderte Software und Kundenportale für Abläufe, die keine Standardlösung abbildet – etwa Terminbuchung oder digitale Angebote.",
     heroSummary:
-      "Individuelle Softwarelösungen durch JB Solutions bedeutet: maßgeschneiderte Web-Anwendungen und Kundenportale für betriebliche Abläufe, die mit Standardsoftware nicht sauber lösbar sind, aufgebaut auf Microsoft-Technologie und in Ihre bestehende IT integriert.",
+      "Individuelle Softwarelösungen durch Justin Boch - Solutions bedeutet: maßgeschneiderte Web-Anwendungen und Kundenportale für betriebliche Abläufe, die mit Standardsoftware nicht sauber lösbar sind, aufgebaut auf Microsoft-Technologie und in Ihre bestehende IT integriert.",
     problem: [
       "Bestimmte betriebliche Abläufe laufen noch auf Papier, Excel-Listen oder unpassenden Standardprogrammen.",
       "Kunden können Termine oder Anfragen nur telefonisch stellen, was Büro und Bauleitung zusätzlich bindet.",
@@ -471,7 +471,7 @@ export const services: Service[] = [
     shortDescription:
       "Wiederkehrende Büroaufgaben automatisiert mit Microsoft Power Automate – von Anfrage-Weiterleitung bis Terminerinnerung.",
     heroSummary:
-      "Prozessautomatisierung durch JB Solutions bedeutet: wiederkehrende, manuelle Büroaufgaben werden mit Microsoft Power Automate automatisiert, sodass Ihr Team sich auf Kunden und Baustellen statt auf Verwaltungsroutine konzentrieren kann.",
+      "Prozessautomatisierung durch Justin Boch - Solutions bedeutet: wiederkehrende, manuelle Büroaufgaben werden mit Microsoft Power Automate automatisiert, sodass Ihr Team sich auf Kunden und Baustellen statt auf Verwaltungsroutine konzentrieren kann.",
     problem: [
       "Anfragen über Webseite, E-Mail und Telefon werden manuell in verschiedene Systeme übertragen.",
       "Terminerinnerungen, Angebotsnachfassung oder Materialbestellungen laufen komplett manuell.",

@@ -20,7 +20,7 @@ import { getServiceBySlug } from "@/lib/services";
 export const metadata: Metadata = {
   title: "IT-Modernisierung für Handwerksbetriebe mit Microsoft 365",
   description:
-    "JB Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software. Standort Münster.",
+    "Justin Boch - Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software. Standort Münster.",
   alternates: { canonical: "/" },
 };
 
