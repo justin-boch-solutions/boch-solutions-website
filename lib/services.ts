@@ -62,6 +62,7 @@ export const services: Service[] = [
       "Einrichtung auf Mobilgeräten, damit Baustellenteams von unterwegs auf Pläne und Aufträge zugreifen.",
     ],
     audience: [
+      "Besonders gefragt bei SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetrieben mit mehreren Baustellenteams",
       "Betriebe mit veralteter oder gewachsener IT ohne klare Struktur",
       "Betriebe, die Büro und Baustelle digital verbinden wollen",
       "Betriebe ohne eigene IT-Abteilung, die einen verlässlichen Partner suchen",
@@ -107,6 +108,7 @@ export const services: Service[] = [
       "Transparente Kostenübersicht statt versteckter Zusatzgebühren.",
     ],
     audience: [
+      "Von SHK- und Elektrobetrieben bis Dachdecker-, Maler- und Tischlerunternehmen – unabhängig vom Gewerk relevant",
       "Betriebe, die aktuell privat oder ohne klares Lizenzmodell arbeiten",
       "Betriebe mit wachsendem Team und unklarer Lizenzstruktur",
       "Betriebe, die Kosten prüfen und optimieren wollen",
@@ -148,6 +150,7 @@ export const services: Service[] = [
       "Mobile Einrichtung, damit E-Mails auch unterwegs zuverlässig ankommen.",
     ],
     audience: [
+      "Typisch bei SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetrieben, die bisher private Adressen nutzen",
       "Betriebe mit privaten oder freien E-Mail-Adressen im Geschäftsverkehr",
       "Betriebe mit Zustellproblemen (Spam-Ordner, verzögerte Zustellung)",
       "Betriebe im Wechsel des E-Mail-Anbieters",
@@ -188,6 +191,7 @@ export const services: Service[] = [
       "Dokumentation aller Zugangsdaten, damit Sie jederzeit selbst Zugriff haben.",
     ],
     audience: [
+      "Gilt für SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetriebe gleichermaßen",
       "Betriebe ohne eigene Domain oder mit Domain bei einem alten Anbieter",
       "Betriebe im Wechsel von Webdesigner oder Hosting-Anbieter",
       "Betriebe, die Webseite und E-Mail technisch sauber verbinden wollen",
@@ -229,6 +233,7 @@ export const services: Service[] = [
       "Priorisierte Reaktionszeiten bei akuten Störungen statt allgemeiner Warteschleife.",
     ],
     audience: [
+      "Von SHK- und Elektrobetrieben bis Dachdecker-, Maler- und Tischlerunternehmen",
       "Betriebe ohne eigene IT-Abteilung",
       "Betriebe, die häufig neue Mitarbeitende einarbeiten",
       "Betriebe, die planbare statt reaktive IT-Betreuung wollen",
@@ -270,6 +275,7 @@ export const services: Service[] = [
       "Mehrstufige Anmeldung (Multi-Faktor-Authentifizierung) für alle Nutzerkonten.",
     ],
     audience: [
+      "Relevant für SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetriebe mit Kundendaten",
       "Betriebe, die Kunden- oder Mitarbeiterdaten digital verarbeiten",
       "Betriebe ohne bestehendes Backup-Konzept",
       "Betriebe, die sich gegen Cyberangriffe absichern wollen",
@@ -311,6 +317,7 @@ export const services: Service[] = [
       "Laufendes Monitoring von Sichtbarkeit und Suchanfragen.",
     ],
     audience: [
+      "Besonders wirksam für SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetriebe mit lokalem Einzugsgebiet",
       "Betriebe, die online kaum gefunden werden",
       "Betriebe mit regionalem Einzugsgebiet, die dort führend sichtbar sein wollen",
       "Betriebe, die für die wachsende KI-Suche vorbereitet sein wollen",
@@ -352,6 +359,7 @@ export const services: Service[] = [
       "Regelmäßige Beiträge und Aktualisierungen, damit das Profil aktiv bleibt.",
     ],
     audience: [
+      "Entscheidend für SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetriebe mit Laufkundschaft",
       "Betriebe ohne oder mit unvollständigem Google-Profil",
       "Betriebe, die auf lokale Laufkundschaft und Notfallanfragen angewiesen sind",
       "Betriebe, die mehr aus vorhandenen Bewertungen herausholen wollen",
@@ -393,6 +401,7 @@ export const services: Service[] = [
       "Von der kompakten Onepager bis zur umfangreichen Firmenwebsite mit Mitarbeitergewinnung.",
     ],
     audience: [
+      "Von SHK- und Elektrobetrieben bis Dachdecker-, Maler- und Tischlerunternehmen",
       "Betriebe mit veralteter oder fehlender Webseite",
       "Betriebe, die aktiv neue Kunden und Mitarbeitende über die Webseite gewinnen wollen",
       "Betriebe im Rahmen einer umfassenden Neuausrichtung (Rebranding)",
@@ -444,6 +453,7 @@ export const services: Service[] = [
       "Integration in Ihre bestehende Microsoft-365-Umgebung statt isolierter Zusatzsoftware.",
     ],
     audience: [
+      "Häufig bei SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetrieben mit eigenen Abläufen",
       "Betriebe mit individuellen Abläufen, die Standardsoftware nicht abdeckt",
       "Betriebe mit hohem Telefon- und Verwaltungsaufwand im Büro",
       "Betriebe, die Kunden einen digitalen Self-Service bieten wollen",
@@ -485,6 +495,7 @@ export const services: Service[] = [
       "Schulung des Teams im Umgang mit den neuen automatisierten Abläufen.",
     ],
     audience: [
+      "Lohnt sich besonders für SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetriebe mit viel Büroaufwand",
       "Betriebe mit hohem Anteil wiederkehrender, manueller Büroarbeit",
       "Betriebe mit mehreren Standorten oder Ansprechpartnern, die abgestimmt werden müssen",
       "Betriebe, die Wachstum ohne proportional wachsenden Verwaltungsaufwand anstreben",

@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/agentur", label: "Agentur" },
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
+  { href: "/standorte", label: "Standorte" },
   { href: "/magazin", label: "Magazin" },
 ];
 

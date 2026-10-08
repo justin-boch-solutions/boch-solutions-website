@@ -28,7 +28,6 @@ export function OrganizationJsonLd() {
       { "@type": "Country", name: "Deutschland" },
       ...company.areaServed.map((name) => ({ "@type": "City", name })),
     ],
-    priceRange: "$$",
     knowsAbout: [
       "Microsoft 365",
       "Microsoft Azure",
