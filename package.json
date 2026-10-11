@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "katalog": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/katalog.ts",
+    "briefe": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/briefe/generieren.ts",
+    "logo": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/logo-variante.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

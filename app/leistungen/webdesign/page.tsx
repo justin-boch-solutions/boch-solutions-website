@@ -17,7 +17,7 @@ const related = getRelatedServices(webdesign);
 const url = `${company.url}/leistungen/webdesign`;
 
 export const metadata: Metadata = {
-  title: "Webdesign",
+  title: { absolute: "Webdesign für Handwerksbetriebe | Münster und Umgebung" },
   description:
     "Webdesign für Handwerksbetriebe: Onepager, High-End Firmenwebsite und Online-Shop – schnell, mobil-optimiert und auf Anfragen ausgelegt.",
   alternates: { canonical: "/leistungen/webdesign" },

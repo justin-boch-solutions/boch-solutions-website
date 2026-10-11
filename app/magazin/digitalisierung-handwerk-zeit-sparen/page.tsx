@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("digitalisierung-handwerk-zeit-sparen")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 
@@ -42,6 +42,15 @@ export default function ArticlePage() {
         Handys oder in E-Mail-Anhängen. Eine zentrale, automatisierte Ablage in der richtigen
         Ordnerstruktur (z. B. über Microsoft 365) macht Dokumente für alle Berechtigten sofort auffindbar
         – auch von der Baustelle aus.
+      </p>
+      <p>
+        Bei Eingangsrechnungen ist das inzwischen nicht mehr nur bequem, sondern vorgeschrieben: Die
+        strukturierte Datei muss unverändert aufbewahrt werden, ein Ausdruck genügt nicht. Welche
+        Fristen für welche Betriebsgröße gelten, steht im Beitrag zur{" "}
+        <Link href="/magazin/e-rechnungspflicht-handwerksbetriebe" className="underline hover:text-foreground">
+          E-Rechnungspflicht
+        </Link>
+        .
       </p>
 
       <h2>Warum diese Reihenfolge sinnvoll ist</h2>

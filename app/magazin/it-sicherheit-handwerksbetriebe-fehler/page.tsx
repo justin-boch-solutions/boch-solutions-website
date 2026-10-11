@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("it-sicherheit-handwerksbetriebe-fehler")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 
@@ -53,6 +53,20 @@ export default function ArticlePage() {
         Spam- und Phishing-Filter (z. B. Microsoft Defender) fangen einen Großteil ab – der Rest hängt
         davon ab, ob Mitarbeitende verdächtige Nachrichten erkennen. Eine kurze, regelmäßige
         Sensibilisierung des Teams ist günstiger als jeder Vorfall, den sie verhindert.
+      </p>
+      <p>
+        Die andere Richtung wird dabei fast immer übersehen: Ohne die passenden Einträge in Ihrer
+        Domain kann jeder Fremde E-Mails verschicken, die als Absender <em>Ihre</em> Firmenadresse
+        tragen – etwa eine Rechnung an Ihre Kundschaft mit falscher Bankverbindung. Wie Sie das
+        abstellen, steht im Beitrag{" "}
+        <Link href="/magazin/firmen-email-adresse-einrichten" className="underline hover:text-foreground">
+          Firmen-E-Mail-Adresse einrichten
+        </Link>
+        ; wie Ihre Domain aktuell dasteht, zeigt der{" "}
+        <Link href="/email-check" className="underline hover:text-foreground">
+          kostenlose E-Mail-Sicherheits-Check
+        </Link>
+        .
       </p>
 
       <h2>5. Software und Systeme, die nicht aktualisiert werden</h2>

@@ -50,7 +50,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!service) return {};
 
   return {
-    title: service.shortName,
+    // absolute: ohne "| Justin Boch - Solutions" – die 25 Zeichen brauchen wir für den Suchbegriff.
+    title: { absolute: service.seoTitle },
     description: service.shortDescription,
     alternates: { canonical: `/leistungen/${service.slug}` },
   };

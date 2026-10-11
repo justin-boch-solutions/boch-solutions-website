@@ -13,6 +13,7 @@ const staticRoutes = [
   "/faq",
   "/kontakt",
   "/magazin",
+  "/email-check",
   "/it-check",
   "/website-check",
   "/standorte",

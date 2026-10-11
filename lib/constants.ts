@@ -21,7 +21,22 @@ export const company = {
     latitude: 51.9957373,
     longitude: 7.6559627,
   },
-  areaServed: ["Münster", "Telgte", "Greven", "Nottuln", "Havixbeck", "Senden"],
+  areaServed: [
+    "Münster",
+    "Telgte",
+    "Greven",
+    "Nottuln",
+    "Havixbeck",
+    "Senden",
+    "Coesfeld",
+    "Dülmen",
+    "Emsdetten",
+    "Steinfurt",
+    "Warendorf",
+    "Lüdinghausen",
+    "Ahlen",
+    "Altenberge",
+  ],
   vatId: "DE461737440" as string | null,
   domain: "boch-solutions.de",
   url: "https://boch-solutions.de",
@@ -30,6 +45,29 @@ export const company = {
 } as const;
 
 export const addressLine = `${company.address.street}, ${company.address.zip} ${company.address.city}`;
+
+/**
+ * Öffnungszeiten für die strukturierten Daten. Von Justin bestätigt am 11.10.2026.
+ * Müssen mit dem Google-Unternehmensprofil übereinstimmen – weichen sie voneinander ab,
+ * wertet Google das als widersprüchliche Angaben zum selben Betrieb.
+ */
+export const openingHours = [
+  { days: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:00", closes: "18:00" },
+  { days: ["Friday"], opens: "09:30", closes: "17:00" },
+  { days: ["Saturday"], opens: "12:30", closes: "15:30" },
+] as const;
+
+/** Preisniveau nach schema.org-Konvention. Die echten Startpreise stehen in `pricing`. */
+export const priceRange = "€€";
+
+/**
+ * Bestätigte Profile desselben Unternehmens an anderer Stelle im Netz.
+ * Google nutzt das, um verstreute Signale einer Firma zuzuordnen.
+ * Hier nur Seiten eintragen, die wirklich existieren und uns gehören.
+ */
+export const externalProfiles = [
+  "https://www.freelancermap.de/profil/justin-boch",
+] as const;
 
 // Third-party tracking IDs. GA4 is live; the Google Ads conversion tag
 // (format "AW-XXXXXXXXX") is not yet available — the Ads account is still
@@ -122,3 +160,69 @@ export const audiences = [
   "Bau- & Dachdeckerbetriebe",
   "Servicehandwerk & sonstige Gewerke",
 ] as const;
+
+// Startpreise in Euro. Kleinunternehmer nach § 19 UStG: es wird keine
+// Umsatzsteuer ausgewiesen, die Beträge sind damit Endpreise.
+// Einzige Quelle für /pakete und die Check-Ergebnis-Mails – hier ändern, nicht in den Seiten.
+export const pricing = {
+  // ---- Einmalig: IT ----
+  /** Einstiegsprodukt: E-Mail-Schutz als Festpreis, keine "ab"-Angabe. */
+  emailProtection: 390,
+  starter: 890,
+  /** Arbeitsplätze, die im Starter-Startpreis enthalten sind. */
+  starterSeats: 5,
+  /** Aufpreis je weiterem Arbeitsplatz im Starter-Paket. */
+  starterAdditionalSeat: 90,
+  growth: 3290,
+  fullService: 4900,
+
+  // ---- Einmalig: Website (Leistungskatalog 2026) ----
+  onepager: 1190,
+  firmenauftritt: 2490,
+  individuell: 3490,
+
+  // ---- Laufend: IT-Betreuung, pro Nutzer und Monat ----
+  itCareBasic: 19,
+  itCarePlus: 29,
+
+  // ---- Laufend: Website, pro Website und Monat ----
+  hosting: 9.9,
+  maintenanceBasic: 19.9,
+  maintenanceStandard: 39.9,
+  maintenanceBusiness: 69.9,
+
+  /**
+   * Jahrespreis = Monatspreis × diesem Faktor. 10 bedeutet: zwei Monate geschenkt
+   * bei Vorauszahlung. Auf 12 setzen, wenn es keinen Jahresrabatt geben soll.
+   */
+  yearlyFactor: 10,
+
+  // ---- Zusatzleistungen, einmalig (Spanne von–bis) ----
+  domainSetup: [49, 89],
+  emailDomainSetup: [79, 149],
+  extraSubpage: [149, 299],
+  formExtension: [79, 199],
+  imageCare: [25, 75],
+  basicSeo: [149, 399],
+  googleProfile: [49, 129],
+  cookieBanner: [79, 199],
+  /** Pro Endgerät, nicht pro Mitarbeiter. */
+  emailClientPerDevice: [29, 49],
+  /** Pauschale für Eilfälle; alternativ 15–30 % Zuschlag. */
+  expressFlat: [49, 99],
+
+  /** Stundensatz für alles außerhalb von Paket und Betreuung. */
+  hourly: 85,
+} as const;
+
+export const priceNote =
+  "Alle Beträge sind Startpreise und gelten als Orientierung. Als Kleinunternehmer gemäß § 19 UStG wird keine Umsatzsteuer berechnet.";
+
+export function formatEuro(value: number): string {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}

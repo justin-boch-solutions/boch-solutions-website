@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("microsoft-365-statt-einzelloesungen")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 
@@ -74,6 +74,19 @@ export default function ArticlePage() {
         Einsatz, und wo entsteht der meiste Reibungsverlust? Darauf aufbauend lässt sich eine
         Microsoft-365-Struktur planen, die zur tatsächlichen Betriebsgröße passt – nicht zu einer
         Vorlage von der Stange.
+      </p>
+      <p>
+        Einen konkreten Anlass liefert derzeit die E-Rechnungspflicht: Eingangsrechnungen müssen
+        empfangen und im Originalformat abgelegt werden – was in einem privaten Postfach nicht
+        funktioniert. Die Fristen stehen im Beitrag zur{" "}
+        <Link href="/magazin/e-rechnungspflicht-handwerksbetriebe" className="underline hover:text-foreground">
+          E-Rechnungspflicht für Handwerksbetriebe
+        </Link>
+        , und wie eine feste Rechnungsadresse auf der eigenen Domain entsteht, steht unter{" "}
+        <Link href="/magazin/firmen-email-adresse-einrichten" className="underline hover:text-foreground">
+          Firmen-E-Mail-Adresse einrichten
+        </Link>
+        .
       </p>
       <p>
         Mehr zur konkreten Einrichtung finden Sie auf unserer Leistungsseite zu{" "}

@@ -7,6 +7,12 @@ export interface FaqItem {
 
 export interface Service {
   slug: string;
+  /**
+   * Titel für das <title>-Tag. Bewusst getrennt von `name`: Der Name ist die
+   * Überschrift auf der Seite, der SEO-Titel trägt den Suchbegriff und bleibt
+   * unter 60 Zeichen, damit Google ihn nicht abschneidet.
+   */
+  seoTitle: string;
   cluster: ServiceCluster;
   name: string;
   shortName: string;
@@ -41,6 +47,7 @@ export const clusterMeta: Record<ServiceCluster, { label: string; description: s
 export const services: Service[] = [
   {
     slug: "microsoft-365-azure",
+    seoTitle: "Microsoft 365 für Handwerksbetriebe | Münster",
     cluster: "infrastruktur",
     name: "Microsoft 365 & Azure für Handwerksbetriebe",
     shortName: "Microsoft 365 & Azure",
@@ -88,6 +95,7 @@ export const services: Service[] = [
   },
   {
     slug: "microsoft-lizenzierung",
+    seoTitle: "Microsoft-365-Lizenzierung für Handwerksbetriebe",
     cluster: "infrastruktur",
     name: "Microsoft-Lizenzierung",
     shortName: "Microsoft-Lizenzierung",
@@ -129,6 +137,7 @@ export const services: Service[] = [
   },
   {
     slug: "email-optimierung",
+    seoTitle: "Firmen-E-Mail einrichten und absichern | Handwerk",
     cluster: "infrastruktur",
     name: "E-Mail-Optimierung & Migration",
     shortName: "E-Mail-Optimierung",
@@ -171,6 +180,7 @@ export const services: Service[] = [
   },
   {
     slug: "domain-einrichtung",
+    seoTitle: "Domain einrichten und umziehen für Betriebe",
     cluster: "infrastruktur",
     name: "Domain-Einrichtung",
     shortName: "Domain-Einrichtung",
@@ -212,16 +222,17 @@ export const services: Service[] = [
   },
   {
     slug: "it-support-wartung",
+    seoTitle: "IT- und EDV-Betreuung für Handwerksbetriebe | Münster",
     cluster: "infrastruktur",
-    name: "IT-Support & Wartung",
+    name: "IT-Support & EDV-Betreuung",
     shortName: "IT-Support & Wartung",
     icon: "LifeBuoy",
     shortDescription:
-      "Laufende Betreuung Ihrer Microsoft-Infrastruktur, Updates, Mitarbeiterschulungen und ein fester Ansprechpartner statt Hotline-Warteschleife.",
+      "Laufende IT- und EDV-Betreuung für Ihren Betrieb: Microsoft-Infrastruktur, Updates, Mitarbeiterschulungen und ein fester Ansprechpartner statt Hotline-Warteschleife.",
     heroSummary:
-      "IT-Support & Wartung durch Justin Boch - Solutions bedeutet: ein fester, persönlich erreichbarer Ansprechpartner für alle Fragen rund um Microsoft 365, Geräte und Software Ihres Betriebs, inklusive laufender Updates und Mitarbeiterschulungen.",
+      "IT-Support und EDV-Betreuung durch Justin Boch - Solutions bedeutet: ein fester, persönlich erreichbarer Ansprechpartner für alle Fragen rund um Microsoft 365, Geräte und Software Ihres Betriebs – aus Münster, für Betriebe in der Region, inklusive laufender Updates und Mitarbeiterschulungen.",
     problem: [
-      "Bei IT-Problemen gibt es keinen festen Ansprechpartner, nur wechselnde Hotlines.",
+      "Bei EDV-Problemen gibt es keinen festen Ansprechpartner, nur wechselnde Hotlines.",
       "Updates und Sicherheitspatches werden nicht regelmäßig eingespielt.",
       "Neue Mitarbeitende wissen nicht, wie Teams, Outlook oder gemeinsame Dateien funktionieren.",
     ],
@@ -254,6 +265,7 @@ export const services: Service[] = [
   },
   {
     slug: "cloud-sicherheit-dsgvo",
+    seoTitle: "Backup und IT-Sicherheit für Handwerksbetriebe",
     cluster: "infrastruktur",
     name: "Cloud-Sicherheit, Backup & DSGVO",
     shortName: "Cloud-Sicherheit & DSGVO",
@@ -296,6 +308,7 @@ export const services: Service[] = [
   },
   {
     slug: "seo-geo-optimierung",
+    seoTitle: "Lokales SEO für Handwerksbetriebe | Münster",
     cluster: "sichtbarkeit",
     name: "SEO & GEO-Optimierung",
     shortName: "SEO & GEO",
@@ -338,6 +351,7 @@ export const services: Service[] = [
   },
   {
     slug: "google-unternehmensprofil",
+    seoTitle: "Google-Unternehmensprofil erstellen lassen | Handwerk",
     cluster: "sichtbarkeit",
     name: "Google-Unternehmensprofil-Optimierung",
     shortName: "Google-Unternehmensprofil",
@@ -380,6 +394,7 @@ export const services: Service[] = [
   },
   {
     slug: "webdesign",
+    seoTitle: "Webdesign für Handwerksbetriebe | Münster und Umgebung",
     cluster: "sichtbarkeit",
     name: "Webdesign für Handwerksbetriebe",
     shortName: "Webdesign",
@@ -432,6 +447,7 @@ export const services: Service[] = [
   },
   {
     slug: "individuelle-software",
+    seoTitle: "Individuelle Software für Handwerksbetriebe",
     cluster: "digitalisierung",
     name: "Individuelle Softwarelösungen",
     shortName: "Individuelle Software",
@@ -474,6 +490,7 @@ export const services: Service[] = [
   },
   {
     slug: "prozessautomatisierung",
+    seoTitle: "Prozesse automatisieren im Handwerksbetrieb",
     cluster: "digitalisierung",
     name: "Prozessautomatisierung mit Power Automate",
     shortName: "Prozessautomatisierung",

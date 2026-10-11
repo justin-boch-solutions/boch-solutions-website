@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description:
-    "Justin Boch - Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software.",
+    "IT und Webdesign für Handwerksbetriebe in Münster und Umgebung: Microsoft 365, professionelle E-Mail, lokale Sichtbarkeit und Webseiten, die Anfragen bringen.",
   openGraph: {
     type: "website",
     locale: "de_DE",

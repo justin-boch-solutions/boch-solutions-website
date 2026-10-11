@@ -1,4 +1,4 @@
-import { company } from "@/lib/constants";
+import { company, externalProfiles, openingHours, priceRange } from "@/lib/constants";
 
 export function OrganizationJsonLd() {
   const data = {
@@ -28,6 +28,14 @@ export function OrganizationJsonLd() {
       { "@type": "Country", name: "Deutschland" },
       ...company.areaServed.map((name) => ({ "@type": "City", name })),
     ],
+    openingHoursSpecification: openingHours.map((block) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: block.days,
+      opens: block.opens,
+      closes: block.closes,
+    })),
+    priceRange,
+    sameAs: externalProfiles,
     knowsAbout: [
       "Microsoft 365",
       "Microsoft Azure",

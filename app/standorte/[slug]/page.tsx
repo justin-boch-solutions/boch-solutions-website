@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!location) return {};
 
   return {
-    title: `IT-Modernisierung für Handwerksbetriebe in ${location.name}`,
+    title: { absolute: `IT und Webdesign für Handwerksbetriebe in ${location.name}` },
     description: `Microsoft 365, SEO/GEO, Google-Unternehmensprofil und Webdesign für Handwerksbetriebe in ${location.name} – betreut von Justin Boch - Solutions aus Münster.`,
     alternates: { canonical: `/standorte/${location.slug}` },
   };
@@ -37,10 +37,17 @@ export default async function LocationPage({ params }: PageProps) {
 
   const url = `${company.url}/standorte/${location.slug}`;
 
+  // Am eigenen Standort ergibt "liegt rund 0 km entfernt" keinen Sinn.
+  const lage = location.isHeadquarters
+    ? `${location.name} ist unser eigener Standort – kurze Wege, Vor-Ort-Termine ohne Anfahrtsaufwand.`
+    : `${location.name} liegt rund ${location.distanceKm} km ${location.direction} von unserem Standort Münster entfernt.`;
+
   const faq = [
     {
       question: `Betreuen Sie Handwerksbetriebe auch in ${location.name}?`,
-      answer: `Ja. ${location.name} liegt rund ${location.distanceKm} km ${location.direction} von unserem Standort Münster entfernt – Vor-Ort-Termine sind dort ebenso möglich wie eine vollständig remote umgesetzte IT-Modernisierung.`,
+      answer: location.isHeadquarters
+        ? `Ja – ${location.name} ist unser Sitz. Vor-Ort-Termine sind hier jederzeit möglich, ebenso eine vollständig remote umgesetzte IT-Modernisierung.`
+        : `Ja. ${lage} Vor-Ort-Termine sind dort ebenso möglich wie eine vollständig remote umgesetzte IT-Modernisierung.`,
     },
     {
       question: "Ist mein Betrieb zu klein für Microsoft 365 und professionelle IT?",
@@ -74,7 +81,7 @@ export default async function LocationPage({ params }: PageProps) {
       <Hero
         eyebrow="Standort"
         title={`IT-Modernisierung für Handwerksbetriebe in ${location.name}`}
-        subtitle={`${location.name} liegt rund ${location.distanceKm} km ${location.direction} von unserem Standort Münster entfernt – wir modernisieren die IT von Handwerksbetrieben dort auf Basis von Microsoft 365, vor Ort oder remote.`}
+        subtitle={`${lage} Wir modernisieren die IT von Handwerksbetrieben ${location.isHeadquarters ? "hier" : "dort"} auf Basis von Microsoft 365 – vor Ort oder remote – und bauen Webseiten, die Anfragen und Mitarbeitende bringen.`}
         breadcrumb={[
           { name: "Startseite", href: "/" },
           { name: "Standorte", href: "/standorte" },
@@ -86,13 +93,13 @@ export default async function LocationPage({ params }: PageProps) {
       <Section
         eyebrow={location.name}
         title={`Handwerk in ${location.name}`}
-        subtitle={location.blurb}
+        subtitle={`${location.blurb} Besonders stark vertreten: ${location.schwerpunkt}.`}
       />
 
       <Section
         eyebrow="Leistungen"
         title={`Unsere Leistungen für Betriebe in ${location.name}`}
-        subtitle="Von der Microsoft-365-Grundlage bis zur individuellen Software – alles aus einer Hand."
+        subtitle={`Von der Microsoft-365-Grundlage über die laufende EDV-Betreuung bis zur individuellen Software – für Betriebe in ${location.name} aus einer Hand.`}
         className="border-t border-border bg-surface/30"
       >
         <ServiceGrid services={services} />

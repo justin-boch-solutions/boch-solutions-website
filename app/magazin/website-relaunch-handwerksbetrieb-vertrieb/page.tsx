@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("website-relaunch-handwerksbetrieb-vertrieb")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 
@@ -63,6 +63,14 @@ export default function ArticlePage() {
         Mehr dazu auf unserer{" "}
         <Link href="/leistungen/webdesign" className="underline hover:text-foreground">
           Webdesign-Seite
+        </Link>
+        .
+      </p>
+      <p>
+        Ob sich der Aufwand gegenüber einem Baukasten lohnt, hängt stark davon ab, was die Seite
+        leisten soll – eine ehrliche Gegenüberstellung steht unter{" "}
+        <Link href="/magazin/website-ki-baukasten-oder-profi" className="underline hover:text-foreground">
+          Website vom KI-Baukasten oder vom Profi
         </Link>
         .
       </p>

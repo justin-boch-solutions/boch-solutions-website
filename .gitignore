@@ -42,3 +42,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Erzeugte Briefe – enthalten Adressdaten fremder Betriebe, gehören nicht ins Repository
+scripts/briefe/ausgabe/
+scripts/briefe/website-cache.json

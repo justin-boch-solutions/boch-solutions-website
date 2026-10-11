@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("geo-generative-engine-optimization-handwerk")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 

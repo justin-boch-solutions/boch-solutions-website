@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/impressum", "/datenschutz", "/agb"],
+        // Das Impressum bleibt crawlbar: Google gleicht darueber Name, Adresse und
+        // Telefon eines deutschen Unternehmens ab – ein wichtiges Signal fuer die
+        // lokale Suche. Datenschutz und AGB haben diesen Nutzen nicht.
+        disallow: ["/datenschutz", "/agb"],
       },
     ],
     sitemap: `${company.url}/sitemap.xml`,

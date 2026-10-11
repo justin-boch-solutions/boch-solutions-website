@@ -20,7 +20,7 @@ import { getServiceBySlug } from "@/lib/services";
 export const metadata: Metadata = {
   title: "IT-Modernisierung für Handwerksbetriebe mit Microsoft 365",
   description:
-    "Justin Boch - Solutions modernisiert die IT von Handwerksbetrieben auf Basis von Microsoft 365 & Azure – inklusive SEO/GEO, Google-Unternehmensprofil, Webdesign und individueller Software. Standort Münster.",
+    "IT und Webdesign für Handwerksbetriebe in Münster und Umgebung: Microsoft 365, professionelle E-Mail, lokale Sichtbarkeit und Webseiten, die Anfragen bringen.",
   alternates: { canonical: "/" },
 };
 
@@ -146,13 +146,22 @@ export default function Home() {
       <section className="border-t border-border bg-gradient-to-r from-accent/10 via-transparent to-accent-secondary/10 py-14">
         <Container className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <p className="font-display text-xl font-semibold text-foreground">Wie zukunftsfähig ist Ihre IT?</p>
-            <p className="mt-1 text-sm text-muted">
-              Kostenloser Selbsttest in 2 Minuten – mit sofortiger Einschätzung für Ihren Betrieb.
+            <p className="font-display text-xl font-semibold text-foreground">
+              Kann jemand in Ihrem Namen Rechnungen verschicken?
             </p>
+            <p className="mt-1 text-sm text-muted">
+              Bei den meisten Handwerksbetrieben ja. Wir prüfen die drei Einträge Ihrer Domain, die das verhindern –
+              kostenlos, ohne Zugriff auf Ihr Postfach.
+            </p>
+            <Link
+              href="/it-check"
+              className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent-secondary hover:underline"
+            >
+              Oder den IT-Selbsttest in 2 Minuten machen <ArrowRight className="size-4" />
+            </Link>
           </div>
-          <Button href="/it-check" size="lg" className="shrink-0">
-            Jetzt IT-Check machen
+          <Button href="/email-check" size="lg" className="shrink-0">
+            E-Mail-Sicherheit prüfen
           </Button>
         </Container>
       </section>

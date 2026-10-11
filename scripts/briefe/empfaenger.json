@@ -1,0 +1,236 @@
+[
+  {
+    "domain": "shk-pfeifer.de",
+    "firma": "Pfeifer GmbH",
+    "strasse": "Roxeler Straße 575",
+    "plz": "48161",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Pfeifer",
+    "variante": "A"
+  },
+  {
+    "domain": "elektro-glafey.de",
+    "firma": "Elektro Glafey",
+    "strasse": "Südstraße 7",
+    "plz": "48153",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Horstmann",
+    "variante": "B"
+  },
+  {
+    "domain": "waechter-sanitaer.de",
+    "firma": "Franz Wächter GmbH & Co. KG",
+    "strasse": "Dieckstraße 65-67",
+    "plz": "48145",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Wächter",
+    "variante": "A"
+  },
+  {
+    "domain": "ggh-muenster.de",
+    "firma": "GGH Münster GmbH",
+    "strasse": "An den Loddenbüschen 81 A",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Brune",
+    "variante": "B"
+  },
+  {
+    "domain": "tischlerei-spiekermann.de",
+    "firma": "Tischlerei Werner Spiekermann GmbH",
+    "strasse": "Walingen 34",
+    "plz": "48329",
+    "ort": "Havixbeck",
+    "anrede": "Sehr geehrter Herr Spiekermann",
+    "variante": "A"
+  },
+  {
+    "domain": "thorwesten-gmbh.de",
+    "firma": "Thorwesten GmbH",
+    "strasse": "Geiststraße 24",
+    "plz": "48151",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Thorwesten",
+    "variante": "B"
+  },
+  {
+    "domain": "peters-lackmann.de",
+    "firma": "Peters + Lackmann GmbH",
+    "strasse": "Gustav-Stresemann-Weg 58",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "A"
+  },
+  {
+    "domain": "shk-baumann.de",
+    "firma": "SHK Baumann",
+    "strasse": "Schürkamp 6",
+    "plz": "48163",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Baumann",
+    "variante": "B"
+  },
+  {
+    "domain": "heemann-malerbetrieb.de",
+    "firma": "Marcus Heemann Malerbetrieb GmbH",
+    "strasse": "Von-Witzleben-Straße 5",
+    "plz": "48151",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Heemann",
+    "variante": "A"
+  },
+  {
+    "domain": "muennich-bedachung.de",
+    "firma": "Dachdeckermeisterbetrieb Münnich GmbH",
+    "strasse": "Heeremansweg 23",
+    "plz": "48167",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Münnich",
+    "variante": "B"
+  },
+  {
+    "domain": "guderian-elektro.de",
+    "firma": "Guderian Elektro",
+    "strasse": "Wolbecker Windmühle 35",
+    "plz": "48167",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "A"
+  },
+  {
+    "domain": "galabau-louro.de",
+    "firma": "GalaBau Louro",
+    "strasse": "Altenroxeler Straße 277 a",
+    "plz": "48163",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "B"
+  },
+  {
+    "domain": "ahlers-dachdecker.de",
+    "firma": "Ahlers Dach-, Wand- & Abdichtungstechnik",
+    "strasse": "Haurottheide 3",
+    "plz": "48157",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "A"
+  },
+  {
+    "domain": "sander-bedachungen.de",
+    "firma": "Sander Bedachungen",
+    "strasse": "Albrecht-Thaer-Straße 22",
+    "plz": "48147",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "B"
+  },
+  {
+    "domain": "ohm-elektro.de",
+    "firma": "Elektrotechnik Ohm",
+    "strasse": "Erbdrostenweg 205",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "A"
+  },
+  {
+    "domain": "fjbauservice.de",
+    "firma": "FJ Bauservice – Friedrich Jörling",
+    "strasse": "Marderweg 53",
+    "plz": "48157",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Jörling",
+    "variante": "B"
+  },
+  {
+    "domain": "tripp-galabau.de",
+    "firma": "Stefan Tripp Galabau GmbH",
+    "strasse": "Münsterstraße 90",
+    "plz": "59227",
+    "ort": "Ahlen",
+    "anrede": "Sehr geehrter Herr Tripp",
+    "variante": "A"
+  },
+  {
+    "domain": "heitstummann.de",
+    "firma": "Bernhard Heitstummann Malermeister GmbH",
+    "strasse": "An den Loddenbüschen 85",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Schmidt",
+    "variante": "B"
+  },
+  {
+    "domain": "kaiser-moebel.de",
+    "firma": "Theodor Kaiser Schreinerei",
+    "strasse": "Holtrup 41",
+    "plz": "48231",
+    "ort": "Warendorf-Hoetmar",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "A"
+  },
+  {
+    "domain": "zimmerei-hinnemann.de",
+    "firma": "Zimmerei Hinnemann GmbH & Co. KG",
+    "strasse": "Hammer Straße 361a",
+    "plz": "48153",
+    "ort": "Münster",
+    "anrede": "Sehr geehrte Damen und Herren",
+    "variante": "B"
+  },
+  {
+    "domain": "alexander-wirths.de",
+    "firma": "Fliesenlegerfachbetrieb Alexander Wirths",
+    "strasse": "Wolbecker Straße 54",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Wirths",
+    "variante": "A"
+  },
+  {
+    "domain": "fliesenwerk.com",
+    "firma": "Fliesenwerk – Frank Höhne",
+    "strasse": "Weissenburgstraße 38",
+    "plz": "48151",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Höhne",
+    "variante": "B"
+  },
+  {
+    "domain": "goas-altbausanierung.com",
+    "firma": "GOAS Altbausanierung",
+    "strasse": "Burgwall 21",
+    "plz": "48165",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Goas",
+    "variante": "A"
+  },
+  {
+    "domain": "platten-peter.de",
+    "firma": "Platten-Peter Fliesenverlegung",
+    "strasse": "Albrecht-Thaer-Straße 18",
+    "plz": "48147",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Exner",
+    "variante": "B"
+  },
+  {
+    "domain": "bager.de",
+    "firma": "Bager Parkett GmbH",
+    "strasse": "Lippstädter Straße 50",
+    "plz": "48155",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Polynin",
+    "variante": "A"
+  },
+  {
+    "domain": "haidar-bodenbelaege.de",
+    "firma": "Youssef Haidar Bodenbeläge",
+    "strasse": "Gropiusstraße 1",
+    "plz": "48163",
+    "ort": "Münster",
+    "anrede": "Sehr geehrter Herr Haidar",
+    "variante": "B"
+  }
+]

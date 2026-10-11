@@ -8,7 +8,7 @@ import { clusterMeta, getServicesByCluster, type ServiceCluster } from "@/lib/se
 export const metadata: Metadata = {
   title: "Leistungen",
   description:
-    "Alle Leistungen von Justin Boch - Solutions für Handwerksbetriebe: Microsoft 365 & Azure, Lizenzierung, E-Mail, Domain, IT-Support, Sicherheit, SEO/GEO, Google-Unternehmensprofil, Webdesign und individuelle Software.",
+    "Elf Leistungen für Handwerksbetriebe aus einer Hand: Microsoft 365, E-Mail und Domain, IT-Support, lokale Sichtbarkeit, Webdesign und individuelle Software.",
   alternates: { canonical: "/leistungen" },
 };
 

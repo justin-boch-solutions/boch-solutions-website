@@ -60,12 +60,13 @@ export function Typewriter({ segments, speed = 35, startDelay = 300, className }
 
   return (
     <span className={cn("grid", className)}>
-      {/* Plain, undecorated copy for assistive tech — avoids aria-label on a
-          generic-role span, which axe/Lighthouse flags as a disallowed ARIA attribute. */}
-      <span className="sr-only">{fullText}</span>
-      {/* Invisible full-text ghost: reserves the final layout size from first paint so the
-          animation growing character-by-character never shifts anything below it (CLS). */}
-      <span aria-hidden="true" className="invisible [grid-area:1/1]">
+      {/* Transparent full-text copy with three jobs at once: it reserves the final layout
+          size from first paint so the character-by-character animation never shifts anything
+          below it (CLS), it is the copy assistive tech reads, and it is the only place the
+          text exists in the DOM — a second hidden copy would make crawlers see the heading
+          twice. opacity-0 (not `invisible`) keeps it in the accessibility tree;
+          select-none keeps it out of the user's text selection. */}
+      <span className="opacity-0 select-none [grid-area:1/1]">
         {segments.map((segment, index) => (
           <span key={index} className={segment.className}>
             {segment.text}

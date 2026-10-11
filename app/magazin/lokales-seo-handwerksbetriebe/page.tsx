@@ -6,8 +6,8 @@ import { getArticleBySlug } from "@/lib/articles";
 const article = getArticleBySlug("lokales-seo-handwerksbetriebe")!;
 
 export const metadata: Metadata = {
-  title: article.title,
-  description: article.excerpt,
+  title: { absolute: article.seoTitle },
+  description: article.metaDescription,
   alternates: { canonical: `/magazin/${article.slug}` },
 };
 
@@ -64,6 +64,14 @@ export default function ArticlePage() {
         Wochen. Spürbare Platzierungsverbesserungen bei umkämpften Suchbegriffen brauchen dagegen in
         der Regel mehrere Monate kontinuierlicher Arbeit – lokales SEO ist ein laufender Prozess, kein
         einmaliges Projekt.
+      </p>
+      <p>
+        Sichtbarkeit nützt allerdings wenig, wenn die Besucher danach abspringen. Woran
+        Handwerker-Webseiten in diesem zweiten Schritt scheitern, steht im Beitrag{" "}
+        <Link href="/magazin/webdesign-handwerksbetriebe-worauf-achten" className="underline hover:text-foreground">
+          Webdesign für Handwerksbetriebe
+        </Link>
+        .
       </p>
       <p>
         Mehr dazu auf unseren Leistungsseiten zu{" "}

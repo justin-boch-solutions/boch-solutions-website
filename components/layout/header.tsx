@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Gauge, Menu, Phone, Search, X } from "lucide-react";
+import { ChevronDown, Gauge, Menu, Phone, Search, ShieldAlert, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,12 @@ const navLinks = [
 const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisierung"];
 
 const analyseItems = [
+  {
+    href: "/email-check",
+    label: "E-Mail-Sicherheits-Check",
+    description: "Kann jemand in Ihrem Namen Rechnungen verschicken?",
+    icon: ShieldAlert,
+  },
   {
     href: "/it-check",
     label: "IT-Check",
@@ -74,9 +80,9 @@ export function Header() {
           isScrolled ? "h-16" : "h-20",
         )}
       >
-        <Logo className={cn("origin-left transition-transform duration-300", isScrolled && "scale-90")} />
+        <Logo className={cn("shrink-0 origin-left transition-transform duration-300", isScrolled && "scale-90")} />
 
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           <div
             className="relative"
             onMouseEnter={() => setIsServicesOpen(true)}
@@ -91,7 +97,7 @@ export function Header() {
             }}
           >
             <button
-              className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground/90 transition-colors hover:text-accent-secondary"
+              className="flex items-center gap-1 rounded-full px-2.5 py-2 text-sm font-medium text-foreground/90 xl:px-3 min-[1400px]:px-4 transition-colors hover:text-accent-secondary"
               aria-expanded={isServicesOpen}
               onFocus={() => setIsServicesOpen(true)}
               onClick={() => setIsServicesOpen(true)}
@@ -148,7 +154,7 @@ export function Header() {
             }}
           >
             <button
-              className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground/90 transition-colors hover:text-accent-secondary"
+              className="flex items-center gap-1 rounded-full px-2.5 py-2 text-sm font-medium text-foreground/90 xl:px-3 min-[1400px]:px-4 transition-colors hover:text-accent-secondary"
               aria-expanded={isAnalyseOpen}
               onFocus={() => setIsAnalyseOpen(true)}
               onClick={() => setIsAnalyseOpen(true)}
@@ -184,24 +190,25 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-foreground/90 transition-colors hover:text-accent-secondary"
+              className="rounded-full px-2.5 py-2 text-sm font-medium text-foreground/90 xl:px-3 min-[1400px]:px-4 transition-colors hover:text-accent-secondary"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex xl:gap-3 min-[1400px]:gap-4">
           <a
             href={company.phoneHref}
-            className="flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
+            className="hidden items-center gap-2 whitespace-nowrap text-sm text-muted transition-colors hover:text-foreground xl:flex"
           >
-            <Phone className="size-4" />
+            <Phone className="size-4 shrink-0" />
             {company.phone}
           </a>
           <ThemeToggle />
-          <Button href="/kontakt" size="md">
-            Kontakt aufnehmen
+          <Button href="/kontakt" size="md" className="px-4 min-[1400px]:px-5">
+            <span className="min-[1400px]:hidden">Kontakt</span>
+            <span className="hidden min-[1400px]:inline">Kontakt aufnehmen</span>
           </Button>
         </div>
 
