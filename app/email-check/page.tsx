@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { EmailCheckForm } from "@/components/sections/email-check-form";
 import { CtaSection } from "@/components/sections/cta-section";
+import { prozent, studie, zahl } from "@/lib/studie";
 
 export const metadata: Metadata = {
   title: "E-Mail-Sicherheits-Check",
@@ -23,6 +25,21 @@ export default function EmailCheckPage() {
       <Section>
         <div className="mx-auto max-w-2xl">
           <EmailCheckForm />
+        </div>
+      </Section>
+      <Section className="border-t border-border bg-surface/30">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-base leading-relaxed text-muted">
+            Dieselbe Prüfung haben wir für {zahl(studie.domainsGesamt)} Unternehmen in
+            Nordrhein-Westfalen durchgeführt. Ergebnis: Bei {prozent(studie.kritischGesamtProzent)}{" "}
+            lassen sich E-Mails im Firmennamen fälschen.{" "}
+            <Link
+              href={`/studie/${studie.slug}`}
+              className="font-semibold text-foreground underline hover:text-accent"
+            >
+              Alle Zahlen nach 14 Branchen
+            </Link>
+          </p>
         </div>
       </Section>
       <CtaSection

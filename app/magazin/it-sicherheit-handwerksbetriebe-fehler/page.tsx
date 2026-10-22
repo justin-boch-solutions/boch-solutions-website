@@ -68,6 +68,16 @@ export default function ArticlePage() {
         </Link>
         .
       </p>
+      <p>
+        Wie verbreitet die Lücke ist, haben wir im Oktober 2026 selbst erhoben: Von 15.452 geprüften
+        Unternehmen in Nordrhein-Westfalen lassen sich bei 54,3 Prozent E-Mails im Firmennamen
+        fälschen. Das Handwerk liegt mit 55,7 Prozent im Mittelfeld – schlechter stehen Steuerberater
+        und Rechtsanwälte da. Alle Zahlen stehen in unserer{" "}
+        <Link href="/studie/email-sicherheit-nrw-2026" className="underline hover:text-foreground">
+          Untersuchung zur E-Mail-Sicherheit in NRW
+        </Link>
+        .
+      </p>
 
       <h2>5. Software und Systeme, die nicht aktualisiert werden</h2>
       <p>

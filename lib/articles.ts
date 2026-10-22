@@ -37,6 +37,34 @@ export const articles: Article[] = [
     relatedSlugs: ["firmen-email-adresse-einrichten", "e-rechnungspflicht-handwerksbetriebe"],
   },
   {
+    slug: "php2shell-sicherheitsluecke-webseite",
+    title: "php2shell: Die PHP-Lücke, wegen der gerade Webseiten offline gehen",
+    seoTitle: "php2shell: Was Betriebe jetzt tun müssen",
+    metaDescription:
+      "Zwei kritische PHP-Lücken erlauben seit dem 21. Oktober 2026 die Übernahme von Webservern. Was Handwerksbetriebe prüfen müssen – und wer nicht betroffen ist.",
+    excerpt:
+      "Seit dem 21. Oktober 2026 sind zwei kritische Lücken in PHP öffentlich. Angreifer können Webserver ohne Anmeldung übernehmen, Cloudflare zählt Millionen Versuche. Betroffen ist fast jede Webseite der letzten zwanzig Jahre – und oft auch das Gerät im Büro, an das niemand denkt.",
+    category: "microsoft-it",
+    publishedAt: "2026-10-22",
+    readingMinutes: 6,
+    icon: "ShieldCheck",
+    relatedSlugs: ["it-sicherheit-handwerksbetriebe-fehler", "webdesign-handwerksbetriebe-worauf-achten"],
+  },
+  {
+    slug: "domain-rechnung-betrug-erkennen",
+    title: "Die Rechnung für Ihre Domain, die keine ist",
+    seoTitle: "Gefälschte Domain-Rechnungen erkennen",
+    metaDescription:
+      "Gefälschte Domain-Rechnungen und Eintragungsangebote treffen Handwerksbetriebe regelmäßig. Woran Sie sie erkennen und was Sie tun, wenn Sie gezahlt haben.",
+    excerpt:
+      "Ein Schreiben sieht aus wie eine Rechnung Ihres Domain-Anbieters, nennt Ihre echte Internetadresse und droht mit Abschaltung. Es ist keine Rechnung – und wer das Kleingedruckte liest, findet den Beweis in einem einzigen Satz.",
+    category: "digitalisierung",
+    publishedAt: "2026-10-22",
+    readingMinutes: 6,
+    icon: "Mail",
+    relatedSlugs: ["it-sicherheit-handwerksbetriebe-fehler", "firmen-email-adresse-einrichten"],
+  },
+  {
     slug: "it-sicherheit-handwerksbetriebe-fehler",
     title: "IT-Sicherheit für Handwerksbetriebe: 5 häufige Fehler und wie man sie vermeidet",
     seoTitle: "IT-Sicherheit im Handwerk: 5 häufige Fehler",

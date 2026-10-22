@@ -3,6 +3,7 @@ import { company } from "@/lib/constants";
 import { services } from "@/lib/services";
 import { articles } from "@/lib/articles";
 import { locations } from "@/lib/locations";
+import { studie } from "@/lib/studie";
 
 const staticRoutes = [
   "",
@@ -51,5 +52,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...articleEntries, ...locationEntries];
+  /** Eigene Primärdaten und damit das Ziel externer Verlinkungen – höher als Leistungsseiten. */
+  const studieEntry: MetadataRoute.Sitemap = [
+    {
+      url: `${company.url}/studie/${studie.slug}`,
+      lastModified: new Date(studie.veroeffentlicht),
+      changeFrequency: "yearly",
+      priority: 0.9,
+    },
+  ];
+
+  return [
+    ...staticEntries,
+    ...serviceEntries,
+    ...articleEntries,
+    ...locationEntries,
+    ...studieEntry,
+  ];
 }
