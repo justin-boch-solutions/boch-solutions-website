@@ -22,6 +22,7 @@ const resourceLinks = [
   { href: "/email-check", label: "E-Mail-Sicherheits-Check" },
   { href: "/it-check", label: "IT-Check" },
   { href: "/website-check", label: "Website-Check" },
+  { href: "/sicherheits-check", label: "Sicherheits-Check" },
   { href: "/beispielprojekt", label: "Beispielprojekt" },
   { href: "/standorte", label: "Standorte" },
 ];

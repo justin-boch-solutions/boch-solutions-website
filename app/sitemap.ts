@@ -17,6 +17,7 @@ const staticRoutes = [
   "/email-check",
   "/it-check",
   "/website-check",
+  "/sicherheits-check",
   "/standorte",
   "/beispielprojekt",
 ];

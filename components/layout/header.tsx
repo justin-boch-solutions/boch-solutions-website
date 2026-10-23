@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Gauge, Menu, Phone, Search, ShieldAlert, X } from "lucide-react";
+import { ChevronDown, Gauge, Menu, Phone, Search, ShieldAlert, ShieldCheck, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,12 @@ const analyseItems = [
     label: "Website-Check",
     description: "Performance, SEO & technische Basis Ihrer Webseite prüfen.",
     icon: Search,
+  },
+  {
+    href: "/sicherheits-check",
+    label: "Sicherheits-Check",
+    description: "php2shell, offene Dateien und Sicherheits-Header Ihrer Website.",
+    icon: ShieldCheck,
   },
 ];
 
