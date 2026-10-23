@@ -18,11 +18,11 @@ const HEADER_CHECKS: HeaderCheck[] = [
     label: "HSTS (Strict-Transport-Security)",
     severity: "medium",
     impact:
-      "Ohne HSTS kann ein Angreifer im selben Netz - etwa im Hotel- oder Cafe-WLAN - den ersten Aufruf auf unverschlüsseltes HTTP umbiegen und Sitzungsdaten mitlesen.",
+      "Ohne HSTS kann ein Angreifer im selben Netz – etwa im Hotel- oder Cafe-WLAN – den ersten Aufruf auf unverschlüsseltes HTTP umbiegen und Sitzungsdaten mitlesen.",
     actions: [
       "Header setzen: Strict-Transport-Security: max-age=31536000; includeSubDomains",
       "Vorher sicherstellen, dass wirklich alle Subdomains per HTTPS erreichbar sind.",
-      "Erst nach einigen Wochen stabilem Betrieb über preload nachdenken - der Eintrag ist nur schwer rückgängig zu machen.",
+      "Erst nach einigen Wochen stabilem Betrieb über preload nachdenken – der Eintrag ist nur schwer rückgängig zu machen.",
     ],
     validate: (v) => {
       const max = Number(v.match(/max-age=(\d+)/i)?.[1] ?? 0);
@@ -38,7 +38,7 @@ const HEADER_CHECKS: HeaderCheck[] = [
     label: "Content-Security-Policy",
     severity: "high",
     impact:
-      "Die CSP ist die wirksamste Bremse gegen Cross-Site-Scripting. Ohne sie kann eingeschleuster JavaScript-Code ungehindert Sitzungs-Cookies auslesen oder Formulareingaben abgreifen - inklusive Zahlungsdaten.",
+      "Die CSP ist die wirksamste Bremse gegen Cross-Site-Scripting. Ohne sie kann eingeschleuster JavaScript-Code ungehindert Sitzungs-Cookies auslesen oder Formulareingaben abgreifen – inklusive Zahlungsdaten.",
     actions: [
       "Mit einer Report-Only-Policy starten, damit nichts kaputtgeht: Content-Security-Policy-Report-Only.",
       "Mindestens default-src 'self' und frame-ancestors 'none' definieren.",
@@ -87,7 +87,7 @@ const HEADER_CHECKS: HeaderCheck[] = [
     label: "Schutz gegen Clickjacking",
     severity: "medium",
     impact:
-      "Ohne Frame-Schutz kann Ihre Seite unsichtbar in eine fremde Seite eingebettet werden. Nutzer klicken dann auf Schaltflächen, die sie gar nicht sehen - etwa 'Bestellung absenden'.",
+      "Ohne Frame-Schutz kann Ihre Seite unsichtbar in eine fremde Seite eingebettet werden. Nutzer klicken dann auf Schaltflächen, die sie gar nicht sehen – etwa 'Bestellung absenden'.",
     actions: [
       "Entweder X-Frame-Options: DENY setzen",
       "oder moderner in der CSP: frame-ancestors 'none'",
@@ -108,7 +108,7 @@ const HEADER_CHECKS: HeaderCheck[] = [
     label: "Permissions-Policy",
     severity: "low",
     impact:
-      "Die Permissions-Policy legt fest, welche Browserfunktionen - Kamera, Mikrofon, Standort - eingebettete Inhalte nutzen dürfen. Ohne sie erben eingebundene Werbe- oder Tracking-Frames Ihre Rechte.",
+      "Die Permissions-Policy legt fest, welche Browserfunktionen – Kamera, Mikrofon, Standort – eingebettete Inhalte nutzen dürfen. Ohne sie erben eingebundene Werbe- oder Tracking-Frames Ihre Rechte.",
     actions: ["Header setzen, z.B.: Permissions-Policy: camera=(), microphone=(), geolocation=()"],
   },
 ];
@@ -167,7 +167,7 @@ export function checkSecurityHeaders(headers: Headers): Finding[] {
         category: "header",
         severity: check.severity === "high" ? "medium" : "low",
         title: `${check.label} ist zu schwach konfiguriert`,
-        evidence: `Gesetzter Wert: ${value.slice(0, 180)}${value.length > 180 ? " ..." : ""} - ${problem.note}`,
+        evidence: `Gesetzter Wert: ${value.slice(0, 180)}${value.length > 180 ? " ..." : ""} – ${problem.note}`,
         impact: check.impact,
         actions: check.actions,
       });

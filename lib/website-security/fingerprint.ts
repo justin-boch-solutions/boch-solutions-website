@@ -110,7 +110,7 @@ export function buildFingerprint(headers: Headers, html: string): Fingerprint {
   return { server, poweredBy, phpVersion, phpDetected, nodeHint, cms, cmsVersion };
 }
 
-/** CMS, die zwingend auf PHP laufen. Relevant für die PHP2Shell-Bewertung. */
+/** CMS, die zwingend auf PHP laufen. Relevant für die php2shell-Bewertung. */
 export const PHP_BASED_CMS = [
   "WordPress",
   "TYPO3",

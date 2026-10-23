@@ -54,7 +54,7 @@ export const EXPOSED_PATHS: ExposedPath[] = [
     severity: "high",
     confirm: /phpinfo\(\)|PHP Version|Loaded Configuration File/i,
     impact:
-      "phpinfo() verrät die exakte PHP-Version, alle geladenen Module, Pfade und Teile der Konfiguration. Genau das braucht ein Angreifer, um einen passenden Exploit auszuwählen - bei PHP2Shell unmittelbar relevant.",
+      "phpinfo() verrät die exakte PHP-Version, alle geladenen Module, Pfade und Teile der Konfiguration. Genau das braucht ein Angreifer, um einen passenden Exploit auszuwählen – bei php2shell unmittelbar relevant.",
     actions: [
       "Die Datei löschen. Sie wird im Normalbetrieb nicht gebraucht.",
       "Prüfen, ob weitere Debug-Dateien herumliegen (test.php, info.php, pma.php).",

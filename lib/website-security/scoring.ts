@@ -2,7 +2,7 @@ import type { Finding, Severity } from "./types";
 
 /**
  * Abzüge je Fund. Bewusst hart bei kritischen Funden: eine ungepatchte
- * PHP2Shell-Instanz soll nie eine gute Note bekommen, egal wie sauber der Rest ist.
+ * php2shell-Instanz soll nie eine gute Note bekommen, egal wie sauber der Rest ist.
  */
 const PENALTY: Record<Severity, number> = {
   critical: 40,
@@ -46,7 +46,7 @@ export const SEVERITY_LABEL: Record<Severity, string> = {
 
 export const CATEGORY_LABEL = {
   laufzeit: "Server & Laufzeit",
-  php2shell: "PHP2Shell",
+  php2shell: "php2shell",
   header: "Sicherheits-Header",
   transport: "Verschlüsselung",
   cookies: "Cookies",

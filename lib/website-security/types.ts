@@ -14,7 +14,7 @@ export interface Finding {
   id: string;
   category: CheckCategory;
   severity: Severity;
-  /** Kurze Ueberschrift, z.B. "PHP-Version ist nicht gegen PHP2Shell gepatcht". */
+  /** Kurze Ueberschrift, z.B. "PHP-Version ist nicht gegen php2shell gepatcht". */
   title: string;
   /** Was wurde konkret beobachtet. Immer faktisch, nie geraten. */
   evidence: string;

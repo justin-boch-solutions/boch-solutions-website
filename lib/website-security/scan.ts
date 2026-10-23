@@ -27,7 +27,7 @@ export async function runScan(input: string): Promise<ScanResult> {
   const html = main.body ?? "";
   const fp = buildFingerprint(headers, html);
 
-  // --- PHP2Shell ------------------------------------------------------------
+  // --- php2shell ------------------------------------------------------------
   findings.push(...php2shellFindings(fp));
 
   // --- Versions- und Technik-Leaks -----------------------------------------
@@ -82,7 +82,7 @@ export async function runScan(input: string): Promise<ScanResult> {
 }
 
 // ---------------------------------------------------------------------------
-// PHP2Shell
+// php2shell
 // ---------------------------------------------------------------------------
 
 export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Finding[] {
@@ -91,7 +91,7 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
 
   const patchActions = [
     `Sofort auf eine gepatchte PHP-Version aktualisieren: ${Object.values(PHP2SHELL.fixedVersions).join(", ")}.`,
-    "Bei Linux-Distributionen (Debian, Ubuntu, RHEL) läuft das über die Paketverwaltung. Die Distribution patcht per Backport, die Versionsnummer bleibt dabei oft unverändert - entscheidend ist das Advisory der Distribution, nicht die Nummer.",
+    "Bei Linux-Distributionen (Debian, Ubuntu, RHEL) läuft das über die Paketverwaltung. Die Distribution patcht per Backport, die Versionsnummer bleibt dabei oft unverändert – entscheidend ist das Advisory der Distribution, nicht die Nummer.",
     "Nach dem Update PHP-FPM beziehungsweise den Webserver neu starten, sonst läuft der alte Prozess weiter.",
     "Docker-Container müssen neu gebaut werden, ein Update im laufenden Container reicht nicht.",
     "Wenn sich nicht sofort patchen lässt: die BSI-Workarounds setzen (memory_limit, post_max_size, session.upload_progress.enabled=0, fatal_error_backtraces=0) und den Server notfalls vom Netz nehmen.",
@@ -108,10 +108,10 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
         evidence:
           "Weder Header, Cookies noch HTML deuten auf eine PHP-Anwendung hin. Das schließt PHP im Hintergrund aber nicht aus.",
         impact:
-          "PHP2Shell betrifft nur Systeme, auf denen PHP Webanfragen verarbeitet. Nach aktuellem Stand sieht diese Seite nicht danach aus.",
+          "php2shell betrifft nur Systeme, auf denen PHP Webanfragen verarbeitet. Nach aktuellem Stand sieht diese Seite nicht danach aus.",
         actions: [
           "Trotzdem prüfen, ob auf derselben Maschine weitere PHP-Dienste laufen (Webmail, phpMyAdmin, Admin-Oberflächen).",
-          "Das BSI weist darauf hin, dass auch Firewalls, Router und NAS-Systeme PHP-Weboberflächen mitbringen - Herstellerhinweise beachten.",
+          "Das BSI weist darauf hin, dass auch Firewalls, Router und NAS-Systeme PHP-Weboberflächen mitbringen – Herstellerhinweise beachten.",
         ],
         references: refs,
         cves,
@@ -131,7 +131,7 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
         evidence:
           `Die Seite läuft erkennbar auf PHP, gibt die Version aber nicht preis. ${via}`.trim(),
         impact:
-          `PHP2Shell (${PHP2SHELL.cves.join(", ")}, CVSS ${PHP2SHELL.cvss}) erlaubt nicht authentifizierte Codeausführung aus der Ferne. Laut BSI sind alle PHP-Versionen zurück bis mindestens PHP 5 betroffen. Ob dieser Server gepatcht ist, lässt sich ohne Serverzugriff nicht klären - genau deshalb muss es aktiv geprüft werden.`,
+          `php2shell (${PHP2SHELL.cves.join(", ")}, CVSS ${PHP2SHELL.cvss}) erlaubt nicht authentifizierte Codeausführung aus der Ferne. Laut BSI sind alle PHP-Versionen zurück bis mindestens PHP 5 betroffen. Ob dieser Server gepatcht ist, lässt sich ohne Serverzugriff nicht klären – genau deshalb muss es aktiv geprüft werden.`,
         actions: [
           "Auf dem Server php -v ausführen und mit den gepatchten Versionen abgleichen.",
           "Das kostenlose Selbstcheck-Skript von dieser Seite nutzt genau diesen Weg und prüft zusätzlich die php.ini-Workarounds.",
@@ -152,15 +152,15 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
         id: "php2shell",
         category: "php2shell",
         severity: "critical",
-        title: "PHP-Version ist nicht gegen PHP2Shell gepatcht",
+        title: "PHP-Version ist nicht gegen php2shell gepatcht",
         evidence: `Der Server meldet PHP ${fp.phpVersion}. ${verdict.note}`,
         impact:
-          `PHP2Shell erlaubt es, ohne Anmeldung und ohne Zutun eines Nutzers beliebigen Code auf dem Webserver auszuführen (CVSS ${PHP2SHELL.cvss}). Für die Schwachstellen existieren öffentliche Proof-of-Concepts, und es gibt Berichte über automatisierte Ausnutzungsversuche. Ein erfolgreicher Angriff bedeutet in der Regel: vollständige Kontrolle über den Server, Zugriff auf die Datenbank und damit auf alle Kundendaten.`,
+          `php2shell erlaubt es, ohne Anmeldung und ohne Zutun eines Nutzers beliebigen Code auf dem Webserver auszuführen (CVSS ${PHP2SHELL.cvss}). Für die Schwachstellen existieren öffentliche Proof-of-Concepts, und es gibt Berichte über automatisierte Ausnutzungsversuche. Ein erfolgreicher Angriff bedeutet in der Regel: vollständige Kontrolle über den Server, Zugriff auf die Datenbank und damit auf alle Kundendaten.`,
         actions: [
           "Das ist der dringendste Punkt in diesem Bericht. Patchen hat Vorrang vor allem anderen.",
           ...patchActions,
           "Nach dem Patch prüfen, ob der Server bereits kompromittiert wurde: ungewöhnliche Shell- oder Kindprozesse des Webservers, neu angelegte oder veränderte PHP-Dateien, auffällige Multipart-Uploads und POST-Requests mit PHP_SESSION_UPLOAD_PROGRESS in den Access-Logs.",
-          "Bei Verdacht auf eine Kompromittierung behebt ein Patch nichts mehr - dann ist eine Neuaufsetzung aus einem sauberen Backup nötig.",
+          "Bei Verdacht auf eine Kompromittierung behebt ein Patch nichts mehr – dann ist eine Neuaufsetzung aus einem sauberen Backup nötig.",
         ],
         references: refs,
         cves,
@@ -177,11 +177,11 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
         title: `PHP ${verdict.branch} erhält keine regulären Sicherheitsupdates mehr`,
         evidence: `Der Server meldet PHP ${fp.phpVersion}. ${verdict.note}`,
         impact:
-          "Eine End-of-Life-Version ist dauerhaft angreifbar: künftige Lücken werden nie geschlossen. Beim aktuellen PHP2Shell gibt es zwar ausnahmsweise Backport-Patches, das ist aber die Ausnahme und keine Lösung auf Dauer.",
+          "Eine End-of-Life-Version ist dauerhaft angreifbar: künftige Lücken werden nie geschlossen. Beim aktuellen php2shell gibt es zwar ausnahmsweise Backport-Patches, das ist aber die Ausnahme und keine Lösung auf Dauer.",
         actions: [
-          "Kurzfristig: beim Hoster oder der Distribution prüfen, ob der PHP2Shell-Backport eingespielt ist.",
+          "Kurzfristig: beim Hoster oder der Distribution prüfen, ob der php2shell-Backport eingespielt ist.",
           "Mittelfristig: auf eine unterstützte Version migrieren (8.3 oder 8.4). Das BSI empfiehlt das ausdrücklich.",
-          "Vor der Migration die Anwendung in einer Testumgebung prüfen - ältere CMS-Erweiterungen laufen nicht immer unter neuem PHP.",
+          "Vor der Migration die Anwendung in einer Testumgebung prüfen – ältere CMS-Erweiterungen laufen nicht immer unter neuem PHP.",
           ...patchActions.slice(2),
         ],
         references: refs,
@@ -196,7 +196,7 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
         id: "php2shell",
         category: "php2shell",
         severity: "low",
-        title: "PHP-Version liegt auf dem PHP2Shell-Patchlevel",
+        title: "PHP-Version liegt auf dem php2shell-Patchlevel",
         evidence: `Der Server meldet PHP ${fp.phpVersion}. ${verdict.note}`,
         impact:
           "Die gemeldete Version ist neuer als der Patch. Beachte aber: Versionsangaben im Header lassen sich fälschen, und Distributionen patchen per Backport ohne die Nummer zu erhöhen. Die Angabe ist ein starkes Indiz, kein Beweis.",
@@ -219,7 +219,7 @@ export function php2shellFindings(fp: ReturnType<typeof buildFingerprint>): Find
       title: "PHP-Version ließ sich nicht eindeutig bewerten",
       evidence: `Gemeldet wurde: ${fp.phpVersion}. ${verdict.note}`,
       impact:
-        "Ohne klare Zuordnung zu einem Release-Branch lässt sich nicht sagen, ob der PHP2Shell-Patch enthalten ist.",
+        "Ohne klare Zuordnung zu einem Release-Branch lässt sich nicht sagen, ob der php2shell-Patch enthalten ist.",
       actions: ["Auf dem Server php -v ausführen.", ...patchActions],
       references: refs,
       cves,
@@ -257,7 +257,7 @@ function tlsFindings(tls: Awaited<ReturnType<typeof inspectTls>>, hostname: stri
         impact:
           "Besucher sehen eine Browser-Warnung und springen ab. Gleichzeitig lässt sich eine abgefangene Verbindung nicht mehr von einem Angriff unterscheiden.",
         actions: [
-          "Zertifikatskette prüfen - häufig fehlt das Intermediate-Zertifikat.",
+          "Zertifikatskette prüfen – häufig fehlt das Intermediate-Zertifikat.",
           "Sicherstellen, dass das Zertifikat auf genau diesen Hostnamen ausgestellt ist.",
           "Automatische Erneuerung einrichten (certbot renew im Cron).",
         ],
@@ -381,7 +381,7 @@ function directoryListingFindings(html: string, status?: number): Finding[] {
       title: "Verzeichnisauflistung ist aktiv",
       evidence: "Der Server liefert statt einer Seite eine Dateiliste (Index of /).",
       impact:
-        "Jeder kann sehen, welche Dateien auf dem Server liegen - inklusive Backups, Exporten und Dateien, die nirgends verlinkt sind.",
+        "Jeder kann sehen, welche Dateien auf dem Server liegen – inklusive Backups, Exporten und Dateien, die nirgends verlinkt sind.",
       actions: [
         "Apache: Options -Indexes setzen.",
         "nginx: autoindex off; setzen.",

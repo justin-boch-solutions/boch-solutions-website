@@ -192,7 +192,7 @@ export async function PUT(request: Request) {
       ${company.url}/downloads/boch-selfcheck.sh
     </p>
     <p style="margin:12px 0 24px;font-size:13px;line-height:1.6;color:#8b94a3;">
-      Fachliche Grundlage zu PHP2Shell: BSI-IT-Sicherheitshinweis BITS-H Nr. 2026-297981-1232,
+      Fachliche Grundlage zu php2shell: BSI-IT-Sicherheitshinweis BITS-H Nr. 2026-297981-1232,
       Version 1.2 (TLP:CLEAR).
     </p>
     ${emailButton("Funde gemeinsam abarbeiten", `${company.url}/kontakt`)}
