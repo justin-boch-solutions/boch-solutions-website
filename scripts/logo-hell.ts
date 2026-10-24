@@ -23,3 +23,22 @@ export function logoFuerHellenHintergrund(projektWurzel: string): { svg: string;
   }
   return { svg: original.replace(WEISS, `fill="${DUNKEL}"`), ersetzt };
 }
+
+/**
+ * Das Logo zum direkten Einbetten in HTML – nicht als <img src="data:…">.
+ *
+ * Grund: Die Quelldatei trägt width="100%" height="100%". Als Bild eingebettet
+ * kann der Druck daraus keine Höhe ableiten, das Logo bricht im PDF weg. Inline
+ * mit festen Maßen aus der viewBox rendert es überall gleich.
+ */
+export function logoInline(projektWurzel: string, klasse = "logo"): string {
+  const { svg } = logoFuerHellenHintergrund(projektWurzel);
+  const box = svg.match(/viewBox="([\d.\s-]+)"/)?.[1];
+  if (!box) throw new Error("Das Logo hat keine viewBox – Maße nicht ableitbar.");
+  const [, , breite, hoehe] = box.trim().split(/\s+/).map(Number);
+
+  return svg
+    .replace(/\swidth="[^"]*"/, "")
+    .replace(/\sheight="[^"]*"/, "")
+    .replace("<svg", `<svg class="${klasse}" width="${breite}" height="${hoehe}" role="img" aria-label="Justin Boch - Solutions"`);
+}
