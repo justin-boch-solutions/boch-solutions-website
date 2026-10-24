@@ -43,6 +43,8 @@ export function OrganizationJsonLd() {
       "Suchmaschinenoptimierung",
       "Generative Engine Optimization",
       "Webdesign",
+      "IT-Sicherheit",
+      "E-Mail-Sicherheit (SPF, DKIM, DMARC)",
     ],
   };
 
