@@ -1,0 +1,8 @@
+# Sicherheitslücke auf boch-solutions.de gefunden?
+# Melden Sie sie bitte an die unten genannte Adresse. Wir melden uns zurück.
+# Found a security issue on boch-solutions.de? Please report it to the contact below.
+
+Contact: mailto:kontakt@boch-solutions.de
+Expires: 2027-10-25T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://boch-solutions.de/.well-known/security.txt
