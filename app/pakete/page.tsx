@@ -10,8 +10,8 @@ import { formatEuro, priceNote, pricing } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
-  title: "Pakete & Preise",
-  description: `Preise für Handwerksbetriebe: E-Mail-Schutz ${formatEuro(pricing.emailProtection)} Festpreis, Microsoft-365-Grundlage ab ${formatEuro(pricing.starter)}, Betreuung ab ${formatEuro(pricing.itCareBasic)} je Nutzer.`,
+  title: `Pakete & Preise – ab ${formatEuro(pricing.emailProtection)}`,
+  description: `Transparente Festpreise statt Angebot auf Anfrage: E-Mail-Schutz ab ${formatEuro(pricing.emailProtection)}, IT-Grundlage ab ${formatEuro(pricing.starter)}, laufende Betreuung ab ${formatEuro(pricing.itCareBasic)} je Nutzer.`,
   alternates: { canonical: "/pakete" },
 };
 

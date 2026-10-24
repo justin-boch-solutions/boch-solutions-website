@@ -10,9 +10,9 @@ import { ShopExample } from "@/components/sections/example-sites/shop-example";
 import { company } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Beispielprojekt",
+  title: "Beispielprojekt: IT-Modernisierung im Handwerk",
   description:
-    "Ein anonymisiertes Beispielprojekt zeigt, wie eine IT-Modernisierung für einen Handwerksbetrieb typischerweise abläuft – von der Ausgangslage bis zum Ergebnis.",
+    "Mehr Anfragen über die Webseite, bessere Google-Sichtbarkeit, weniger Zeit für IT-Probleme: ein anonymisiertes Beispielprojekt zeigt die IT-Modernisierung Schritt für Schritt.",
   alternates: { canonical: "/beispielprojekt" },
   robots: { index: true, follow: true },
 };

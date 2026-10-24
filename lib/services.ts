@@ -271,7 +271,7 @@ export const services: Service[] = [
     shortName: "Cloud-Sicherheit & DSGVO",
     icon: "ShieldCheck",
     shortDescription:
-      "Backup-Konzept, Schutz vor Cyberangriffen mit Microsoft Defender und eine IT-Struktur, die die DSGVO-Anforderungen an Ihren Betrieb erfüllt.",
+      "Automatisierte Backups, Schutz vor Ransomware mit Microsoft Defender und eine DSGVO-konforme IT-Struktur – bevor ein Datenverlust oder Cyberangriff den Betrieb stoppt.",
     heroSummary:
       "Cloud-Sicherheit, Backup & DSGVO durch Justin Boch - Solutions bedeutet: automatisierte Backups, Schutz vor Phishing und Ransomware über Microsoft Defender sowie eine Dokumentation, die Ihre IT-Struktur DSGVO-konform macht – wichtig, sobald Kunden- oder Mitarbeiterdaten verarbeitet werden.",
     problem: [
@@ -453,7 +453,7 @@ export const services: Service[] = [
     shortName: "Individuelle Software",
     icon: "Code2",
     shortDescription:
-      "Maßgeschneiderte Software und Kundenportale für Abläufe, die keine Standardlösung abbildet – etwa Terminbuchung oder digitale Angebote.",
+      "Maßgeschneiderte Software statt Papier und Excel: Terminbuchung, digitale Angebote und Kundenportale, aufgebaut auf Ihrer bestehenden Microsoft-365-Umgebung.",
     heroSummary:
       "Individuelle Softwarelösungen durch Justin Boch - Solutions bedeutet: maßgeschneiderte Web-Anwendungen und Kundenportale für betriebliche Abläufe, die mit Standardsoftware nicht sauber lösbar sind, aufgebaut auf Microsoft-Technologie und in Ihre bestehende IT integriert.",
     problem: [

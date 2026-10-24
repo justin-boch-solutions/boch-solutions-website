@@ -8,9 +8,9 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { locations } from "@/lib/locations";
 
 export const metadata: Metadata = {
-  title: "Standorte",
+  title: "Standorte im Münsterland",
   description:
-    "Justin Boch - Solutions arbeitet deutschlandweit – persönlich vor Ort besonders präsent in Münster und im Münsterland: Telgte, Greven, Nottuln, Havixbeck und Senden.",
+    "IT-Modernisierung und Webdesign für Handwerksbetriebe – persönlich vor Ort in Münster, Telgte, Greven, Nottuln, Havixbeck und Senden, deutschlandweit per Remote-Support erreichbar.",
   alternates: { canonical: "/standorte" },
 };
 
