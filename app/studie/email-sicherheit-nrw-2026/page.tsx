@@ -55,7 +55,17 @@ function DatasetJsonLd() {
     temporalCoverage: `${studie.erhebungVon}/${studie.erhebungBis}`,
     spatialCoverage: { "@type": "Place", name: "Nordrhein-Westfalen, Deutschland" },
     creator: { "@type": "Organization", name: company.name, url: company.url },
-    isBasedOn: { "@type": "Dataset", name: "OpenStreetMap", license: "https://opendatacommons.org/licenses/odbl/" },
+    // CC BY 4.0, weil die Zitierhinweise auf dieser Seite genau das zusagen:
+    // "Die Zahlen dürfen mit Quellenangabe frei verwendet werden."
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    isBasedOn: {
+      "@type": "Dataset",
+      name: "OpenStreetMap",
+      description:
+        "Liste von Unternehmen mit Website in Nordrhein-Westfalen, als Grundgesamtheit für die Untersuchung erfasst über OpenStreetMap-Mitwirkende.",
+      creator: { "@type": "Organization", name: "OpenStreetMap-Mitwirkende" },
+      license: "https://opendatacommons.org/licenses/odbl/",
+    },
     measurementTechnique: "Abfrage öffentlicher DNS-Einträge (SPF, DKIM, DMARC, MX)",
     variableMeasured: ["SPF", "DKIM", "DMARC", "MX"],
   };
