@@ -26,7 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${company.url}${route}`,
+    // Die Startseite hat "/" als kanonische URL (alternates.canonical: "/" in
+    // app/page.tsx, aufgelöst gegen metadataBase) – ohne den Schrägstrich hier
+    // sieht Google zwei verschiedene Strings und meldet "keine verweisende
+    // Sitemap gefunden", obwohl die Seite längst gelistet ist.
+    url: route === "" ? `${company.url}/` : `${company.url}${route}`,
     lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,
