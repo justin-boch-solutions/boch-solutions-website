@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AgbPage() {
   return (
-    <Section eyebrow="Rechtliches" title="Allgemeine Geschäftsbedingungen (AGB)" className="pt-32">
+    <Section eyebrow="Rechtliches" title="Allgemeine Geschäftsbedingungen (AGB)" titleAs="h1" className="pt-32">
       <div className="max-w-2xl space-y-10 text-sm leading-relaxed text-muted">
         <div>
           <p className="text-xs uppercase tracking-wider text-accent-secondary">Version: 24.03.2026</p>

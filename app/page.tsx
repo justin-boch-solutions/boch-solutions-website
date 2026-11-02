@@ -18,7 +18,7 @@ import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "IT-Modernisierung für Handwerksbetriebe mit Microsoft 365",
+  title: "IT-Modernisierung für Handwerksbetriebe",
   description:
     "IT und Webdesign für Handwerksbetriebe in Münster und Umgebung: Microsoft 365, professionelle E-Mail, lokale Sichtbarkeit und Webseiten, die Anfragen bringen.",
   alternates: { canonical: "/" },

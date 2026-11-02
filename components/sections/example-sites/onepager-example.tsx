@@ -67,7 +67,7 @@ export function OnepagerExample() {
       <div className="relative overflow-hidden bg-neutral-950 px-6 pb-14 pt-8 text-white">
         <Image
           src="/images/beispielprojekt/elektriker-hero.jpg"
-          alt=""
+          alt="Elektriker bei der Arbeit an einer Schaltanlage"
           fill
           className="object-cover opacity-45"
           sizes="672px"

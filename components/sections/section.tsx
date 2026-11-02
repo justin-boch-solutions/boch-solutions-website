@@ -5,6 +5,8 @@ import { Reveal } from "@/components/ui/reveal";
 interface SectionProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
   eyebrow?: string;
   title?: React.ReactNode;
+  /** Seiten ohne <Hero> (z. B. Impressum) haben sonst gar kein h1 auf der Seite. */
+  titleAs?: "h1" | "h2";
   subtitle?: React.ReactNode;
   align?: "left" | "center";
   containerClassName?: string;
@@ -13,6 +15,7 @@ interface SectionProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> 
 export function Section({
   eyebrow,
   title,
+  titleAs: TitleTag = "h2",
   subtitle,
   align = "left",
   className,
@@ -38,9 +41,9 @@ export function Section({
               </p>
             ) : null}
             {title ? (
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <TitleTag className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 {title}
-              </h2>
+              </TitleTag>
             ) : null}
             {subtitle ? <p className="mt-4 text-lg leading-relaxed text-muted">{subtitle}</p> : null}
           </Reveal>

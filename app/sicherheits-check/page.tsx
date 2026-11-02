@@ -15,7 +15,9 @@ const URL = `${company.url}${PFAD}`;
 const ARTIKEL = "/magazin/php2shell-sicherheitsluecke-webseite";
 
 export const metadata: Metadata = {
-  title: "Sicherheits-Check: Website kostenlos auf Sicherheitslücken prüfen",
+  // absolute: ohne " | Justin Boch - Solutions" – sonst kommt der Title über
+  // Bings 70-Zeichen-Grenze (siehe Begründung bei anderen Leistungsseiten).
+  title: { absolute: "Sicherheits-Check: Website auf Sicherheitslücken prüfen" },
   description:
     "Kostenlos prüfen, ob Ihre Website von der kritischen PHP-Lücke php2shell (CVE-2026-109618 / CVE-2026-109619) betroffen ist – dazu Check auf offene .env-Dateien, fehlende Sicherheits-Header, TLS-Fehler und Node.js-Schwachstellen. Mit konkreten Handlungsschritten.",
   keywords: [

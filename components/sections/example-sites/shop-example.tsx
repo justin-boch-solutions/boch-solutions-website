@@ -125,7 +125,7 @@ export function ShopExample() {
       <div className="relative flex items-end overflow-hidden px-6 py-8 text-white">
         <Image
           src="/images/beispielprojekt/werkzeug-hero.jpg"
-          alt=""
+          alt="Werkzeug und Ersatzteile im Lager"
           fill
           className="object-cover"
           sizes="672px"

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <Section eyebrow="Rechtliches" title="Impressum" className="pt-32">
+    <Section eyebrow="Rechtliches" title="Impressum" titleAs="h1" className="pt-32">
       <div className="max-w-2xl space-y-8 text-sm leading-relaxed text-muted">
         <div>
           <h2 className="mb-2 font-display text-lg font-semibold text-foreground">

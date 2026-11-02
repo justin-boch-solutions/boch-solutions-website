@@ -102,7 +102,7 @@ export function FirmenwebsiteExample() {
       <div className="relative overflow-hidden bg-slate-900 px-6 py-16 text-white">
         <Image
           src="/images/beispielprojekt/dachdecker-hero.jpg"
-          alt=""
+          alt="Dachdecker bei Arbeiten auf einem Dach"
           fill
           className="object-cover opacity-40"
           sizes="672px"

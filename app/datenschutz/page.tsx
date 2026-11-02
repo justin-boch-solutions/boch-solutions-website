@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <Section eyebrow="Rechtliches" title="Datenschutzerklärung" className="pt-32">
+    <Section eyebrow="Rechtliches" title="Datenschutzerklärung" titleAs="h1" className="pt-32">
       <div className="max-w-2xl space-y-10 text-sm leading-relaxed text-muted">
         <div>
           <h2 className="mb-3 font-display text-lg font-semibold text-foreground">
