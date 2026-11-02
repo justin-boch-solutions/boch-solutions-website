@@ -261,7 +261,55 @@ export const services: Service[] = [
           "Akute Störungen werden priorisiert behandelt. Genaue Reaktionszeiten stimmen wir individuell mit Ihnen ab, abgestimmt auf die Bedeutung des betroffenen Systems für Ihren Betrieb.",
       },
     ],
-    relatedSlugs: ["microsoft-365-azure", "cloud-sicherheit-dsgvo", "microsoft-lizenzierung"],
+    relatedSlugs: ["microsoft-365-azure", "teams-telefonie", "microsoft-lizenzierung"],
+  },
+  {
+    slug: "teams-telefonie",
+    seoTitle: "Teams-Telefonie für Handwerksbetriebe | Münster",
+    cluster: "infrastruktur",
+    name: "Microsoft Teams Telefonie",
+    shortName: "Teams-Telefonie",
+    icon: "Phone",
+    shortDescription:
+      "Eine moderne Telefonanlage auf Basis von Microsoft Teams – ein Anschluss für Büro, Homeoffice und Baustelle, ohne alte ISDN- oder Analog-Technik.",
+    heroSummary:
+      "Teams-Telefonie durch Justin Boch - Solutions bedeutet: Ihre Festnetznummer läuft über Microsoft Teams auf PC, Smartphone und Tischtelefon gleichzeitig – mit Anrufgruppen, automatischer Weiterleitung auf die Baustelle und Anrufliste statt Zettelwirtschaft am Empfang.",
+    problem: [
+      "Die Telefonanlage ist veraltet (ISDN/Analog), und Telekom & Co. stellen diese Anschlüsse bundesweit schrittweise ab.",
+      "Anrufe auf der Baustelle gehen unter, weil Büro und Monteure getrennte Nummern oder nur ein Festnetztelefon haben.",
+      "Niemand weiß, wer wann angerufen hat, wenn der Kollege am Empfang gerade nicht da ist.",
+    ],
+    solution: [
+      "Einrichtung von Microsoft Teams Phone mit Rufnummernmitnahme Ihrer bestehenden Festnetznummer.",
+      "Ein Anschluss auf PC, Smartphone-App und optional Tischtelefon – erreichbar im Büro wie auf der Baustelle.",
+      "Anrufgruppen und Weiterleitungsregeln, damit eingehende Anrufe nie bei einer einzelnen Person hängen bleiben.",
+      "Anrufliste und Voicemail-Transkript direkt in Teams und per E-Mail, statt handschriftlicher Notizzettel.",
+      "Einbindung in dieselbe Microsoft-365-Umgebung wie E-Mail und Dateien – ein Login, ein Ansprechpartner.",
+    ],
+    audience: [
+      "Besonders gefragt bei SHK-, Elektro-, Dachdecker-, Maler- und Tischlerbetrieben mit Monteuren im Außendienst",
+      "Betriebe mit veralteter ISDN- oder Analog-Telefonanlage",
+      "Betriebe, bei denen Anrufe auf der Baustelle oder im Homeoffice regelmäßig verpasst werden",
+      "Betriebe, die Büro-Telefonie und IT aus einer Hand statt von zwei Anbietern wollen",
+    ],
+    faq: [
+      {
+        question: "Behalten wir unsere bisherige Telefonnummer?",
+        answer:
+          "Ja. Ihre bestehende Festnetznummer wird im Rahmen der Einrichtung zu Microsoft Teams portiert, Kunden erreichen Sie weiterhin unter derselben Nummer.",
+      },
+      {
+        question: "Brauchen wir noch eine klassische Telefonanlage im Büro?",
+        answer:
+          "Nein. Die klassische Anlage entfällt, Tischtelefone lassen sich bei Bedarf trotzdem weiter nutzen – kompatibel mit Microsoft Teams Phone.",
+      },
+      {
+        question: "Was ist mit Empfang ohne Internet, z. B. bei Störungen?",
+        answer:
+          "Teams-Telefonie läuft über Internet (Breitband oder Mobilfunk). Für den seltenen Fall eines Internetausfalls planen wir auf Wunsch eine mobile Rufumleitung als Rückfallebene ein.",
+      },
+    ],
+    relatedSlugs: ["microsoft-365-azure", "it-support-wartung", "email-optimierung"],
   },
   {
     slug: "cloud-sicherheit-dsgvo",

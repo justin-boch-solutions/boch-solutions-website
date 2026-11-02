@@ -7,6 +7,7 @@ import {
   LifeBuoy,
   Mail,
   MapPin,
+  Phone,
   ShieldCheck,
   Sparkles,
   TrendingUp,
@@ -27,6 +28,7 @@ const iconMap: Record<string, LucideIcon> = {
   Code2,
   Workflow,
   Sparkles,
+  Phone,
 };
 
 export function ServiceIcon({ name, className }: { name: string; className?: string }) {
