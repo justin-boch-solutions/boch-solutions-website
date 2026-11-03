@@ -251,6 +251,11 @@ export const services: Service[] = [
     ],
     faq: [
       {
+        question: "Was kostet laufende IT-Betreuung für einen Handwerksbetrieb pro Monat?",
+        answer:
+          "Die Basis-Betreuung mit Updates, Sicherheitspatches und E-Mail-Schutz beginnt bei 19 Euro pro Nutzer und Monat, inklusive priorisierter Reaktionszeiten und Mitarbeiterschulungen bei 29 Euro pro Nutzer und Monat. Einzelne Projekte außerhalb der Betreuung werden mit 85 Euro pro Stunde abgerechnet – als Festpreis statt als unklares Angebot auf Anfrage.",
+      },
+      {
         question: "Ist IT-Support auch für sehr kleine Teams sinnvoll?",
         answer:
           "Ja, gerade kleine Teams ohne eigene IT-Kenntnisse profitieren von einem festen Ansprechpartner, der Probleme löst, bevor sie den Betrieb ausbremsen.",
@@ -259,6 +264,11 @@ export const services: Service[] = [
         question: "Wie schnell reagieren Sie bei einer Störung?",
         answer:
           "Akute Störungen werden priorisiert behandelt. Genaue Reaktionszeiten stimmen wir individuell mit Ihnen ab, abgestimmt auf die Bedeutung des betroffenen Systems für Ihren Betrieb.",
+      },
+      {
+        question: "Worauf sollte ich bei der Auswahl eines IT-Dienstleisters für meinen Handwerksbetrieb achten?",
+        answer:
+          "Auf drei Dinge: klar vereinbarte Reaktionszeiten statt vager Zusagen, ein fester Ansprechpartner statt wechselnder Hotline-Mitarbeiter, und Erfahrung mit den Besonderheiten Ihres Gewerks – stabiles WLAN in der Werkstatt, robuste Geräte auf der Baustelle, Zugriff auf Aufträge von unterwegs. Fragen Sie im Erstgespräch gezielt nach allen drei Punkten.",
       },
     ],
     relatedSlugs: ["microsoft-365-azure", "teams-telefonie", "microsoft-lizenzierung"],

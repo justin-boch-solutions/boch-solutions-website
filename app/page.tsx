@@ -81,6 +81,16 @@ const faqTeaser = [
       "Das hängt davon ab, was Sie brauchen: ein großes IT-Systemhaus für komplexe Server-Landschaften, oder einen spezialisierten Partner, der Ihr Gewerk versteht. Justin Boch - Solutions ist ausschließlich auf Handwerksbetriebe spezialisiert, baut auf Microsoft 365 statt vieler Einzellösungen auf und wird von einem gelernten Anlagenmechaniker SHK geführt, der den Alltag auf der Baustelle aus eigener Erfahrung kennt – kein Fachchinesisch, ein fester Ansprechpartner. Ob das zu Ihrem Betrieb passt, klärt sich am schnellsten im kostenlosen Strategie-Call.",
   },
   {
+    question: "Worauf sollte ich bei der Auswahl eines IT-Dienstleisters für meinen Handwerksbetrieb achten?",
+    answer:
+      "Auf klar vereinbarte Reaktionszeiten statt vager Zusagen, einen festen Ansprechpartner statt wechselnder Hotline-Mitarbeiter, und Erfahrung mit Ihrem Gewerk – stabiles WLAN in der Werkstatt, robuste Geräte auf der Baustelle, Zugriff auf Aufträge von unterwegs. Fragen Sie im Erstgespräch gezielt nach allen drei Punkten, bevor Sie sich entscheiden.",
+  },
+  {
+    question: "Was kostet ein IT-Dienstleister für einen Handwerksbetrieb?",
+    answer:
+      "Laufende Betreuung beginnt bei 19 Euro pro Nutzer und Monat für Updates und E-Mail-Schutz, mit priorisierten Reaktionszeiten und Schulungen bei 29 Euro pro Nutzer und Monat. Einzelprojekte außerhalb der Betreuung kosten 85 Euro pro Stunde – als Festpreis statt als Angebot auf Anfrage.",
+  },
+  {
     question: "Ist das auch für einen kleinen Handwerksbetrieb sinnvoll?",
     answer:
       "Ja. Microsoft 365 und die begleitenden Leistungen skalieren nach Betriebsgröße – auch mit 3–5 Mitarbeitenden erhalten Sie eine professionelle, sichere IT-Umgebung ohne eigenen Server.",
