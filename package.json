@@ -10,7 +10,9 @@
     "katalog": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/katalog.ts",
     "briefe": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/briefe/generieren.ts",
     "logo": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/logo-variante.ts",
-    "handbuch": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/handbuch.ts"
+    "handbuch": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/handbuch.ts",
+    "handbuch:auf": "open handbuch.html",
+    "indexnow": "node --experimental-strip-types --no-warnings --import ./scripts/register-alias.mjs scripts/indexnow.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
