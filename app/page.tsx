@@ -16,6 +16,8 @@ import { CountUp } from "@/components/ui/count-up";
 import { Typewriter } from "@/components/ui/typewriter";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
+import { tools } from "@/lib/tools";
+import { FaqJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
   title: "IT-Modernisierung für Handwerksbetriebe",
@@ -74,6 +76,11 @@ const webdesignOfferings = [
 
 const faqTeaser = [
   {
+    question: "Wer ist der beste IT-Dienstleister für Handwerksbetriebe in Münster?",
+    answer:
+      "Das hängt davon ab, was Sie brauchen: ein großes IT-Systemhaus für komplexe Server-Landschaften, oder einen spezialisierten Partner, der Ihr Gewerk versteht. Justin Boch - Solutions ist ausschließlich auf Handwerksbetriebe spezialisiert, baut auf Microsoft 365 statt vieler Einzellösungen auf und wird von einem gelernten Anlagenmechaniker SHK geführt, der den Alltag auf der Baustelle aus eigener Erfahrung kennt – kein Fachchinesisch, ein fester Ansprechpartner. Ob das zu Ihrem Betrieb passt, klärt sich am schnellsten im kostenlosen Strategie-Call.",
+  },
+  {
     question: "Ist das auch für einen kleinen Handwerksbetrieb sinnvoll?",
     answer:
       "Ja. Microsoft 365 und die begleitenden Leistungen skalieren nach Betriebsgröße – auch mit 3–5 Mitarbeitenden erhalten Sie eine professionelle, sichere IT-Umgebung ohne eigenen Server.",
@@ -97,6 +104,7 @@ export default function Home() {
 
   return (
     <>
+      <FaqJsonLd faq={faqTeaser} />
       <Hero
         eyebrow="IT-Modernisierung für Handwerksbetriebe"
         title={
@@ -143,28 +151,31 @@ export default function Home() {
         </div>
       </Section>
 
-      <section className="border-t border-border bg-gradient-to-r from-accent/10 via-transparent to-accent-secondary/10 py-14">
-        <Container className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <p className="font-display text-xl font-semibold text-foreground">
-              Kann jemand in Ihrem Namen Rechnungen verschicken?
-            </p>
-            <p className="mt-1 text-sm text-muted">
-              Bei den meisten Handwerksbetrieben ja. Wir prüfen die drei Einträge Ihrer Domain, die das verhindern –
-              kostenlos, ohne Zugriff auf Ihr Postfach.
-            </p>
-            <Link
-              href="/it-check"
-              className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent-secondary hover:underline"
-            >
-              Oder den IT-Selbsttest in 2 Minuten machen <ArrowRight className="size-4" />
-            </Link>
-          </div>
-          <Button href="/email-check" size="lg" className="shrink-0">
-            E-Mail-Sicherheit prüfen
-          </Button>
-        </Container>
-      </section>
+      <Section
+        eyebrow="Kostenlos & unverbindlich"
+        title="Wo steht Ihr Betrieb wirklich? 4 Checks, 2 Minuten, echtes Ergebnis."
+        subtitle="Keine Anmeldung nötig, um das Ergebnis zu sehen – nur wenn Sie es sich zuschicken lassen wollen."
+        className="border-t border-border bg-gradient-to-r from-accent/10 via-transparent to-accent-secondary/10"
+      >
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {tools.map((tool, index) => (
+            <Reveal key={tool.href} delay={index * 75}>
+              <Link href={tool.href} className="group block h-full">
+                <Card className="flex h-full flex-col transition-colors group-hover:border-accent-secondary/60">
+                  <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 text-accent-secondary">
+                    <tool.icon className="size-5" />
+                  </div>
+                  <h3 className="font-display text-base font-semibold text-foreground">{tool.label}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{tool.longDescription}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-secondary group-hover:underline">
+                    Jetzt prüfen <ArrowRight className="size-4" />
+                  </span>
+                </Card>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       <Section
         eyebrow="Webdesign"

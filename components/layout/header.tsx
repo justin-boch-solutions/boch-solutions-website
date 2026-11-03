@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Gauge, Menu, Phone, Search, ShieldAlert, ShieldCheck, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { clusterMeta, services, type ServiceCluster } from "@/lib/services";
+import { tools as analyseItems } from "@/lib/tools";
 import { company } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
@@ -22,33 +23,6 @@ const navLinks = [
 ];
 
 const clusters: ServiceCluster[] = ["infrastruktur", "sichtbarkeit", "digitalisierung"];
-
-const analyseItems = [
-  {
-    href: "/email-check",
-    label: "E-Mail-Sicherheits-Check",
-    description: "Kann jemand in Ihrem Namen Rechnungen verschicken?",
-    icon: ShieldAlert,
-  },
-  {
-    href: "/it-check",
-    label: "IT-Check",
-    description: "Kostenloser Selbsttest: Wie zukunftsfähig ist Ihre IT?",
-    icon: Gauge,
-  },
-  {
-    href: "/website-check",
-    label: "Website-Check",
-    description: "Performance, SEO & technische Basis Ihrer Webseite prüfen.",
-    icon: Search,
-  },
-  {
-    href: "/sicherheits-check",
-    label: "Sicherheits-Check",
-    description: "php2shell, offene Dateien und Sicherheits-Header Ihrer Website.",
-    icon: ShieldCheck,
-  },
-];
 
 export function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
