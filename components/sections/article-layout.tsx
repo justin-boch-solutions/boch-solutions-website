@@ -2,9 +2,10 @@ import { Clock } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { ArticleCard } from "@/components/sections/article-card";
+import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { ReadingProgressRail } from "@/components/sections/reading-progress-rail";
 import { CtaSection } from "@/components/sections/cta-section";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { articleCategoryMeta, formatArticleDate, getRelatedArticles, type Article } from "@/lib/articles";
 import { company } from "@/lib/constants";
 
@@ -20,6 +21,7 @@ export function ArticleLayout({ article, children }: { article: Article; childre
         url={url}
         datePublished={article.publishedAt}
       />
+      <FaqJsonLd faq={article.faq} />
       <BreadcrumbJsonLd
         items={[
           { name: "Startseite", url: company.url },
@@ -55,6 +57,10 @@ export function ArticleLayout({ article, children }: { article: Article; childre
             {children}
           </ReadingProgressRail>
         </div>
+      </Section>
+
+      <Section eyebrow="FAQ" title="Häufige Fragen zu diesem Thema" className="border-t border-border">
+        <FaqAccordion items={article.faq} />
       </Section>
 
       {related.length ? (
