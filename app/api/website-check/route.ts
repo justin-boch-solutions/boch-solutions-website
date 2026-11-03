@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { company } from "@/lib/constants";
 import { getServiceBySlug, type Service } from "@/lib/services";
 import { emailButton, emailDataRows, escapeHtml, getLogoAttachment, renderEmailLayout } from "@/lib/email-template";
+import { saveLeadContact } from "@/lib/leads";
 
 export const maxDuration = 60;
 
@@ -242,6 +243,8 @@ export async function POST(request: Request) {
       attachments: [logoAttachment],
     })
     .catch((err) => console.error("Interne Website-Check-Lead-Benachrichtigung fehlgeschlagen:", err));
+
+  saveLeadContact(resend, { email, name, source: "website-check" });
 
   return NextResponse.json({
     ok: true,

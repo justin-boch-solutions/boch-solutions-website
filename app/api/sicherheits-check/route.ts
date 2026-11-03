@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
 import { emailButton, escapeHtml, getLogoAttachment, renderEmailLayout } from "@/lib/email-template";
+import { saveLeadContact } from "@/lib/leads";
 import { runScan } from "@/lib/website-security/scan";
 import { SEVERITY_LABEL } from "@/lib/website-security/scoring";
 import type { Finding, ScanResult, Severity } from "@/lib/website-security/types";
@@ -236,6 +237,8 @@ export async function PUT(request: Request) {
       }),
       attachments: [getLogoAttachment()],
     });
+
+    saveLeadContact(resend, { email, name: body.name, source: "sicherheits-check" });
 
     return NextResponse.json({ ok: true });
   } catch (error) {

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { company } from "@/lib/constants";
 import { emailButton, escapeHtml, getLogoAttachment, renderEmailLayout } from "@/lib/email-template";
+import { saveLeadContact } from "@/lib/leads";
 
 interface Recommendation {
   name: string;
@@ -170,6 +171,8 @@ export async function POST(request: Request) {
         attachments: [logoAttachment],
       })
       .catch((err) => console.error("Interne IT-Check-Lead-Benachrichtigung fehlgeschlagen:", err));
+
+    saveLeadContact(resend, { email, name, source: "it-check" });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
