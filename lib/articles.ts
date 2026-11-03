@@ -27,6 +27,37 @@ export const articleCategoryMeta: Record<ArticleCategory, { label: string; icon:
 
 export const articles: Article[] = [
   {
+    slug: "handwerksbetrieb-modernisieren",
+    title: "Handwerksbetrieb modernisieren: Der Fahrplan für IT, Website und Sichtbarkeit",
+    seoTitle: "Handwerksbetrieb modernisieren: Der Fahrplan",
+    metaDescription:
+      "Wie Sie Ihren Handwerksbetrieb modernisieren: IT-Grundlage, Website und Sichtbarkeit in der richtigen Reihenfolge – mit konkreten Schritten statt Buzzwords.",
+    excerpt:
+      "Von der E-Mail-Sicherheit über Microsoft 365 bis zur Website, die bei Google gefunden wird: Ein Handwerksunternehmen zu modernisieren klingt nach einem riesigen Projekt. Tatsächlich ergibt es sich aus fünf Schritten, in der richtigen Reihenfolge angegangen.",
+    category: "digitalisierung",
+    publishedAt: "2026-11-04",
+    readingMinutes: 9,
+    icon: "TrendingUp",
+    relatedSlugs: ["digitalisierung-handwerk-zeit-sparen", "lokales-seo-handwerksbetriebe"],
+    faq: [
+      {
+        question: "Wo sollte ich bei der Modernisierung meines Handwerksbetriebs anfangen?",
+        answer:
+          "Bei der IT-Grundlage: E-Mail-Sicherheit und eine gemeinsame Microsoft-365-Basis statt verstreuter Einzellösungen. Erst wenn dieses Fundament steht, zahlen sich Website, Sichtbarkeit und Automatisierung wirklich aus – auf einer wackligen IT gebaut, bringen sie weniger.",
+      },
+      {
+        question: "Wie lange dauert es, bis eine Modernisierung sich spürbar auswirkt?",
+        answer:
+          "Die IT-Grundlage steht meist innerhalb weniger Wochen. Eine neue Website braucht je nach Umfang vier bis acht Wochen, lokales SEO zeigt erste Effekte in der Regel nach zwei bis drei Monaten. Nach etwa einem halben Jahr ist ein Betrieb insgesamt spürbar moderner aufgestellt, ohne dass der Betrieb währenddessen pausieren muss.",
+      },
+      {
+        question: "Was kostet die Modernisierung eines Handwerksbetriebs insgesamt?",
+        answer:
+          "Das hängt vom Startpunkt ab: Die IT-Grundlage beginnt bei 390 Euro für den E-Mail-Schutz, ein IT-Starter-Paket bei 890 Euro, eine neue Website ab 1.190 Euro, laufende Betreuung ab 19 Euro pro Nutzer und Monat. Der Fahrplan lässt sich modular umsetzen – Sie zahlen also nicht alles auf einmal.",
+      },
+    ],
+  },
+  {
     slug: "microsoft-365-statt-einzelloesungen",
     title: "Warum Handwerksbetriebe auf Microsoft 365 statt Einzellösungen setzen sollten",
     seoTitle: "Microsoft 365 statt Einzellösungen im Handwerk",
@@ -38,7 +69,7 @@ export const articles: Article[] = [
     publishedAt: "2026-05-04",
     readingMinutes: 6,
     icon: "Cloud",
-    relatedSlugs: ["firmen-email-adresse-einrichten", "e-rechnungspflicht-handwerksbetriebe"],
+    relatedSlugs: ["handwerksbetrieb-modernisieren", "firmen-email-adresse-einrichten"],
     faq: [
       {
         question:
@@ -163,7 +194,7 @@ export const articles: Article[] = [
     publishedAt: "2026-06-01",
     readingMinutes: 7,
     icon: "MapPin",
-    relatedSlugs: ["webdesign-handwerksbetriebe-worauf-achten", "geo-generative-engine-optimization-handwerk"],
+    relatedSlugs: ["handwerksbetrieb-modernisieren", "webdesign-handwerksbetriebe-worauf-achten"],
     faq: [
       {
         question: "Welche drei Faktoren entscheiden über die lokale Sichtbarkeit meines Handwerksbetriebs bei Google?",
@@ -225,7 +256,7 @@ export const articles: Article[] = [
     publishedAt: "2026-06-29",
     readingMinutes: 6,
     icon: "Workflow",
-    relatedSlugs: ["e-rechnungspflicht-handwerksbetriebe", "microsoft-365-statt-einzelloesungen"],
+    relatedSlugs: ["handwerksbetrieb-modernisieren", "e-rechnungspflicht-handwerksbetriebe"],
     faq: [
       {
         question: "Mit welchem Schritt sollte ich bei der Digitalisierung meines Handwerksbetriebs anfangen?",
@@ -318,7 +349,7 @@ export const articles: Article[] = [
     publishedAt: "2026-10-11",
     readingMinutes: 7,
     icon: "LayoutTemplate",
-    relatedSlugs: ["was-kostet-website-handwerksbetrieb", "lokales-seo-handwerksbetriebe"],
+    relatedSlugs: ["handwerksbetrieb-modernisieren", "was-kostet-website-handwerksbetrieb"],
     faq: [
       {
         question: "Welche Aufgabe wird bei einer Handwerker-Website am häufigsten vergessen?",
