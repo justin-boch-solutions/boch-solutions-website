@@ -24,7 +24,7 @@ export default function KontaktPage() {
       />
 
       <Section>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
           <div className="space-y-6">
             <div className="rounded-xl border border-border bg-surface p-6">
               <h2 className="font-display text-lg font-semibold text-foreground">Direkter Kontakt</h2>
