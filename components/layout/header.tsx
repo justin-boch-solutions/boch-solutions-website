@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/ablauf", label: "Ablauf" },
   { href: "/pakete", label: "Pakete" },
   { href: "/standorte", label: "Standorte" },
+  { href: "/handwerk", label: "Ihr Gewerk" },
   { href: "/magazin", label: "Magazin" },
 ];
 

@@ -13,6 +13,7 @@ import { company } from "../lib/constants.ts";
 import { services } from "../lib/services.ts";
 import { articles } from "../lib/articles.ts";
 import { locations } from "../lib/locations.ts";
+import { trades } from "../lib/trades.ts";
 import { studie } from "../lib/studie.ts";
 
 const wurzel = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -42,6 +43,7 @@ const staticRoutes = [
   "/website-check",
   "/sicherheits-check",
   "/standorte",
+  "/handwerk",
   "/beispielprojekt",
 ];
 
@@ -50,6 +52,7 @@ const urls = [
   ...services.map((s) => `${company.url}/leistungen/${s.slug}`),
   ...articles.map((a) => `${company.url}/magazin/${a.slug}`),
   ...locations.map((l) => `${company.url}/standorte/${l.slug}`),
+  ...trades.map((t) => `${company.url}/handwerk/${t.slug}`),
   `${company.url}/studie/${studie.slug}`,
 ];
 

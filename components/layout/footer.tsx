@@ -25,6 +25,7 @@ const resourceLinks = [
   { href: "/sicherheits-check", label: "Sicherheits-Check" },
   { href: "/beispielprojekt", label: "Beispielprojekt" },
   { href: "/standorte", label: "Standorte" },
+  { href: "/handwerk", label: "Ihr Gewerk" },
 ];
 
 export function Footer() {

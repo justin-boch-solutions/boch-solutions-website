@@ -3,6 +3,7 @@ import { company } from "@/lib/constants";
 import { services } from "@/lib/services";
 import { articles } from "@/lib/articles";
 import { locations } from "@/lib/locations";
+import { trades } from "@/lib/trades";
 import { studie } from "@/lib/studie";
 
 const staticRoutes = [
@@ -19,6 +20,7 @@ const staticRoutes = [
   "/website-check",
   "/sicherheits-check",
   "/standorte",
+  "/handwerk",
   "/beispielprojekt",
 ];
 
@@ -57,6 +59,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const tradeEntries: MetadataRoute.Sitemap = trades.map((trade) => ({
+    url: `${company.url}/handwerk/${trade.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   /** Eigene Primärdaten und damit das Ziel externer Verlinkungen – höher als Leistungsseiten. */
   const studieEntry: MetadataRoute.Sitemap = [
     {
@@ -72,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...serviceEntries,
     ...articleEntries,
     ...locationEntries,
+    ...tradeEntries,
     ...studieEntry,
   ];
 }
