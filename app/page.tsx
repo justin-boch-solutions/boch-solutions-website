@@ -17,7 +17,11 @@ import { Typewriter } from "@/components/ui/typewriter";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 import { tools } from "@/lib/tools";
+import { branchen, prozent, studie, zahl } from "@/lib/studie";
 import { FaqJsonLd } from "@/components/seo/json-ld";
+
+/** Quote der Kernzielgruppe aus der Studie. */
+const handwerk = branchen.find((b) => b.istKernzielgruppe)!.kritischProzent;
 
 export const metadata: Metadata = {
   title: "IT-Modernisierung für Handwerksbetriebe",
@@ -184,6 +188,23 @@ export default function Home() {
               </Link>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      <Section className="border-t border-border bg-surface/30">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent-secondary">Eigene Studie</p>
+          <p className="mt-3 text-base leading-relaxed text-muted">
+            Wir haben die E-Mail-Absicherung von {zahl(studie.domainsGesamt)} Unternehmen in
+            Nordrhein-Westfalen geprüft. Bei {prozent(studie.kritischGesamtProzent)} lassen sich
+            E-Mails im Firmennamen fälschen – im Handwerk sogar bei {prozent(handwerk)}.{" "}
+            <Link
+              href={`/studie/${studie.slug}`}
+              className="font-semibold text-foreground underline hover:text-accent"
+            >
+              {studie.titel}: alle Zahlen
+            </Link>
+          </p>
         </div>
       </Section>
 

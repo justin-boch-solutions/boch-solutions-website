@@ -18,6 +18,7 @@ const companyLinks = [
 
 const resourceLinks = [
   { href: "/magazin", label: "Magazin" },
+  { href: "/studie/email-sicherheit-nrw-2026", label: "Studie E-Mail-Sicherheit NRW" },
   { href: "/faq", label: "FAQ" },
   { href: "/email-check", label: "E-Mail-Sicherheits-Check" },
   { href: "/it-check", label: "IT-Check" },
