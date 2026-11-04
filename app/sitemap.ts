@@ -24,23 +24,28 @@ const staticRoutes = [
   "/beispielprojekt",
 ];
 
+/**
+ * lastModified nur dort, wo es ein echtes Datum gibt (Artikel, Studie).
+ * Vorher stand bei allen übrigen Seiten `new Date()` – jeder Deploy meldete
+ * damit ~45 Seiten als "gerade geändert", obwohl sich nichts getan hatte.
+ * Google gleicht lastmod mit dem tatsächlichen Inhalt ab und ignoriert es für
+ * die ganze Sitemap, sobald es sich als unzuverlässig erweist – dann fehlt
+ * genau das Signal, das neue Artikel schneller in den Index bringt.
+ * Ohne lastmod crawlt Google nach eigenem Rhythmus; das ist ehrlicher.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     // Die Startseite hat "/" als kanonische URL (alternates.canonical: "/" in
     // app/page.tsx, aufgelöst gegen metadataBase) – ohne den Schrägstrich hier
     // sieht Google zwei verschiedene Strings und meldet "keine verweisende
     // Sitemap gefunden", obwohl die Seite längst gelistet ist.
     url: route === "" ? `${company.url}/` : `${company.url}${route}`,
-    lastModified: now,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,
   }));
 
   const serviceEntries: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${company.url}/leistungen/${service.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -54,14 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const locationEntries: MetadataRoute.Sitemap = locations.map((location) => ({
     url: `${company.url}/standorte/${location.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
   const tradeEntries: MetadataRoute.Sitemap = trades.map((trade) => ({
     url: `${company.url}/handwerk/${trade.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
