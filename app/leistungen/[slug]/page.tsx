@@ -11,6 +11,18 @@ import { Card } from "@/components/ui/card";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { SearchRankIllustration } from "@/components/illustrations/search-rank";
 import { AutomationFlow } from "@/components/illustrations/automation-flow";
+import { TeamsTelefonieIllustration } from "@/components/illustrations/teams-telefonie";
+import {
+  DomainIllustration,
+  EmailMigrationIllustration,
+  GeoIllustration,
+  LizenzierungIllustration,
+  Microsoft365Dashboard,
+  SicherheitIllustration,
+  SoftwareIllustration,
+  SupportIllustration,
+  UnternehmensprofilIllustration,
+} from "@/components/illustrations/service-visuals";
 import { company } from "@/lib/constants";
 import {
   clusterMeta,
@@ -27,6 +39,22 @@ const clusterVisuals: Record<ServiceCluster, React.ReactNode> = {
   infrastruktur: <CloudDiagram />,
   sichtbarkeit: <SearchRankIllustration />,
   digitalisierung: <AutomationFlow />,
+};
+
+// Eigenes Motiv je Leistung – zeigt, was der Kunde nach dem Projekt vor sich hat.
+// Fehlt ein Eintrag (neue Leistung), greift das Motiv des Clusters.
+const serviceVisuals: Record<string, React.ReactNode> = {
+  "microsoft-365-azure": <Microsoft365Dashboard />,
+  "microsoft-lizenzierung": <LizenzierungIllustration />,
+  "email-optimierung": <EmailMigrationIllustration />,
+  "domain-einrichtung": <DomainIllustration />,
+  "it-support-wartung": <SupportIllustration />,
+  "teams-telefonie": <TeamsTelefonieIllustration />,
+  "cloud-sicherheit-dsgvo": <SicherheitIllustration />,
+  "seo-geo-optimierung": <GeoIllustration />,
+  "google-unternehmensprofil": <UnternehmensprofilIllustration />,
+  "individuelle-software": <SoftwareIllustration />,
+  "prozessautomatisierung": <AutomationFlow />,
 };
 
 interface PageProps {
@@ -82,7 +110,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         eyebrow={clusterMeta[service.cluster].label}
         title={service.name}
         subtitle={service.heroSummary}
-        visual={clusterVisuals[service.cluster]}
+        visual={serviceVisuals[service.slug] ?? clusterVisuals[service.cluster]}
         breadcrumb={[
           { name: "Startseite", href: "/" },
           { name: "Leistungen", href: "/leistungen" },
