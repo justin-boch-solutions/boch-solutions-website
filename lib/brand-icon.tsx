@@ -1,5 +1,6 @@
 /** Das "S"-Icon als JSX, geteilt zwischen app/icon.tsx und app/favicon.ico/route.ts. */
-export function BrandIconMark({ fontSize }: { fontSize: number }) {
+/** radius 0 für das Apple-Touch-Icon: iOS rundet selbst ab und füllt transparente Ecken schwarz. */
+export function BrandIconMark({ fontSize, radius = 14 }: { fontSize: number; radius?: number }) {
   return (
     <div
       style={{
@@ -9,7 +10,7 @@ export function BrandIconMark({ fontSize }: { fontSize: number }) {
         alignItems: "center",
         justifyContent: "center",
         background: "#05060a",
-        borderRadius: 14,
+        borderRadius: radius,
       }}
     >
       <div
