@@ -17,8 +17,13 @@ import { Typewriter } from "@/components/ui/typewriter";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 import { tools } from "@/lib/tools";
+import { NewsBanner } from "@/components/sections/news-banner";
+import { getArticleBySlug } from "@/lib/articles";
 import { branchen, prozent, studie, zahl } from "@/lib/studie";
 import { FaqJsonLd } from "@/components/seo/json-ld";
+
+/** Aktuelle Meldung für die Leiste ganz oben – auf null setzen, um sie auszublenden. */
+const bannerArticle = getArticleBySlug("microsoft-365-stoerung-november-2026") ?? null;
 
 /** Quote der Kernzielgruppe aus der Studie. */
 const handwerk = branchen.find((b) => b.istKernzielgruppe)!.kritischProzent;
@@ -119,6 +124,7 @@ export default function Home() {
   return (
     <>
       <FaqJsonLd faq={faqTeaser} />
+      {bannerArticle ? <NewsBanner article={bannerArticle} label="Aktuell: Microsoft-365-Störung bei Outlook und Teams." /> : null}
       <Hero
         eyebrow="IT-Modernisierung für Handwerksbetriebe"
         title={

@@ -17,6 +17,8 @@ export interface Article {
   relatedSlugs: string[];
   /** 2–3 Fragen, die der Artikeltext selbst schon beantwortet – für FaqJsonLd und die sichtbare FAQ-Box. */
   faq: FaqItem[];
+  /** Aktuelle Meldung statt zeitlosem Ratgeber – erscheint zusätzlich unter /news. */
+  news?: boolean;
 }
 
 export const articleCategoryMeta: Record<ArticleCategory, { label: string; icon: string }> = {
@@ -26,6 +28,38 @@ export const articleCategoryMeta: Record<ArticleCategory, { label: string; icon:
 };
 
 export const articles: Article[] = [
+  {
+    slug: "microsoft-365-stoerung-november-2026",
+    title: "Microsoft-365-Störung: Outlook und Teams gestört – was Handwerksbetriebe jetzt tun sollten",
+    seoTitle: "Microsoft-365-Störung: Was Betriebe jetzt tun",
+    metaDescription:
+      "Outlook, Exchange Online und Teams-Kalender sind seit dem 12. November gestört. Was betroffen ist, ob E-Mails verloren gehen und was Betriebe jetzt tun.",
+    excerpt:
+      "Seit Donnerstagnachmittag kommen bei vielen Betrieben keine E-Mails mehr an, Outlook lädt nicht, Teams-Termine lassen sich nicht anlegen. Was hinter der Microsoft-Störung steckt, ob Nachrichten verloren gehen – und was Sie jetzt konkret tun können.",
+    category: "microsoft-it",
+    publishedAt: "2026-11-13",
+    readingMinutes: 6,
+    icon: "Cloud",
+    relatedSlugs: ["microsoft-365-statt-einzelloesungen", "it-sicherheit-handwerksbetriebe-fehler"],
+    news: true,
+    faq: [
+      {
+        question: "Gehen bei der Microsoft-Störung E-Mails verloren?",
+        answer:
+          "In der Regel nicht. Die Server der Absender stellen eine Nachricht erneut zu, wenn Exchange Online sie nicht annimmt. Microsoft hat angekündigt, verzögerte E-Mails nachzuliefern, und den Zeitraum dafür auf bis zu 48 Stunden verlängert. Wichtige Angebote und Termine sollten Sie trotzdem telefonisch bestätigen.",
+      },
+      {
+        question: "War die Microsoft-Störung ein Hackerangriff?",
+        answer:
+          "Nach Angaben von Microsoft gibt es keine Hinweise auf einen Angriff. Als Auslöser nennt Microsoft eine große Zahl unerwartet ausgefallener Server, deren Last die übrige Infrastruktur überlastet hat. Eine kurz zuvor geänderte Netzwerkkonfiguration wird zurückgenommen; ob sie die Ursache war, ist noch nicht bestätigt.",
+      },
+      {
+        question: "Sollte ich Outlook neu einrichten oder mein Passwort ändern?",
+        answer:
+          "Nein. Die Störung liegt bei Microsoft, nicht an Ihrem Gerät oder Ihrem Konto. Ein gelöschtes Outlook-Profil oder ein neues Passwort lösen nichts, können aber zusätzliche Probleme verursachen, sobald der Dienst wieder läuft. Bereits geladene E-Mails bleiben im Desktop-Outlook lesbar.",
+      },
+    ],
+  },
   {
     slug: "handwerksbetrieb-modernisieren",
     title: "Handwerksbetrieb modernisieren: Der Fahrplan für IT, Website und Sichtbarkeit",
