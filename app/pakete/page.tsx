@@ -5,7 +5,7 @@ import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { PaketeVisual } from "@/components/illustrations/page-visuals";
+import { HeroPhoto } from "@/components/ui/hero-photo";
 import { formatEuro, priceNote, pricing } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
@@ -138,7 +138,7 @@ export default function PaketePage() {
         eyebrow="Pakete & Preise"
         title="Was es kostet, steht hier"
         subtitle="Keine Preise auf Anfrage. Sie sehen, womit Sie rechnen müssen, bevor Sie mit mir sprechen – vom kleinen Festpreis-Einstieg bis zum digitalisierten Gesamtbetrieb."
-        visual={<PaketeVisual />}
+        visual={<HeroPhoto src="/images/fotos/pakete.jpg" alt="Büro eines Handwerksbetriebs mit Laptop und ausgedrucktem Angebot" />}
       />
 
       <Section

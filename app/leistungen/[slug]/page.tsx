@@ -11,18 +11,7 @@ import { Card } from "@/components/ui/card";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { SearchRankIllustration } from "@/components/illustrations/search-rank";
 import { AutomationFlow } from "@/components/illustrations/automation-flow";
-import { TeamsTelefonieIllustration } from "@/components/illustrations/teams-telefonie";
-import {
-  DomainIllustration,
-  EmailMigrationIllustration,
-  GeoIllustration,
-  LizenzierungIllustration,
-  Microsoft365Dashboard,
-  SicherheitIllustration,
-  SoftwareIllustration,
-  SupportIllustration,
-  UnternehmensprofilIllustration,
-} from "@/components/illustrations/service-visuals";
+import { HeroPhoto } from "@/components/ui/hero-photo";
 import { company } from "@/lib/constants";
 import {
   clusterMeta,
@@ -41,20 +30,19 @@ const clusterVisuals: Record<ServiceCluster, React.ReactNode> = {
   digitalisierung: <AutomationFlow />,
 };
 
-// Eigenes Motiv je Leistung – zeigt, was der Kunde nach dem Projekt vor sich hat.
-// Fehlt ein Eintrag (neue Leistung), greift das Motiv des Clusters.
+// Foto je Leistung. Fehlt ein Eintrag (neue Leistung), greift das Motiv des Clusters.
 const serviceVisuals: Record<string, React.ReactNode> = {
-  "microsoft-365-azure": <Microsoft365Dashboard />,
-  "microsoft-lizenzierung": <LizenzierungIllustration />,
-  "email-optimierung": <EmailMigrationIllustration />,
-  "domain-einrichtung": <DomainIllustration />,
-  "it-support-wartung": <SupportIllustration />,
-  "teams-telefonie": <TeamsTelefonieIllustration />,
-  "cloud-sicherheit-dsgvo": <SicherheitIllustration />,
-  "seo-geo-optimierung": <GeoIllustration />,
-  "google-unternehmensprofil": <UnternehmensprofilIllustration />,
-  "individuelle-software": <SoftwareIllustration />,
-  "prozessautomatisierung": <AutomationFlow />,
+  "microsoft-365-azure": <HeroPhoto src="/images/fotos/microsoft-365.jpg" alt="Laptop mit Microsoft-365-Übersicht auf dem Schreibtisch eines Handwerksbetriebs" />,
+  "microsoft-lizenzierung": <HeroPhoto src="/images/fotos/lizenzierung.jpg" alt="Monitor mit Lizenzübersicht und Abrechnung im Büro eines Handwerksbetriebs" />,
+  "email-optimierung": <HeroPhoto src="/images/fotos/email.jpg" alt="Laptop mit geöffnetem Outlook-Postfach in der Werkstatt" />,
+  "domain-einrichtung": <HeroPhoto src="/images/fotos/domain.jpg" alt="Monitor mit Domain- und DNS-Einstellungen, daneben ein Smartphone mit der Firmenwebsite" />,
+  "it-support-wartung": <HeroPhoto src="/images/fotos/it-support.jpg" alt="IT-Techniker hilft einem Handwerksmeister im Büro am Laptop" />,
+  "teams-telefonie": <HeroPhoto src="/images/fotos/teams-telefonie.jpg" alt="Tischtelefon neben einem Monitor mit laufendem Teams-Anruf" />,
+  "cloud-sicherheit-dsgvo": <HeroPhoto src="/images/fotos/sicherheit.jpg" alt="Laptop mit Sicherheitsübersicht, Smartphone mit Zwei-Faktor-Bestätigung" />,
+  "seo-geo-optimierung": <HeroPhoto src="/images/fotos/seo-geo.jpg" alt="Smartphone mit Suchergebnis für einen Handwerksbetrieb vor einer Werkstatt" />,
+  "google-unternehmensprofil": <HeroPhoto src="/images/fotos/google-profil.jpg" alt="Smartphone mit Google-Unternehmensprofil vor einem Firmenwagen" />,
+  "individuelle-software": <HeroPhoto src="/images/fotos/software.jpg" alt="Handwerker auf der Baustelle mit Tablet und Auftrags-App" />,
+  "prozessautomatisierung": <HeroPhoto src="/images/fotos/automatisierung.jpg" alt="Monitor mit automatisiertem Arbeitsablauf im Büro eines Handwerksbetriebs" />,
 };
 
 interface PageProps {

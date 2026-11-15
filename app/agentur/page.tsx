@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
-import { AgenturVisual } from "@/components/illustrations/page-visuals";
+import { AgenturVisual } from "@/components/illustrations/agentur-visual";
 import { stack, partners } from "@/lib/constants";
 
 export const metadata: Metadata = {

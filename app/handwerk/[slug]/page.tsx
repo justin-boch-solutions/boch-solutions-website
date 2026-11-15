@@ -9,7 +9,15 @@ import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/jso
 import { company } from "@/lib/constants";
 import { getServiceBySlug, type Service } from "@/lib/services";
 import { getTradeBySlug, trades } from "@/lib/trades";
-import { tradeVisuals } from "@/components/illustrations/page-visuals";
+import { HeroPhoto } from "@/components/ui/hero-photo";
+
+const tradePhotos: Record<string, { src: string; alt: string }> = {
+  shk: { src: "/images/fotos/shk.jpg", alt: "Heizungsmonteur im Heizungskeller mit Smartphone" },
+  elektro: { src: "/images/fotos/elektro.jpg", alt: "Elektriker an einer Wallbox mit Tablet" },
+  dachdecker: { src: "/images/fotos/dachdecker.jpg", alt: "Dachdecker auf einem Ziegeldach bei einem Sturmschaden" },
+  maler: { src: "/images/fotos/maler.jpg", alt: "Maler zeigt einer Kundin Farbmuster auf dem Tablet" },
+  tischler: { src: "/images/fotos/tischler.jpg", alt: "Tischler in der Werkstatt mit Schrank und Tablet" },
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -62,7 +70,7 @@ export default async function TradePage({ params }: PageProps) {
       <Hero
         eyebrow="Gewerk"
         title={`IT-Modernisierung für ${trade.name}`}
-        visual={tradeVisuals[trade.slug]}
+        visual={tradePhotos[trade.slug] ? <HeroPhoto {...tradePhotos[trade.slug]} /> : undefined}
         subtitle={`Justin Boch ist gelernter Anlagenmechaniker SHK und kennt den Alltag im Handwerksbetrieb aus eigener Erfahrung. Darauf aufbauend modernisieren wir die IT von ${trade.dative} im Münsterland gezielt für die Besonderheiten Ihres Gewerks – nicht mit einer Lösung von der Stange.`}
         breadcrumb={[
           { name: "Startseite", href: "/" },
