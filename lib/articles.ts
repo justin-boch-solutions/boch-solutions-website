@@ -12,6 +12,8 @@ export interface Article {
   metaDescription: string;
   category: ArticleCategory;
   publishedAt: string; // ISO date
+  /** Letzte inhaltliche Überarbeitung, falls nach Veröffentlichung aktualisiert. */
+  updatedAt?: string;
   readingMinutes: number;
   icon: string;
   relatedSlugs: string[];
@@ -30,14 +32,15 @@ export const articleCategoryMeta: Record<ArticleCategory, { label: string; icon:
 export const articles: Article[] = [
   {
     slug: "microsoft-365-stoerung-november-2026",
-    title: "Microsoft-365-Störung: Outlook und Teams gestört – was Handwerksbetriebe jetzt tun sollten",
-    seoTitle: "Microsoft-365-Störung: Was Betriebe jetzt tun",
+    title: "Microsoft-365-Störung im November 2026: Was passiert ist und was Betriebe daraus lernen",
+    seoTitle: "Microsoft-365-Störung November 2026: Rückblick",
     metaDescription:
-      "Outlook, Exchange Online und Teams-Kalender sind seit dem 12. November gestört. Was betroffen ist, ob E-Mails verloren gehen und was Betriebe jetzt tun.",
+      "Bis zu 36 Stunden waren Outlook und Exchange Online im November 2026 gestört. Ursache, Folgen und was Handwerksbetriebe jetzt nachprüfen sollten.",
     excerpt:
-      "Seit Donnerstagnachmittag kommen bei vielen Betrieben keine E-Mails mehr an, Outlook lädt nicht, Teams-Termine lassen sich nicht anlegen. Was hinter der Microsoft-Störung steckt, ob Nachrichten verloren gehen – und was Sie jetzt konkret tun können.",
+      "Von Donnerstagnachmittag bis in die Nacht zum Samstag kamen bei vielen Betrieben keine E-Mails an, Outlook lud nicht, Teams-Termine ließen sich nicht anlegen. Die Störung ist behoben. Was die Ursache war, ob E-Mails verloren gegangen sind und was Sie jetzt noch prüfen sollten.",
     category: "microsoft-it",
     publishedAt: "2026-11-13",
+    updatedAt: "2026-11-15",
     readingMinutes: 6,
     icon: "Cloud",
     relatedSlugs: ["microsoft-365-statt-einzelloesungen", "it-sicherheit-handwerksbetriebe-fehler"],
@@ -46,17 +49,17 @@ export const articles: Article[] = [
       {
         question: "Gehen bei der Microsoft-Störung E-Mails verloren?",
         answer:
-          "In der Regel nicht. Die Server der Absender stellen eine Nachricht erneut zu, wenn Exchange Online sie nicht annimmt. Microsoft hat angekündigt, verzögerte E-Mails nachzuliefern, und den Zeitraum dafür auf bis zu 48 Stunden verlängert. Wichtige Angebote und Termine sollten Sie trotzdem telefonisch bestätigen.",
+          "In der Regel nicht. Die Server der Absender stellen eine Nachricht erneut zu, wenn Exchange Online sie nicht annimmt, und Microsoft hat den Rückstau nach eigenen Angaben inzwischen abgearbeitet. Ein Restrisiko bleibt bei Absendern, deren Server nach einiger Zeit aufgeben. Fragen Sie deshalb bei erwarteten Nachrichten aus dem 12. und 13. November nach.",
       },
       {
         question: "War die Microsoft-Störung ein Hackerangriff?",
         answer:
-          "Nach Angaben von Microsoft gibt es keine Hinweise auf einen Angriff. Als Auslöser nennt Microsoft eine große Zahl unerwartet ausgefallener Server, deren Last die übrige Infrastruktur überlastet hat. Eine kurz zuvor geänderte Netzwerkkonfiguration wird zurückgenommen; ob sie die Ursache war, ist noch nicht bestätigt.",
+          "Nein. Microsoft hat keine Hinweise auf einen Angriff gefunden. Nach der vorläufigen Analyse lag die Ursache in einem Fehler bei einem früheren Ausbau der Netzwerkkapazität, der erst nach einer späteren Netzwerkänderung zutage trat. Daraufhin fielen viele Exchange-Online-Server aus, und die übrigen waren überlastet.",
       },
       {
-        question: "Sollte ich Outlook neu einrichten oder mein Passwort ändern?",
+        question: "Outlook funktioniert bei mir immer noch nicht – liegt das noch an der Störung?",
         answer:
-          "Nein. Die Störung liegt bei Microsoft, nicht an Ihrem Gerät oder Ihrem Konto. Ein gelöschtes Outlook-Profil oder ein neues Passwort lösen nichts, können aber zusätzliche Probleme verursachen, sobald der Dienst wieder läuft. Bereits geladene E-Mails bleiben im Desktop-Outlook lesbar.",
+          "Wahrscheinlich nicht, denn Microsoft hat den Dienst in der Nacht zum 14. November wiederhergestellt. Häufiger Grund für Probleme danach: Während der Störung wurde das Outlook-Profil gelöscht, ein Konto neu eingerichtet oder das Passwort geändert. Lassen Sie das von Ihrem IT-Betreuer prüfen, statt weiter selbst umzustellen.",
       },
     ],
   },

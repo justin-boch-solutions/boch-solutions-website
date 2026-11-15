@@ -20,6 +20,7 @@ export function ArticleLayout({ article, children }: { article: Article; childre
         description={article.excerpt}
         url={url}
         datePublished={article.publishedAt}
+        dateModified={article.updatedAt}
       />
       <FaqJsonLd faq={article.faq} />
       <BreadcrumbJsonLd
@@ -46,6 +47,14 @@ export function ArticleLayout({ article, children }: { article: Article; childre
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 flex items-center gap-3 text-sm text-muted">
             <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time>
+            {article.updatedAt ? (
+              <>
+                <span aria-hidden>·</span>
+                <span>
+                  aktualisiert am <time dateTime={article.updatedAt}>{formatArticleDate(article.updatedAt)}</time>
+                </span>
+              </>
+            ) : null}
             <span aria-hidden>·</span>
             <span className="flex items-center gap-1">
               <Clock className="size-3.5" />

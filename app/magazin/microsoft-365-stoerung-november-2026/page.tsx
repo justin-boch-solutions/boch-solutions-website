@@ -17,28 +17,28 @@ const sources = [
   { label: "ITdaily: Microsoft 365 still offline (laufend aktualisiert)", href: "https://itdaily.com/news/cloud/microsoft-365-outage-outlook-teams/" },
   { label: "CNBC: Widespread Microsoft outage takes down Outlook and other 365 services", href: "https://www.cnbc.com/2026/11/12/microsoft-outage-outlook-aws-google.html" },
   { label: "Tom's Guide: Live-Updates zum Ausfall", href: "https://www.tomsguide.com/news/live/microsoft-outlook-down-live-updates-outage-11-12-26" },
+  { label: "Hardwareluxx: Weltweite Microsoft-365-Störung", href: "https://www.hardwareluxx.de/index.php/news/software/browser-und-internet/70963-weltweite-microsoft-365-stoerung-outlook-teams-und-copilot-seit-donnerstag.html" },
+  { label: "epifive: Microsoft 365 Outage Nov 2026 – Resolved, Cause, Next Steps", href: "https://www.epifive.com/blog/microsoft-365-outage-november-2026-what-to-do" },
   { label: "GamePro: Microsoft-Dienste down – Live-Ticker", href: "https://www.gamepro.de/artikel/microsoft-dienste-down-live-ticker,3462980.html" },
 ];
 
 export default function ArticlePage() {
   return (
     <ArticleLayout article={article}>
-      <p className="rounded-xl border border-amber-500/40 bg-amber-500/5 px-4 py-3 text-sm">
-        <strong>Stand: Freitag, 13. November 2026, vormittags.</strong> Die Störung ist noch nicht
-        vollständig behoben. Den aktuellen Stand meldet Microsoft auf{" "}
-        <a href="https://status.cloud.microsoft" className={linkClass} rel="noopener noreferrer" target="_blank">
-          status.cloud.microsoft
-        </a>
-        .
+      <p className="rounded-xl border border-green-500/40 bg-green-500/5 px-4 py-3 text-sm">
+        <strong>Update vom 15. November 2026: Die Störung ist behoben.</strong> Microsoft hat den
+        Dienst in der Nacht zum Samstag, 14. November, vollständig wiederhergestellt und den
+        Rückstau an E-Mails abgearbeitet. Die Ursache ist vorläufig benannt, den ausführlichen
+        Abschlussbericht hat Microsoft für die kommenden Werktage angekündigt.
       </p>
 
       <p>
-        <strong>Kurz gesagt:</strong> Seit Donnerstag, dem 12. November, ist Microsofts E-Mail-Dienst
-        Exchange Online in vielen Ländern gestört – und damit Outlook, der Kalender in Teams und
-        weitere Microsoft-365-Dienste. Es handelt sich nach Angaben von Microsoft nicht um einen
-        Hackerangriff. E-Mails gehen in der Regel nicht verloren, sondern kommen verspätet an. Das
-        Wichtigste für Ihren Betrieb jetzt: nichts am eigenen Rechner verstellen, Wichtiges per
-        Telefon klären und auf gefälschte „Störungs-Mails“ achten.
+        <strong>Kurz gesagt:</strong> Von Donnerstag, dem 12. November, bis in die Nacht zum Samstag
+        war Microsofts E-Mail-Dienst Exchange Online in vielen Ländern gestört – und damit Outlook,
+        der Kalender in Teams und weitere Microsoft-365-Dienste. Ein Hackerangriff war es nicht,
+        sondern ein Fehler in Microsofts Netzwerk. E-Mails sind in der Regel nicht verloren
+        gegangen, sondern verspätet angekommen. Was Sie jetzt noch tun sollten: kurz prüfen, ob in
+        den zwei Tagen etwas Wichtiges untergegangen ist.
       </p>
 
       <h2>Was passiert ist</h2>
@@ -49,97 +49,78 @@ export default function ArticlePage() {
         Outlook mehr als 130.000.
       </p>
       <p>
-        Microsoft erklärte am Abend, die erhöhte Last komme nicht von mehr Datenverkehr, sondern
-        daher, dass eine große Zahl von Servern unerwartet nicht verfügbar sei – deren Arbeit
-        landete auf den übrigen Servern und überlastete sie. In der Nacht begann Microsoft, eine kurz
-        zuvor vorgenommene Änderung an der Netzwerkkonfiguration zurückzunehmen, die zeitlich mit
-        dem Beginn der Störung zusammenfällt. Ob sie die Ursache war, hat Microsoft noch nicht
-        bestätigt.
+        Betroffen waren vor allem Outlook im Web, in der App und auf dem Smartphone, der Kalender in
+        Teams, Copilot, Planner, To Do und Intune. Auch Programme, die auf den Outlook-Kalender
+        zugreifen – etwa Terminbuchungs-Tools oder Videokonferenz-Anbieter –, meldeten Probleme.
+        Weitgehend funktionierten dagegen der Chat in Teams, Online-Besprechungen und Dateien in
+        SharePoint und OneDrive.
       </p>
       <p>
-        Am Freitagmorgen meldete Microsoft erste Anzeichen einer Stabilisierung, die Kapazität sei
-        aber noch nicht wieder auf normalem Niveau. Einen Zeitpunkt für die vollständige
-        Wiederherstellung gibt es bislang nicht.
+        Die Wiederherstellung zog sich hin: Neu gestartete Server fielen unter der Last sofort
+        wieder aus. Erst am späten Freitagabend meldete Microsoft eine stabile Erholung, in der Nacht
+        zum Samstag galt der Dienst als vollständig wiederhergestellt. Insgesamt dauerte die Störung
+        damit gut anderthalb Tage.
       </p>
 
-      <h2>Was betroffen ist – und was weiter funktioniert</h2>
-      <p>Nach den Meldungen von Microsoft sind vor allem betroffen:</p>
-      <ul>
-        <li>
-          <strong>Outlook und E-Mail:</strong> Postfächer laden nicht oder nur teilweise, im Web, in
-          der App und auf dem Smartphone. Eingehende E-Mails kommen verzögert an.
-        </li>
-        <li>
-          <strong>Teams-Kalender:</strong> Besprechungen lassen sich teils nicht planen oder anlegen.
-        </li>
-        <li>
-          <strong>Weitere Dienste:</strong> Copilot, Planner, To Do, Intune sowie Teile des Admin
-          Centers. Auch Programme, die auf den Outlook-Kalender zugreifen – etwa Terminbuchungs-Tools
-          oder Videokonferenz-Anbieter –, melden Probleme.
-        </li>
-      </ul>
+      <h2>Was die Ursache war</h2>
       <p>
-        Weitgehend funktionieren laut Microsoft dagegen der <strong>Chat in Teams</strong>,{" "}
-        <strong>Online-Besprechungen</strong> und der Zugriff auf <strong>Dateien in SharePoint und
-        OneDrive</strong>. Wer intern dringend etwas abstimmen muss, kann also auf den Teams-Chat
-        ausweichen.
+        Nach der vorläufigen Analyse von Microsoft lag der Fehler in einem früheren Ausbau der
+        Netzwerkkapazität. Er blieb zunächst unbemerkt und trat erst zutage, als Microsoft später
+        eine weitere Änderung am Netzwerk vornahm. Daraufhin fiel eine große Zahl von
+        Exchange-Online-Servern aus, die übrigen mussten deren Arbeit mit übernehmen – und ein
+        Prozess, der auf ihnen die verschlüsselten Verbindungen aufbaut, war damit überlastet.
+      </p>
+      <p>
+        Microsoft betont, dass es keine Hinweise auf einen Angriff gibt. Einen vorläufigen
+        Abschlussbericht hat das Unternehmen innerhalb von zwei Werktagen angekündigt, den
+        endgültigen innerhalb von fünf. Wir ergänzen diesen Artikel, falls sich daraus etwas Neues
+        für Betriebe ergibt.
       </p>
 
-      <h2>Gehen E-Mails verloren?</h2>
+      <h2>Sind E-Mails verloren gegangen?</h2>
       <p>
         In aller Regel nicht. Nimmt Exchange Online eine Nachricht nicht an, versucht der Server des
         Absenders die Zustellung nach einiger Zeit erneut – das ist bei E-Mail seit jeher so
-        vorgesehen. Microsoft hat angekündigt, verzögerte Nachrichten nachzuliefern, und den Zeitraum
-        dafür auf bis zu 48 Stunden verlängert.
+        vorgesehen. Microsoft hat den Rückstau nach eigenen Angaben abgearbeitet.
       </p>
       <p>
-        Ein Restrisiko bleibt: Manche Absender geben nach einer gewissen Zeit auf, dann erhalten sie
-        eine Fehlermeldung, Sie aber nichts. Für Anfragen, Angebote und Auftragsbestätigungen, die
-        gerade laufen, gilt deshalb: lieber einmal anrufen als zwei Tage auf eine Antwort warten.
+        Ein Restrisiko bleibt: Manche Absender geben nach einer gewissen Zeit auf. Dann haben sie
+        eine Fehlermeldung bekommen, Sie aber nichts. Das betrifft vor allem automatische
+        Nachrichten von Shops, Portalen und Kontaktformularen, die keinen zweiten Anlauf nehmen.
       </p>
 
-      <h2>Was Sie jetzt tun sollten</h2>
+      <h2>Was Sie jetzt noch tun sollten</h2>
       <p>
-        <strong>1. Nichts am eigenen Rechner verstellen.</strong> Die Störung liegt bei Microsoft. Ein
-        gelöschtes Outlook-Profil, ein neu eingerichtetes Postfach oder ein geändertes Passwort
-        lösen nichts – können aber dafür sorgen, dass Outlook auch dann nicht funktioniert, wenn
-        Microsoft den Dienst wiederhergestellt hat. Bereits geladene E-Mails bleiben im
-        Desktop-Outlook übrigens lesbar, weil sie dort zwischengespeichert sind.
+        <strong>1. Eingänge vom 12. und 13. November prüfen.</strong> Sind Anfragen über Ihr
+        Kontaktformular oder Ihre Info-Adresse angekommen? Fehlt eine erwartete Rechnung, eine
+        Bestellbestätigung oder die Antwort auf ein Angebot? Bei Lücken lieber einmal nachfragen.
       </p>
       <p>
-        <strong>2. Den offiziellen Status prüfen.</strong> Ob die Störung noch läuft, sehen Sie auf{" "}
-        <a href="https://status.cloud.microsoft" className={linkClass} rel="noopener noreferrer" target="_blank">
-          status.cloud.microsoft
-        </a>
-        . Wer Zugriff auf das Microsoft 365 Admin Center hat, findet dort unter
-        „Dienstintegrität“ die Vorfälle <strong>EX1550543</strong> und <strong>MO1550821</strong> mit
-        den laufenden Updates.
+        <strong>2. Termine kontrollieren.</strong> Wer in dieser Zeit Besprechungen in Teams oder
+        Outlook angelegt hat, sollte prüfen, ob die Einladungen wirklich verschickt wurden und im
+        Kalender der Teilnehmer stehen.
       </p>
       <p>
-        <strong>3. Wichtiges telefonisch klären.</strong> Kunden, die heute ein Angebot erwarten,
-        Lieferanten mit offenen Bestellungen, Termine für Montag: ein kurzer Anruf erspart
-        Missverständnisse. Intern funktioniert der Teams-Chat in den meisten Fällen weiter.
+        <strong>3. Hängengebliebene Geräte neu starten.</strong> Läuft Outlook auf einem Rechner
+        oder Smartphone immer noch nicht, reicht oft ein Neustart oder ein manuelles Abrufen. Wurde
+        während der Störung das Outlook-Profil gelöscht, ein Konto neu eingerichtet oder das
+        Passwort geändert, liegt das Problem meist dort – das sollte sich jemand ansehen, der das
+        Postfach kennt.
       </p>
       <p>
-        <strong>4. Vorsicht vor gefälschten Störungs-Mails.</strong> Große Ausfälle sind ein
-        beliebter Anlass für Betrüger. Typisch sind Nachrichten wie „Ihr Postfach muss nach der
-        Störung neu bestätigt werden“ mit einem Link zu einer nachgebauten Anmeldeseite. Microsoft
-        verschickt solche Aufforderungen nicht. Melden Sie sich nur über die Adressen an, die Sie
-        selbst eintippen oder als Lesezeichen gespeichert haben.
-      </p>
-      <p>
-        <strong>5. Nach der Störung kurz nachkontrollieren.</strong> Sobald wieder alles läuft:
-        Prüfen Sie, ob Anfragen über Ihr Kontaktformular oder Ihre Info-Adresse aus den letzten
-        Tagen angekommen sind, und fragen Sie bei Absendern nach, von denen Sie eine Antwort
-        erwartet hätten.
+        <strong>4. Weiter vorsichtig bei „Störungs-Mails“ bleiben.</strong> Große Ausfälle sind ein
+        beliebter Anlass für Betrüger, und solche Nachrichten kommen oft noch Tage später: „Ihr
+        Postfach muss nach der Störung neu bestätigt werden“, mit Link zu einer nachgebauten
+        Anmeldeseite. Microsoft verschickt solche Aufforderungen nicht. Melden Sie sich nur über
+        Adressen an, die Sie selbst eintippen oder als Lesezeichen gespeichert haben.
       </p>
 
       <h2>Was der Ausfall für Ihren Betrieb bedeutet</h2>
       <p>
         Ein Ausfall dieser Größe ist selten, aber er zeigt: Auch die Cloud ist nicht unfehlbar.
         Microsoft sagt für Exchange Online eine Verfügbarkeit von 99,9 Prozent im Monat zu – das
-        lässt rechnerisch gut 40 Minuten Ausfall im Monat zu, und ein Ereignis wie dieses liegt
-        deutlich darüber. Trotzdem ist ein Postfach in Microsoft 365 für die meisten Betriebe
+        lässt rechnerisch gut 40 Minuten Ausfall im Monat zu, und anderthalb Tage liegen weit
+        darüber. Trotzdem ist ein Postfach in Microsoft 365 für die meisten Betriebe
         zuverlässiger als ein eigener Server im Büro, der bei einem Defekt oft tagelang ausfällt und
         dann niemanden hat, der nachts daran arbeitet.
       </p>
@@ -175,8 +156,8 @@ export default function ArticlePage() {
 
       <h2>Quellen</h2>
       <p className="text-sm">
-        Wir aktualisieren diesen Artikel, sobald Microsoft die Störung für behoben erklärt oder die
-        Ursache bestätigt. Grundlage sind die Statusmeldungen von Microsoft und die Berichte von:
+        Grundlage sind die Statusmeldungen von Microsoft (Vorfälle EX1550543 und MO1550821) und die
+        Berichte von:
       </p>
       <ul className="text-sm">
         {sources.map((source) => (

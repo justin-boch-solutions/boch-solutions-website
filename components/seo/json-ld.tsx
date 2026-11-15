@@ -103,11 +103,13 @@ export function ArticleJsonLd({
   description,
   url,
   datePublished,
+  dateModified,
 }: {
   title: string;
   description: string;
   url: string;
   datePublished: string;
+  dateModified?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -116,7 +118,7 @@ export function ArticleJsonLd({
     description,
     url,
     datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified ?? datePublished,
     author: {
       "@type": "Person",
       name: company.owner,
