@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
-import { HeroPhoto } from "@/components/ui/hero-photo";
+import { AgenturVisual } from "@/components/illustrations/page-visuals";
 import { stack, partners } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function AgenturPage() {
         eyebrow="Agentur"
         title="Justin Boch"
         subtitle="Ich unterstütze Handwerksbetriebe dabei, ihre IT auf ein modernes, sicheres Fundament zu stellen und online sichtbar zu werden – mit einem klaren Fokus auf Microsoft-Technologie statt vieler loser Einzellösungen."
-        visual={<HeroPhoto src="/images/hero/agentur.jpg" alt="Abstrakte Darstellung eines digitalen Netzwerks über einer Stadt bei Nacht" />}
+        visual={<AgenturVisual />}
       />
 
       <Section

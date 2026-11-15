@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/jso
 import { company } from "@/lib/constants";
 import { getServiceBySlug, type Service } from "@/lib/services";
 import { getTradeBySlug, trades } from "@/lib/trades";
+import { tradeVisuals } from "@/components/illustrations/page-visuals";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -61,6 +62,7 @@ export default async function TradePage({ params }: PageProps) {
       <Hero
         eyebrow="Gewerk"
         title={`IT-Modernisierung für ${trade.name}`}
+        visual={tradeVisuals[trade.slug]}
         subtitle={`Justin Boch ist gelernter Anlagenmechaniker SHK und kennt den Alltag im Handwerksbetrieb aus eigener Erfahrung. Darauf aufbauend modernisieren wir die IT von ${trade.dative} im Münsterland gezielt für die Besonderheiten Ihres Gewerks – nicht mit einer Lösung von der Stange.`}
         breadcrumb={[
           { name: "Startseite", href: "/" },
