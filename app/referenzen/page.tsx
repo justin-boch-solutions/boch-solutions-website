@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { CtaSection } from "@/components/sections/cta-section";
-import { ReferenzDetail } from "@/components/sections/referenz-showcase";
+import { ReferenzDetail, VorherNachher } from "@/components/sections/referenz-showcase";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { company } from "@/lib/constants";
 import { referenzen } from "@/lib/referenzen";
@@ -38,6 +38,7 @@ export default function ReferenzenPage() {
           className={index % 2 ? "border-t border-border bg-surface/30" : "border-t border-border"}
         >
           <ReferenzDetail referenz={referenz} reverse={index % 2 === 1} />
+          <VorherNachher referenz={referenz} />
         </Section>
       ))}
 

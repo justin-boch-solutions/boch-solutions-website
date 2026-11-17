@@ -44,7 +44,7 @@ export function ReferenzScreens({ referenz, className }: { referenz: Referenz; c
 export function ReferenzDetail({ referenz, reverse = false }: { referenz: Referenz; reverse?: boolean }) {
   return (
     <article className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
-      <ReferenzScreens referenz={referenz} className={cn(reverse && "lg:order-2")} />
+      <ReferenzScreens referenz={referenz} className={cn("lg:sticky lg:top-28", reverse && "lg:order-2")} />
       <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-accent-secondary">{referenz.branche}</p>
         <h2 className="mt-2 font-display text-3xl font-bold text-foreground">{referenz.kunde}</h2>
@@ -98,6 +98,57 @@ export function ReferenzDetail({ referenz, reverse = false }: { referenz: Refere
         </div>
       </div>
     </article>
+  );
+}
+
+/** Alte und neue Startseite am Handy nebeneinander, beide frei scrollbar. */
+export function VorherNachher({ referenz }: { referenz: Referenz }) {
+  if (!referenz.vergleich) return null;
+  const seiten = [
+    { label: "Vorher", hinweis: "Die alte Website", bild: referenz.vergleich.vorher, akzent: false },
+    { label: "Nachher", hinweis: "Die neue Website", bild: referenz.vergleich.nachher, akzent: true },
+  ];
+  return (
+    <div className="mt-16">
+      <h3 className="text-center font-display text-2xl font-bold text-foreground">Vorher und nachher</h3>
+      <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
+        Die Startseite auf dem Smartphone – scrollen Sie in beiden Geräten durch die ganze Seite.
+      </p>
+      <div className="mt-8 flex flex-wrap items-start justify-center gap-6 sm:gap-10">
+        {seiten.map((seite) => (
+          <figure key={seite.label} className="w-[min(100%,280px)]">
+            <figcaption className="mb-3 flex items-center justify-center gap-2">
+              <span
+                className={cn(
+                  "rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider",
+                  seite.akzent ? "bg-accent-secondary text-white" : "border border-border-strong text-muted",
+                )}
+              >
+                {seite.label}
+              </span>
+              <span className="text-xs text-muted">{seite.hinweis}</span>
+            </figcaption>
+            <div className="rounded-[1.8rem] border-[6px] border-neutral-800 bg-neutral-800 shadow-2xl">
+              <div
+                className="h-[520px] overflow-y-auto overscroll-contain rounded-[1.3rem] bg-white"
+                tabIndex={0}
+                aria-label={`${seite.hinweis} von ${referenz.kunde}, scrollbar`}
+              >
+                <Image
+                  src={seite.bild.src}
+                  alt={`${seite.hinweis} von ${referenz.kunde} auf dem Smartphone`}
+                  width={seite.bild.width}
+                  height={seite.bild.height}
+                  className="block h-auto w-full"
+                  sizes="280px"
+                  unoptimized
+                />
+              </div>
+            </div>
+          </figure>
+        ))}
+      </div>
+    </div>
   );
 }
 

@@ -18,6 +18,11 @@ export interface Referenz {
   eckdaten: { wert: string; label: string }[];
   leistungen: { label: string; href: string }[];
   bilder: { desktop: string; mobile: string };
+  /** Ganze Startseite am Handy, alt und neu – zum Durchscrollen nebeneinander. */
+  vergleich?: {
+    vorher: { src: string; width: number; height: number };
+    nachher: { src: string; width: number; height: number };
+  };
 }
 
 export const referenzen: Referenz[] = [
@@ -50,6 +55,10 @@ export const referenzen: Referenz[] = [
     bilder: {
       desktop: "/images/referenzen/huesmann-desktop.jpg",
       mobile: "/images/referenzen/huesmann-mobile.jpg",
+    },
+    vergleich: {
+      vorher: { src: "/images/referenzen/huesmann-vorher-mobil.jpg", width: 291, height: 2000 },
+      nachher: { src: "/images/referenzen/huesmann-nachher-mobil.jpg", width: 390, height: 14907 },
     },
   },
   {
