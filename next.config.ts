@@ -74,6 +74,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Die frühere anonymisierte Beispielseite ist durch echte Referenzen ersetzt.
+      { source: "/beispielprojekt", destination: "/referenzen", permanent: true },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.boch-solutions.de" }],

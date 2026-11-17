@@ -5,6 +5,8 @@ import { Hero } from "@/components/sections/hero";
 import { Section } from "@/components/sections/section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import { CtaSection } from "@/components/sections/cta-section";
+import { ReferenzKarte } from "@/components/sections/referenz-showcase";
+import { referenzen } from "@/lib/referenzen";
 import { ServiceIcon } from "@/components/sections/service-icon";
 import { Card } from "@/components/ui/card";
 import { HeroPhoto } from "@/components/ui/hero-photo";
@@ -175,6 +177,19 @@ export default function WebdesignPage() {
               <h3 className="mt-4 font-display text-lg font-semibold text-foreground">{point.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Referenzen"
+        title="Echte Projekte, online und zum Anschauen"
+        subtitle="Zwei Websites, die wir von Konzept bis Umsetzung gebaut haben – ein SHK-Fachbetrieb aus dem Münsterland und ein Studio in Riga."
+        className="border-t border-border"
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {referenzen.map((referenz) => (
+            <ReferenzKarte key={referenz.slug} referenz={referenz} />
           ))}
         </div>
       </Section>

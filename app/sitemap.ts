@@ -22,7 +22,7 @@ const staticRoutes = [
   "/sicherheits-check",
   "/standorte",
   "/handwerk",
-  "/beispielprojekt",
+  "/referenzen",
 ];
 
 /**

@@ -17,6 +17,8 @@ import { Typewriter } from "@/components/ui/typewriter";
 import { CloudDiagram } from "@/components/illustrations/cloud-diagram";
 import { getServiceBySlug } from "@/lib/services";
 import { tools } from "@/lib/tools";
+import { ReferenzKarte } from "@/components/sections/referenz-showcase";
+import { referenzen } from "@/lib/referenzen";
 import { NewsBanner } from "@/components/sections/news-banner";
 import type { Article } from "@/lib/articles";
 import { branchen, prozent, studie, zahl } from "@/lib/studie";
@@ -239,9 +241,22 @@ export default function Home() {
           <Button href="/leistungen/webdesign" size="lg">
             Mehr zu Webdesign
           </Button>
-          <Button href="/beispielprojekt" variant="secondary" size="lg">
-            So könnte Ihr Ergebnis aussehen
+          <Button href="/referenzen" variant="secondary" size="lg">
+            Referenzen ansehen
           </Button>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Referenzen"
+        title="Echte Projekte, online und zum Anschauen"
+        subtitle="Zwei Websites, die wir von Konzept bis Umsetzung gebaut haben – ein SHK-Fachbetrieb aus dem Münsterland und ein Studio in Riga."
+        className="border-t border-border"
+      >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {referenzen.map((referenz) => (
+            <ReferenzKarte key={referenz.slug} referenz={referenz} />
+          ))}
         </div>
       </Section>
 

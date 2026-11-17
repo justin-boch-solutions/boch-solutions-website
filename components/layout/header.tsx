@@ -16,7 +16,7 @@ import { cn } from "@/lib/cn";
 const navLinks = [
   { href: "/leistungen/webdesign", label: "Webdesign" },
   { href: "/agentur", label: "Agentur" },
-  { href: "/ablauf", label: "Ablauf" },
+  { href: "/referenzen", label: "Referenzen" },
   { href: "/pakete", label: "Pakete" },
   { href: "/standorte", label: "Standorte" },
   { href: "/handwerk", label: "Ihr Gewerk" },
